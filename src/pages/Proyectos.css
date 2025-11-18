@@ -1,0 +1,151 @@
+.proyectos-section {
+  position: relative;
+  min-height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+  
+}
+
+.imagen-container {
+  position: relative;
+  height: 20vh;
+  
+}
+
+.imagen-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.imagen-edificio {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.overlay-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 500;
+  z-index: 2; /* ⬅️ Para que quede ENCIMA del overlay blanco */
+  /* Color naranja para el título */
+  color: black;
+  padding-left: 190px;     /* Ajusta el espacio desde el borde izquierdo */
+}
+
+
+/* ============================= */
+/* TARJETAS DE PROYECTOS         */
+/* ============================= */
+
+.proyectos-grid {
+  display: grid; /* cambiamos a grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  grid-template-rows: repeat(2, auto); /* 2 filas */
+  gap: 80px; /* espacio entre cartas */
+  padding: 180px 80px;
+  justify-items: center; /* centra las cartas en cada columna */
+}
+
+/* Contenedor cuadrado más grande */
+.proyecto-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 560px; /* más ancho */
+  height: 550px; /* más alto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+.proyecto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Imagen dentro del contenedor */
+.proyecto-img {
+  width: 100%;
+  height: 60%; /* un poco más de altura */
+  object-fit: cover;
+}
+
+/* Texto e información */
+.proyecto-info {
+  padding: 15px 20px;
+  text-align: left;
+}
+
+/* Nombre */
+.proyecto-nombre {
+  font-size: 2rem;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 10px;
+}
+
+/* Ubicación */
+.proyecto-ubicacion {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  gap: 6px;
+  color: #f15a24;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+
+.icono-ubicacion {
+  color: #f15a24; /* naranja */
+  width: 30px;
+  height: 24px;
+}
+
+/* Botón */
+.btn-detalles {
+  background-color: #003366;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-detalles:hover {
+  background-color: #f15a24;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .proyectos-grid {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+    gap: 30px;
+    padding: 80px 40px;
+  }
+
+  .proyecto-card {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+
+/* ELIMINA completamente el overlay */
+.header-banner::before {
+  content: none !important;
+}
+

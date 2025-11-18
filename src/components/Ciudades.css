@@ -1,0 +1,117 @@
+/* ===== CIUDADES ===== */
+.ciudades-section {
+  background-color: #ffffff;
+  padding: 80px 210px;
+  text-align: left;
+}
+
+/* SUBTÍTULO igual al de Últimas propiedades */
+.ciudades-subtitulo-contenedor {
+  display: inline-block;
+  background: #f15a24;
+  padding: 10px 22px;
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+
+.ciudades-subtitulo {
+  color: white;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* TÍTULO igual estilo negro */
+.titulo-principal {
+  font-size: 3rem;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 50px;
+}
+
+.contenedor-ciudades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+}
+
+.ciudad-card {
+  text-decoration: none;
+  width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.ciudad-card:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGEN: Mantener opacidad estable, con sutil brillo de fondo pero sin oscurecer la foto */
+.ciudad-img {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.ciudad-img:hover {
+  opacity: 1;               /* no bajar la opacidad */
+  filter: none;             /* sin darkening */
+}
+
+/* OVERLAY: texto pegado al borde inferior (final) */
+.ciudad-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* altura completa para poder posicionar al fondo */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* pega todo al final (abajo) */
+  align-items: flex-start;    /* texto alineado al lado izquierdo si quieres */
+  padding: 18px 20px;         /* espacio lateral y muy poco abajo */
+  background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.55)); /* sutil degradado */
+  color: #fff;
+  transition: none; /* sin efectos extra */
+}
+
+/* Al hover solo reforzamos ligeramente la visibilidad del overlay, sin glow ni shadow */
+.ciudad-card:hover .ciudad-overlay {
+  /* mantener el mismo fondo, sin cambiar la opacidad de la imagen ni añadir brillo al texto */
+  background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.6));
+}
+
+
+
+/* propiedades dentro de la carta, texto único que se modificará */
+.ciudad-propiedades {
+  font-size: 1.4rem;              /* un poco más grande para resaltar */
+  color: #ffffff;                 /* blanco */
+  font-weight: 700;               /* más destacado */
+  text-align: center;             /* centrado horizontal */
+  width: 100%;                    /* ocupa todo el ancho del overlay */
+  padding: 10px 0;                /* espacio arriba y abajo para resaltar */
+  background: rgba(0, 0, 0, 0.3); /* opcional: fondo semitransparente para destacar sobre la imagen */
+  border-radius: 6px;             /* bordes redondeados */
+  margin-bottom: 10px;            /* separación del borde inferior */
+}
+
+
+@media (max-width: 768px) {
+  .contenedor-ciudades {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ciudades-titulos {
+    text-align: left;
+    margin-left: 120px;
+  }
+}
+

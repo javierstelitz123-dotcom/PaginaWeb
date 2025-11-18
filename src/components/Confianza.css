@@ -1,0 +1,157 @@
+.confianza-section {
+  background: #fff;
+  padding: 120px 10%;
+  color: #000;
+  overflow: hidden;
+}
+
+/* Fila principal con dos lados */
+.confianza-fila-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+/* Lado izquierdo */
+.confianza-textos {
+  flex: 1;
+  text-align: left;
+  max-width: 600px;
+}
+
+.confianza-etiqueta {
+  background: #ffe5d1;
+  color: #f15a24;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.confianza-titulo {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1d3557;
+  margin-bottom: 50px;
+  line-height: 1.1;
+  width: fit-content;
+}
+
+.confianza-subtitulo {
+  color: #f15a24;
+  display: block;
+}
+
+.confianza-puntos {
+  display: flex;
+  gap: 12px;
+}
+
+.punto {
+  width: 35px;
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.punto.activo {
+  background:#f15a24;
+  width: 60px;
+}
+
+/* Lado derecho (testimonios) */
+.confianza-testimonio {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  max-width: 600px;
+}
+
+.confianza-mensaje {
+  font-size: 1.5rem;
+  color: #333;
+  font-style: italic;
+}
+
+.confianza-info {
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 600;
+}
+
+.confianza-logos {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-top: 60px;
+  margin-top: 30px;
+}
+
+.logos-track {
+  display: inline-flex;
+  gap: 40px;
+  animation: scroll 30s linear infinite;
+  align-items: center;
+}
+
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #9ca3af; /* gris */
+  background: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.logo-item:hover {
+  color: #4b5563;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.logo-title-wrapper {
+  margin-bottom: 4px; /* slogan justo debajo */
+}
+
+.logo-tagline {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .logos-track {
+    gap: 20px;
+  }
+
+  .logo-item {
+    padding: 8px 16px;
+  }
+
+  .logo-tagline {
+    font-size: 0.65rem;
+  }
+}
+

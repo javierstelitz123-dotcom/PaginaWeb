@@ -1,0 +1,125 @@
+/* Contenedor del blog */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 540px); /* Más ancho */
+  grid-auto-rows: 700px; /* Mantener altura */
+  gap: 30px;
+  justify-content: center; /* Centrar el grid */
+  padding: 100px 100px;
+  background-color: #f0f0f0; /* Fondo gris */
+  position: relative;
+}
+.blog-banner {
+  position: relative;
+  width: 100%;
+  height: 250px; /* altura del banner, ajustable */
+  background-image: url('https://grupodimher.com/assets/images/frontend/breadcrumb/663f60dbb6e921715429595.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;  /* centra verticalmente */
+  justify-content: flex-start; /* alinea a la izquierda */
+  padding-left: 100px; /* espacio desde el borde izquierdo */
+  background-color: whitesmoke; /* quita cualquier fondo azul */
+}
+
+/* Título del banner */
+.blog-banner-title {
+  color: #000000; /* texto negro */
+  font-size: 3rem;
+  font-weight: 500;
+  z-index: 2;
+  text-align: left; /* asegura alineación a la izquierda */
+}
+
+
+
+
+.blog-container::before { left: 0; }
+.blog-container::after { right: 0; }
+
+/* Tarjetas del blog */
+.blog-card {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(49, 47, 47, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Contenedor de fecha */
+.date-box {
+  position: absolute;
+  top: 320px;
+  right: 20px;
+  background-color: #003366;
+  color:white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 30px 30px;
+  line-height: 1.2;
+}
+
+.date-box .day {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f15a24; /* Día en color naranja */
+}
+
+.date-box .month {
+  display: block;
+  font-size: 17px;
+  text-transform: uppercase;
+  color:white;
+}
+
+.blog-content {
+  text-align: left !important;
+}
+
+
+.blog-content h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: black;
+
+}
+
+.blog-content p {
+  font-size: 20px;
+  color: rgb(68, 63, 63);
+  margin-bottom: 10px;
+}
+
+.blog-content a {
+  color: #f15a24; /* Leer más en naranja */
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+    
+}
+
+.blog-content a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+

@@ -1,0 +1,537 @@
+/* Hero general */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #1d3557;
+}
+
+/* Fondo inmobiliario detrás de las letras (imagen número 5) */
+.hero-bg-letras {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: url('https://png.pngtree.com/thumb_back/fh260/background/20220312/pngtree-urban-high-rise-building-construction-image_1065163.jpg') center/cover no-repeat;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 15px;
+}
+
+/* Letras de fondo centradas sobre el fondo */
+.hero-bg-nombre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10rem;
+  font-weight: 900;
+  display: flex;
+  gap: 20px;
+  z-index: 1;
+  pointer-events: none;
+  text-align: center;
+}
+
+.hero-bg-nombre .grupo {
+  color: rgba(10, 22, 133, 0.4);
+}
+
+.hero-bg-nombre .dimher {
+  color: rgb(255, 101, 45);
+}
+
+/* Contenedor del texto */
+.hero-container {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 1200px;
+  width: 100%;
+  padding: 500px 40px 40px 40px;
+  text-align: center; /* CENTRADO */
+}
+
+/* Texto hero */
+.hero-text p.hero-subtitle {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: black;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+/* Botón hero */
+.cta-btn {
+  background: #044f9e;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 123, 255, 0.3);
+}
+
+.cta-btn:hover {
+  background: #0056b3;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* ================= POR QUÉ ELEGIRNOS ================= */
+.why-section {
+  background: #f8f9fa;
+  padding: 180px 20px;
+  text-align: center;
+}
+
+/* SUBTÍTULO ESTILO IGUAL AL DE LA IMAGEN */
+.why-badge {
+  display: inline-block;
+  background-color: #ffe4d1; /* NARANJA CLARO (igual al estilo de la imagen) */
+  color: #f15a24;            /* NARANJA FUERTE PARA EL TEXTO */
+  padding: 10px 22px;
+  border-radius: 10px;        /* bordes suaves, no cuadrados duros */
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 17px;         /* para que el título quede bien pegadito */
+}
+
+.why-header h2 {
+  font-size: 3.8rem;
+  color: black;
+  margin-top: 4px; /* super pegado al badge */
+}
+
+/* NUEVOS COLORES PARA EL TÍTULO */
+.why-blue {
+  color: #1D3557; /* Azul */
+}
+
+.why-orange {
+  color: #f15a24; /* Naranja */
+}
+
+.why-header p {
+  color: black;
+  font-size: 1.6rem;
+  margin-top: 10px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.why-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(230, 57, 70, 0.2);
+}
+
+.why-icon {
+  font-size: 4rem;
+  color: #f15a24;
+  margin-bottom: 15px;
+}
+
+/* 🔥 TÍTULOS DE LAS CARTAS ARREGLADOS — MÁS PEQUEÑOS Y NORMALES */
+.why-card h3 {
+  font-size: 2rem;     /* Tamaño normal */
+  font-weight: 500;       /* No tan marcado */
+  color: #1D3557;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  color: rgb(58, 55, 55);
+  line-height: 1.6;
+  font-size: 1.3rem;
+}
+
+/* ================= PROYECTOS DESTACADOS ================= */
+.featured-projects {
+  padding: 80px 200px;
+  text-align: left;
+  background: #ffffff;
+}
+
+/* SUBTÍTULO */
+.featured-subtitle {
+  display: inline-block;
+  background: #f15a24;
+  color: white;
+  padding: 10px 22px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+
+/* TÍTULO PRINCIPAL */
+.featured-title {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 50px;
+  color: black;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); /* MÁS GRANDES */
+  gap: 40px;
+}
+
+/* CARTA */
+.project-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* IMAGEN MÁS GRANDE */
+.project-card img {
+  width: 100%;
+  height: 260px; /* MÁS GRANDE */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card img:hover {
+  transform: scale(1.05);
+}
+/* INFO */
+.project-info {
+  padding: 22px;
+  text-align: left;  /* ALINEADO A LA IZQUIERDA */
+}
+
+/* TÍTULO DEL PROYECTO */
+.project-info h3 {
+  color: black;           /* NEGRO */
+  font-size: 2rem;        /* MUCHO MÁS GRANDE */
+  font-weight: 500;       /* NORMAL, SIN STROM */
+  margin-bottom: 10px;
+}
+/* UBICACIÓN CON ÍCONO */
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #1D3557;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.location-icon {
+  color: #1D3557;
+  font-size: 1.4rem;
+}
+/* BOTÓN DETALLES */
+.btn-detalles {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #1D3557; /* AZUL */
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.btn-detalles:hover {
+  background: #162b47;
+}
+
+.project-info p {
+  color: #f15a24;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.btn-container {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.btn-ver-mas {
+  display: inline-block;
+  padding: 18px 280px;
+  background: #f15a24;
+  color: #fff;
+  font-weight: 400;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px #c26a0b;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.btn-ver-mas:hover {
+  background: #f15a24;
+  box-shadow: 0 12px 30px rgba(247, 127, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+
+/* ================= BLOG ================= */
+.blog-section {
+  background: #fff;
+  padding: 100px 20px;
+  text-align: center; /* CENTRADO */
+  position: relative;
+}
+
+.blog-header {
+  text-align: left;
+  margin-left: 250px;
+  position: relative;
+}
+
+/* SUBTÍTULO estilo Últimas propiedades */
+.blog-subtitle {
+  background: #f15a24;
+  color: white;
+  padding: 10px 22px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  display: inline-block;
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+
+/* TÍTULO estilo negro */
+.blog-title {
+  font-size: 3rem;
+  font-weight: 500;
+  color: black;
+  margin: 15px 0 10px;
+}
+
+.blog-explore {
+  display: inline-block;
+  color: #f15a24;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 10px;
+  font-size: 1.9rem;
+  position: absolute;
+  right: 100px;
+  top: 100px;
+}
+
+.blog-explore:hover {
+  color: #f15a24;
+  transform: translateX(5px);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(370.95px, 1fr));
+  gap: 40.8px;
+  margin-top: 70px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center; /* CENTRADO */
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(247, 127, 0, 0.2);
+}
+
+.blog-img {
+  position: relative;
+}
+
+.blog-img img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.blog-date {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  background: #1d3557;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  padding: 8px 10px;
+  width: 85px;
+}
+
+.blog-date .day {
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: block;
+}
+
+.blog-date .month {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #dce3f0;
+}
+
+.blog-content {
+  padding: 25px 20px;
+  text-align: center; /* CENTRADO */
+}
+
+.blog-content h3 {
+  color: #1d3557;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.blog-content p {
+  color: #1d3557;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.blog-read {
+  color: #f15a24;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.blog-read:hover {
+  color: #f15a24;
+}
+
+/* ================= MÉTRICAS / LOGROS ================= */
+.metrics-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 110px 20px;
+  text-align: center; 
+  color: #1d3557;
+}
+
+.metrics-title {
+  font-size: 3rem;
+  margin-bottom: 80px;
+  font-weight: 500;
+  color: black;
+}
+
+.metrics-title span {
+  color: black;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 80px;
+  justify-content: center; /* CENTRADO */
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.metric-card {
+  background: white;
+  padding: 70px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(230, 57, 70, 0.2);
+}
+
+.metric-card h3 {
+  font-size: 3rem;
+  color:#f15a24;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+
+  .floating-card {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-text h1 {
+    font-size: 2.3rem;
+  }
+
+  .why-header h2 {
+    font-size: 2rem;
+  }
+
+  .metric-card {
+    padding: 40px 10px;
+  }
+
+  .metric-card h3 {
+    font-size: 2.2rem;
+  }
+
+  .metrics-title {
+    font-size: 2rem;
+  }
+
+  .blog-header {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .blog-title {
+    font-size: 2rem;
+  }
+
+  .blog-grid {
+    gap: 25px;
+  }
+}

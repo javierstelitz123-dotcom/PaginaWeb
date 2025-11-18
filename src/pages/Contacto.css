@@ -1,0 +1,209 @@
+/* ===== CONTACTO ===== */
+.contacto-section {
+  position: relative;
+  min-height: 100vh;
+  background: url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  background-attachment: fixed; /* solo contacto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 160px 20px 100px;
+
+  z-index: 1;
+}
+
+/* ===== FORMULARIO Y CONTENEDOR ===== */
+.contacto-overlay {
+  background-color: #ffffff; /* blanco sólido */
+  border-radius: 20px;
+  padding: 50px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.titulo-contacto {
+  text-align: center;
+  color: #000;
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin-bottom: 60px;
+
+}
+
+.info-form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.info-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== FORMULARIO ===== */
+.form-contacto {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.subtitulo-form {
+  color: #1d3557;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.campo input,
+.campo textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  border-color: #f15a24;
+}
+
+.btn-enviar {
+  background: linear-gradient(145deg, #f15a24, #ff7b00);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.btn-enviar:hover {
+  background: linear-gradient(145deg, #f15a24, #cc5500);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(232, 106, 0, 0.4);
+}
+/* ===== SECCIÓN DEL MAPA CON FONDO BLANCO FORZADO ===== */
+.mapa-fondo {
+  width: 100%;
+  margin: 0;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center;
+  background-color: #ffffff !important; 
+  box-sizing: border-box;
+}
+/* ===== TÍTULO DEL MAPA ===== */
+.titulo-mapa {
+  font-size: 3.3rem; /* más grande */
+  font-weight: 500;
+  text-transform: uppercase;
+  color: black;
+  margin-bottom: 60px;
+  text-align: left;
+  align-self: flex-start;
+   margin-left: 10%;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeScaleIn 1s forwards;
+}
+
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .titulo-mapa {
+    font-size: 3rem;
+  }
+}
+
+/* ===== CONTENEDOR DEL MAPA ===== */
+.mapa-fondo .mapa-wrapper {
+  width: 90%;
+  max-width: 1600px;
+  height: 700px;
+  margin: 0 auto;
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #ffffff !important; 
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.mapa-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: auto;
+}
+
+.mapa-wrapper:hover {
+  transform: scale(1.02);;
+}
+
+.mapa-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .info-form-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .titulo-contacto {
+    font-size: 2.4rem;
+  }
+}
