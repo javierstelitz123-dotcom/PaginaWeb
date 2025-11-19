@@ -25,25 +25,42 @@ const testimonios = [
 ];
 
 const logos = [
-  { title: "Airlinesco", tagline: "tagline here" },
-  { title: "GOURMET", tagline: "SLOGAN HERE" },
-  { title: "DIGITAL", tagline: "your tagline" },
-  { title: "BrainCell", tagline: "tagline here" },
-  { title: "Abstract", tagline: "a tagline goes here" },
-  { title: "Unisaico", tagline: "your Business tagline goes here" },
-  { title: "Welling", tagline: "get your shape" },
-  { title: "Desing Element", tagline: "standard dummy text" }
-];
-
-const fontStyles = [
-  { title: "font-serif", tagline: "font-sans" },
-  { title: "font-bold tracking-wider", tagline: "font-light italic" },
-  { title: "font-mono font-bold", tagline: "font-sans tracking-wide" },
-  { title: "font-sans font-semibold", tagline: "font-serif italic" },
-  { title: "font-serif italic", tagline: "font-sans font-light" },
-  { title: "font-sans font-extrabold", tagline: "font-mono text-sm" },
-  { title: "font-serif font-medium tracking-tight", tagline: "font-sans font-extralight" },
-  { title: "font-mono", tagline: "font-serif font-light tracking-wide" }
+  {
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    nombre: "Villas el Americano",
+  },
+  {
+    img: "https://grupodimher.com/assets/images/property/thumb/682ebf83c161b1747894147.jpg",
+    nombre: "Residencial Doña Amalia 2",
+  },
+  {
+    img: "https://grupodimher.com/assets/images/property/thumb/682eba0839c291747892744.jpg",
+    nombre: "Residencial Don Soto",
+  },
+   {
+    img: "https://novaris.grupodimher.com/documentos/empresas/877/pr8/FEP76RK2EQ6X2A8AQ4YRFW8F87537XQDY6P3T0P6NS121EVP8R6TLJZQML6T.jpg",
+    nombre: "Residencial Doña Amalia",
+  },
+     {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4fPotyHtJFVHh20SUub_rIghwmwwL5q7yzgBxQ-IkGnddC9B",
+    nombre: "Residencial Dimher",
+  },
+     {
+    img: "https://grupodimher.com/assets/images/property/thumb/682eb642f0e451747891778.jpeg",
+    nombre: "Residencial Don Bumba",
+  },
+      {
+    img: "https://grupodimher.com/assets/images/property/thumb/682ead767787a1747889526.jpg",
+    nombre: "Residencial Los Álamos ",
+  },
+       {
+    img: "https://grupodimher.com/assets/images/property/thumb/67f8e5d824aca1744365016.jpg",
+    nombre: "Vista Sol",
+  },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNweLskNllJhyjPmOiVkQq4Dzb9Eu04F6iig&s",
+    nombre: "Residencial Jade",
+  },
 ];
 
 const Confianza = () => {
@@ -59,6 +76,7 @@ const Confianza = () => {
   return (
     <section className="confianza-section">
       <div className="confianza-fila-principal">
+
         {/* Lado izquierdo */}
         <div className="confianza-textos">
           <p className="confianza-etiqueta">Inversores confían en nosotros</p>
@@ -66,6 +84,7 @@ const Confianza = () => {
             Más de 1000 clientes <br />
             <span className="confianza-subtitulo">confían</span>
           </h2>
+
           <div className="confianza-puntos">
             {testimonios.map((_, i) => (
               <span
@@ -86,113 +105,17 @@ const Confianza = () => {
         </div>
       </div>
 
-{/* Logos de texto animados estilo Wordmarks */}
-<div className="confianza-logos">
-  <div className="logos-track">
-    {logos.map((logo, index) => (
-      <div key={index} className="logo-item">
-        <div className="logo-title-wrapper">
-          {(() => {
-            // renderTitle inline
-            if (logo.titleCustom === true && logo.title === "BrainCell") {
-              return (
-                <h2 className={`text-gray-600 ${logo.titleStyle}`}>
-                  <span className="font-bold">Brain</span>
-                  <span className="font-extralight italic">Cell</span>
-                </h2>
-              );
-            }
-
-            if (logo.titleCustom === "geometric" && logo.title === "Unisaico") {
-              return (
-                <h2 className={`text-gray-600 ${logo.titleStyle}`}>
-                  <span className="inline-block transform -skew-x-6">Uni</span>
-                  <span className="inline-block">saico</span>
-                </h2>
-              );
-            }
-
-            if (logo.titleCustom === "wave" && logo.title === "Welling") {
-              return (
-                <h2 className={`text-gray-600 ${logo.titleStyle}`}>
-                  {logo.title.split("").map((char, i) => (
-                    <span
-                      key={i}
-                      className="inline-block"
-                      style={{
-                        transform: `translateY(${Math.sin(i * 0.8) * 8}px)`,
-                        transition: "transform 0.3s ease",
-                      }}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </h2>
-              );
-            }
-
-            return <h2 className={`text-gray-600 ${logo.titleStyle}`}>{logo.title}</h2>;
-          })()}
+      {/* Logos */}
+      <div className="confianza-logos">
+        <div className="logos-track">
+          {[...logos, ...logos].map((logo, index) => (
+            <div key={index} className="logo-item">
+              <img src={logo.img} alt={logo.nombre} className="logo-imagen" />
+              <p className="logo-nombre">{logo.nombre}</p>
+            </div>
+          ))}
         </div>
-        <p className={`logo-tagline ${logo.taglineStyle}`}>{logo.tagline}</p>
       </div>
-    ))}
-
-    {/* Duplicar para scroll infinito */}
-    {logos.map((logo, index) => (
-      <div key={`dup-${index}`} className="logo-item">
-        <div className="logo-title-wrapper">
-          {(() => {
-            // renderTitle inline
-            if (logo.titleCustom === true && logo.title === "BrainCell") {
-              return (
-                <h2 className={`text-gray-600 ${logo.titleStyle}`}>
-                  <span className="font-bold">Brain</span>
-                  <span className="font-extralight italic">Cell</span>
-                </h2>
-              );
-            }
-
-            if (logo.titleCustom === "geometric" && logo.title === "Unisaico") {
-              return (
-                <h2 className={`text-gray-600 ${logo.titleStyle}`}>
-                  <span className="inline-block transform -skew-x-6">Uni</span>
-                  <span className="inline-block">saico</span>
-                </h2>
-              );
-            }
-
-            if (logo.titleCustom === "wave" && logo.title === "Welling") {
-              return (
-                <h2 className={`text-gray-600 ${logo.titleStyle}`}>
-                  {logo.title.split("").map((char, i) => (
-                    <span
-                      key={i}
-                      className="inline-block"
-                      style={{
-                        transform: `translateY(${Math.sin(i * 0.8) * 8}px)`,
-                        transition: "transform 0.3s ease",
-                      }}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </h2>
-              );
-            }
-
-            return <h2 className={`text-gray-600 ${logo.titleStyle}`}>{logo.title}</h2>;
-          })()}
-        </div>
-        <p className={`logo-tagline ${logo.taglineStyle}`}>{logo.tagline}</p>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-
-
     </section>
   );
 };

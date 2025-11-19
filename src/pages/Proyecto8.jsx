@@ -1,0 +1,124 @@
+import React, { useState } from "react";
+import "./Proyecto4.css";
+import { MapPin, Home, Ruler, Building2 } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+const Proyecto8 = () => {
+  const [copied, setCopied] = useState(false);
+  const currentUrl = window.location.href;
+  const navigate = useNavigate();
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(currentUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleVolver = () => {
+    navigate(-1);
+  };
+
+  return (
+    <section className="proyecto-detalle">
+      {/* Botón Volver arriba */}
+      <button className="proyecto-volver" onClick={handleVolver}>
+        <FaArrowLeft />
+        Volver
+      </button>
+
+      {/* Imagen principal con badge y título */}
+      <div className="proyecto-banner">
+        <div className="proyecto-badge">Detalles de propiedad</div>
+        <img
+          src="https://grupodimher.com/assets/images/property/thumb/67f8e5d824aca1744365016.jpg"
+          alt="Vista Sol"
+          className="proyecto-banner-img"
+        />
+        <div className="proyecto-banner-texto">
+          <h1>Vista Sol</h1>
+          <p>Nagua</p>
+        </div>
+      </div>
+
+      {/* Información del proyecto */}
+      <div className="proyecto-info-container">
+        <div className="proyecto-descripcion">
+          <h2>Detalles del Proyecto</h2>
+          <p>
+            Vista Sol ofrece una combinación de elegancia, confort y seguridad en una ubicación privilegiada en Nagua.
+            Diseñado para brindar una vida moderna y práctica, este proyecto cuenta con amplios espacios, áreas verdes
+            y un ambiente familiar ideal.
+          </p>
+        </div>
+
+        <div className="proyecto-caracteristicas">
+          <h2>Características</h2>
+          <ul>
+            <li>
+              <Home className="icono" /> Apartamentos modernos con acabados de primera
+            </li>
+            <li>
+              <Ruler className="icono" /> Distribuciones cómodas y funcionales
+            </li>
+            <li>
+              <Building2 className="icono" /> Parqueo privado y áreas sociales
+            </li>
+            <li>
+              <MapPin className="icono" /> Ubicado estratégicamente en Nagua
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Sección Compartir ahora */}
+      <div className="blog1-share">
+        <h3>Compartir ahora</h3>
+        <div className="blog1-social-icons">
+          <a
+            href="https://www.facebook.com/share/1AduQcnyL6/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="facebook"
+          >
+            <FaFacebookF />
+          </a>
+          <a
+            href="https://www.instagram.com/grupodimher?igsh=MXJrcmt5OXNwamc5Mg=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="instagram"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=18098327894&text&type=phone_number&app_absent=0&wame_ctl=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp"
+          >
+            <FaWhatsapp />
+          </a>
+          <a
+            href="https://www.youtube.com/results?search_query=grupo+dimher"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="youtube"
+          >
+            <FaYoutube />
+          </a>
+        </div>
+
+        {/* Copiar link */}
+        <div className="blog1-copy-link-wrapper">
+          <input type="text" value={currentUrl} readOnly className="blog1-copy-input" />
+          <button className="blog1-copy-button" onClick={handleCopy}>
+            {copied ? "¡Copiado!" : "Copiar"}
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Proyecto8;

@@ -6,15 +6,14 @@ const Ciudades = () => {
   return (
     <section className="ciudades-section">
       <div className="ciudades-titulos">
-  <div className="ciudades-subtitulo-contenedor">
-    <p className="ciudades-subtitulo">Ciudades</p>
-  </div>
-  <h2 className="titulo-principal">Explora por ciudades</h2>
-</div>
-
+        <div className="ciudades-subtitulo-contenedor">
+          <p className="ciudades-subtitulo">Ciudades</p>
+        </div>
+        <h2 className="titulo-principal">Explora por ciudades</h2>
+      </div>
 
       <div className="contenedor-ciudades">
-        <Link to="/proyectos" className="ciudad-card">
+        <Link to="/nagua" className="ciudad-card">
           <div
             className="ciudad-img"
             style={{
@@ -22,13 +21,12 @@ const Ciudades = () => {
             }}
           >
             <div className="ciudad-overlay">
-            
               <p className="ciudad-propiedades">1 propiedad</p>
             </div>
           </div>
         </Link>
 
-        <Link to="/proyectos" className="ciudad-card">
+        <Link to="/bonao" className="ciudad-card">
           <div
             className="ciudad-img"
             style={{
@@ -36,7 +34,6 @@ const Ciudades = () => {
             }}
           >
             <div className="ciudad-overlay">
-       
               <p className="ciudad-propiedades">6 propiedades</p>
             </div>
           </div>

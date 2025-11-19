@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Header.css";
-// ❌ import logo from "../assets/logo.png";  // Eliminado
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhoneAlt,
@@ -39,7 +38,7 @@ const Header = () => {
           >
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
-    
+
           <a
             href="https://www.instagram.com/grupodimher?igsh=MXJrcmt5OXNwamc5Mg=="
             target="_blank"
@@ -61,21 +60,31 @@ const Header = () => {
 
       {/* ===== FRANJA MEDIA ===== */}
       <div className="middle-bar">
-        <div className="contact-item">
+
+        <NavLink
+          to="/contacto#contacto"
+          className="contact-item"
+          style={{ textDecoration: "none" }}
+        >
           <FontAwesomeIcon icon={faPhoneAlt} className="icon" />
           <div>
             <p className="label">LLÁMANOS</p>
             <p className="info">809-832-7894</p>
           </div>
-        </div>
+        </NavLink>
 
-        <div className="contact-item">
+        {/* 🔥 AQUÍ VA LA MODIFICACIÓN — ESCRÍBENOS ES UN LINK A CONTACTO */}
+        <NavLink
+          to="/contacto#contacto"
+          className="contact-item"
+          style={{ textDecoration: "none" }}
+        >
           <FontAwesomeIcon icon={faEnvelope} className="icon" />
           <div>
             <p className="label">ESCRÍBENOS</p>
             <p className="info">info@grupodimher.com</p>
           </div>
-        </div>
+        </NavLink>
 
         <div className="contact-item">
           <FontAwesomeIcon icon={faClock} className="icon" />

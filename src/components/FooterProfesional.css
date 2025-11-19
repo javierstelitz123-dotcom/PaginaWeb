@@ -7,7 +7,7 @@
 
 /* ==== Estructura General ==== */
 .footer-profesional {
-  background-color: var(--color-fondo);
+  background-color: rgb(6, 17, 78);
   color: var(--color-texto);
   font-family: 'Arial', sans-serif;
   padding: 50px 20px 20px;
@@ -29,25 +29,28 @@
 }
 
 .logo-col .footer-logo {
-  width: 150px;
+  width: 350px;        /* 🔥 Mucho más grande */
   border-radius: 10px;
   margin-bottom: 15px;
+  margin-left: -200px;  /* 🔥 Lo mueve un poco a la izquierda */
 }
 
+
 .footer-descripcion {
-  font-size: 0.9em;
+  font-size: 1.2em;
   line-height: 1.4;
   opacity: 0.8;
+   margin-left: -200px;  /* 🔥 Lo mueve un poco a la izquierda */
 }
 
 /* ==== Títulos y textos ==== */
 .footer-col h4 {
   margin-bottom: 15px;
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: var(--color-texto);
   position: relative;
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 
 /* 🔸 Línea naranja decorativa debajo del título */
@@ -71,7 +74,9 @@
   font-size: 1.1em;
 }
 
+/* 🔥 Aumentar tamaño de los enlaces */
 .footer-col ul li a {
+  font-size: 1.2em; /* antes 1.1em */
   color: var(--color-texto);
   text-decoration: none;
   transition: color 0.3s;
@@ -125,7 +130,20 @@
   opacity: 0.8;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 15px;
+
 }
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.contacto-item a,
+.contacto-item span {
+  font-size: 1.2em; /* tamaño grande */
+}
+
 
 /* ==== Responsive ==== */
 @media (max-width: 768px) {

@@ -78,17 +78,17 @@ function Nosotros() {
         <div className="stats-container">
           <div className="stat-card">
             <FontAwesomeIcon icon={faBuilding} className="stat-icon" />
-            <h3>+50</h3>
+            <h3>+15</h3>
             <p>Proyectos Completados</p>
           </div>
           <div className="stat-card">
             <FontAwesomeIcon icon={faUsers} className="stat-icon" />
-            <h3>+200</h3>
+            <h3>+3K</h3>
             <p>Clientes Satisfechos</p>
           </div>
           <div className="stat-card">
             <FontAwesomeIcon icon={faHome} className="stat-icon" />
-            <h3>+10</h3>
+            <h3>+5</h3>
             <p>Años de Experiencia</p>
           </div>
         </div>

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import "./Contacto.css";
 import emailjs from "emailjs-com";
+import { useLocation } from "react-router-dom";  // ✅ IMPORTANTE
 
 const Contacto = () => {
+  const location = useLocation(); // ✅ Detecta si viene con #mapa
+
   const [formData, setFormData] = useState({
     nombre: "",
     correo: "",
@@ -21,8 +24,8 @@ const Contacto = () => {
 
     emailjs
       .send(
-        "service_ID", // 🔹 tu Service ID
-        "template_ID", // 🔹 tu Template ID
+        "service_ID",
+        "template_ID",
         {
           nombre: formData.nombre,
           correo: formData.correo,
@@ -30,7 +33,7 @@ const Contacto = () => {
           mensaje: formData.mensaje,
           to_email: "soporte@grupodimher.com",
         },
-        "public_key" // 🔹 tu Public Key
+        "public_key"
       )
       .then(
         () => {
@@ -43,10 +46,28 @@ const Contacto = () => {
       );
   };
 
+  // ✅ Scroll inteligente: si viene con #mapa → baja al mapa
+  useEffect(() => {
+    if (location.hash === "#mapa") {
+      setTimeout(() => {
+        const mapa = document.getElementById("mapa");
+        if (mapa) mapa.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+      return;
+    }
+
+    // Scroll normal cuando NO viene del footer
+    const section = document.getElementById("contacto");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
   return (
     <>
       {/* ===== SECCIÓN DE CONTACTO PRINCIPAL ===== */}
-      <section className="contacto-section">
+      <section className="contacto-section" id="contacto">
+
         <div className="contacto-overlay">
           <h1 className="titulo-contacto">Contáctanos</h1>
 
@@ -54,19 +75,31 @@ const Contacto = () => {
             {/* ===== INFORMACIÓN DE CONTACTO ===== */}
             <div className="info-contacto">
               <div className="info-item">
-                <FontAwesomeIcon icon={faPhoneAlt} className="icono" />
+                <FontAwesomeIcon 
+                  icon={faPhoneAlt} 
+                  className="icono" 
+                  style={{ fontSize: "60px" }} 
+                />
                 <h3>Teléfono</h3>
                 <p>+1 829-345-6741</p>
               </div>
 
               <div className="info-item">
-                <FontAwesomeIcon icon={faEnvelope} className="icono" />
+                <FontAwesomeIcon 
+                  icon={faEnvelope} 
+                  className="icono" 
+                  style={{ fontSize: "60px" }} 
+                />
                 <h3>Correo Electrónico</h3>
                 <p>Contacto@grupodimher.com</p>
               </div>
 
               <div className="info-item">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="icono" />
+                <FontAwesomeIcon 
+                  icon={faMapMarkerAlt} 
+                  className="icono" 
+                  style={{ fontSize: "60px" }} 
+                />
                 <h3>Ubicación</h3>
                 <p>16 De Agosto, Bonao 42000</p>
               </div>
@@ -133,7 +166,7 @@ const Contacto = () => {
       </section>
 
       {/* ===== SECCIÓN DEL MAPA ===== */}
-      <section className="mapa-fondo">
+      <section className="mapa-fondo" id="mapa">
         <h2 className="titulo-mapa">Nuestra Ubicación</h2>
 
         <div className="mapa-wrapper">
