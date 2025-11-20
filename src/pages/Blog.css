@@ -1,13 +1,12 @@
 /* Contenedor del blog */
 .blog-container {
-  display: grid;
-  grid-template-columns: repeat(3, 540px); /* Más ancho */
-  grid-auto-rows: 700px; /* Mantener altura */
-  gap: 30px;
-  justify-content: center; /* Centrar el grid */
-  padding: 100px 100px;
-  background-color: #f0f0f0; /* Fondo gris */
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px 100px;
+  background-color: #f0f0f0;
+  justify-content: center;
+  align-items: center;
 }
 .blog-banner {
   position: relative;
@@ -32,22 +31,179 @@
   text-align: left; /* asegura alineación a la izquierda */
 }
 
-
+ 
 
 
 .blog-container::before { left: 0; }
 .blog-container::after { right: 0; }
 
+/* CONTENEDOR FONDO BLANCO — IMAGEN CENTRADA */
+.blog-top-wrapper {
+  width: 100%;
+  background-color: white;   /* ← vuelve el fondo blanco */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;   /* ← imagen centrada */
+}
+
+/* La imagen no va ni a la izquierda ni a la derecha */
+.blog-top-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* ← centrada */
+}
+
+.blog-top-image img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ENCABEZADO ESTILO PIMENTÓN */
+.blog-header-custom {
+  width: 100%;
+  background-color: white;
+  padding: 30px 0 10px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* REDES SOCIALES ARRIBA A LA DERECHA */
+.blog-social-icons {
+  position: absolute;
+  top: 40px;
+  right: 70px;
+  display: flex;
+  gap: 20px;
+}
+
+.blog-social-icons a {
+  font-size: 40px;
+  color: #003366;
+  transition: 0.3s ease;
+}
+
+.blog-social-icons a:hover {
+  color: #f15a24;
+}
+
+/* TÍTULO CENTRADO */
+.blog-main-title {
+  font-size: 45px;
+  font-weight: 800;
+  color: black;
+  padding: 10px 40px;
+  border: 8px solid black;
+  background-color: white;
+  letter-spacing: 3.5px;
+}
+.blog-social-icons a.instagram {
+  color: #E1306C; /* Instagram */
+}
+
+.blog-social-icons a.facebook {
+  color: #1877F2; /* Facebook */
+}
+
+.blog-social-icons a.whatsapp {
+  color: #25D366; /* WhatsApp */
+}
+
+.blog-social-icons a.youtube {
+  color: #FF0000; /* YouTube */
+}
+
+/* Hover se mantiene igual */
+.blog-social-icons a:hover {
+  color: #f15a24;
+}
+
+
+/* Línea naranja dentro de la tarjeta */
+.blog-card-footer-line {
+  width: 100%;
+  height: 4px;
+  background-color: #f15a24;
+  margin-top: 20px;
+}
+
+/* Footer dentro de la tarjeta */
+.blog-card-footer-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  font-size: 17px;
+  color: #444;
+}
+
+/* Visualizaciones */
+.blog-card-footer-stats .views {
+  font-weight: 500;
+   margin-right: 31px; 
+}
+
+/* Likes */
+.blog-card-footer-stats .likes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  margin-left: 240px; 
+}
+
+
+.blog-card-footer-stats .likes i {
+  color: red;       /* ← corazón lleno rojo */
+  font-size: 20px;
+}
+
+
+
+
 /* Tarjetas del blog */
 .blog-card {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  width: 1200px;
+  height: 320px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   position: relative;
-  box-shadow: 0 4px 8px rgba(49, 47, 47, 0.1);
-  transition: transform 0.3s ease;
+}
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  font-size: 16px;
+  color: #444;
+  
+}
+.blog-card-footer-line {
+  width: 100%;
+  height: 4px;
+  background-color: #f15a24;
+  margin: 22px 0; /* espacio arriba y abajo */
+  flex-shrink: 0; /* evita que se encoja en flex */
+}
+
+
+.blog-card-footer .likes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 17px;
+}
+
+.blog-card-footer .likes i {
+  color: #f15a24;
 }
 
 .blog-card:hover {
@@ -55,8 +211,8 @@
 }
 
 .blog-card img {
-  width: 100%;
-  height: 400px;
+  width: 45%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -88,34 +244,53 @@
 }
 
 .blog-content {
-  text-align: left !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* ← centra verticalmente */
+  align-items: flex-start;     /* ← contenido alineado a la izquierda */
+  padding: 40px 50px;
+  text-align: left;
+  width: 55%;
 }
 
-
+/* TÍTULO NEGRO */
 .blog-content h3 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 15px;
-  color: black;
-
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #000000; /* Negro */
 }
 
+/* TEXTO GRIS SUAVE */
 .blog-content p {
-  font-size: 20px;
-  color: rgb(68, 63, 63);
-  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #6c6c6c; /* Gris elegante */
+  margin-bottom: 18px;
 }
-
+/* ENLACE 'Leer más' */
 .blog-content a {
-  color: #f15a24; /* Leer más en naranja */
+  color: #f15a24;
   font-weight: bold;
   text-decoration: none;
   font-size: 18px;
-    
 }
 
 .blog-content a:hover {
   text-decoration: underline;
+}
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 15px;
+}
+.blog-meta img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
 
