@@ -32,6 +32,8 @@ import Nagua from "./pages/Nagua";
 import Bonao from "./pages/Bonao";
 import Ciudades from "./pages/Ciudades";
 
+import ScrollToTopButton from "./components/ScrollToTopButton";
+
 function AppContent() {
   const location = useLocation();
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -65,6 +67,7 @@ function AppContent() {
         <Route path="/bonao" element={<Bonao />} />
         
       </Routes>
+      <ScrollToTopButton /> {/* este botón siempre estará visible cuando hagas scroll */}
 
       {/* 🔹 Footer visible en TODAS las páginas */}
       <FooterProfesional />
