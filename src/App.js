@@ -14,7 +14,7 @@ import FooterProfesional from "./components/FooterProfesional";
 // 🔹 Páginas
 import Inicio from "./pages/Inicio";
 import Contacto from "./pages/Contacto";
-import Blog from "./pages/Blog";
+import BlogGrupoDimher from "./components/BlogGrupoDimher";
 import Nosotros from "./pages/Nosotros";
 import Proyectos from "./pages/Proyectos";
 import FAQ from "./pages/FAQ";
@@ -50,7 +50,7 @@ function AppContent() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog" element={<BlogGrupoDimher />} />
         <Route path="/proyecto1" element={<Proyecto1 />} />
         <Route path="/proyecto2" element={<Proyecto2 />} />
         <Route path="/proyecto3" element={<Proyecto3 />} />
