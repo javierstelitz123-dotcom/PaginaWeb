@@ -235,3 +235,10 @@ select:focus option {
   background-color: #d94d1f;
   transform: scale(1.05);
 }
+.tarjeta-imagen {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px 12px 0 0;
+}

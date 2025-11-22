@@ -14,18 +14,25 @@ export default function BlogGrupoDimher() {
   const [finanzasLikes, setFinanzasLikes] = useState(
     JSON.parse(localStorage.getItem("finanzasLikes")) || 245
   );
-
   const [finanzasLiked, setFinanzasLiked] = useState(
     JSON.parse(localStorage.getItem("finanzasLiked")) || false
   );
-
   const [commentsOpen, setCommentsOpen] = useState(false);
-
   const [comments, setComments] = useState(
     JSON.parse(localStorage.getItem("finanzasComments")) || []
   );
-
   const [newComment, setNewComment] = useState('');
+
+  // 📌 Nueva función para navegar a categorías
+  const irACategoria = (categoria) => {
+    const section = document.getElementById(categoria);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 60,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const categorias = [
     { id: 'todos', name: 'Todos', color: 'from-purple-500 to-pink-500' },
@@ -44,7 +51,7 @@ export default function BlogGrupoDimher() {
       autor: "María González",
       fecha: "15 Noviembre 2024",
       lecturaMin: 8,
-      imagen: "from-blue-400 to-cyan-600",
+      imagen: "https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg",
       extracto: "Descubre cómo planificar tus finanzas personales con métodos probados que te ayudarán a lograr la libertad financiera que siempre has deseado.",
       likes: 245,
       comentarios: 32,
@@ -57,8 +64,8 @@ export default function BlogGrupoDimher() {
       autor: "Carlos Ramírez",
       fecha: "12 Noviembre 2024",
       lecturaMin: 6,
-      imagen: "from-green-400 to-emerald-600",
-      extracto: "Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional con consejos de expertos en recursos humanos.",
+      imagen: "https://media.licdn.com/dms/image/v2/D4D12AQFOZ0PV5jGTog/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656016261162?e=2147483647&v=beta&t=9mrP2iYOOLzVpCJ81i3DgRMGV3zOlIh2kOl7MS3eXFo",
+      extracto: "Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional.",
       likes: 189,
       comentarios: 28,
       trending: true
@@ -71,7 +78,7 @@ export default function BlogGrupoDimher() {
       fecha: "10 Noviembre 2024",
       lecturaMin: 10,
       imagen: "from-orange-400 to-red-600",
-      extracto: "Un líder no solo dirige, transforma. Conoce las claves del liderazgo que está revolucionando el mundo corporativo y cómo puedes aplicarlo.",
+      extracto: "Un líder no solo dirige, transforma. Conoce las claves del liderazgo moderno.",
       likes: 312,
       comentarios: 45,
       trending: true
@@ -84,7 +91,7 @@ export default function BlogGrupoDimher() {
       fecha: "08 Noviembre 2024",
       lecturaMin: 7,
       imagen: "from-indigo-400 to-purple-600",
-      extracto: "La IA está cambiando la forma en que las empresas financieras operan. Descubre las tendencias tecnológicas que marcarán la diferencia.",
+      extracto: "La IA está cambiando el mundo financiero. Estas son las tendencias clave.",
       likes: 278,
       comentarios: 38,
       trending: false
@@ -97,7 +104,7 @@ export default function BlogGrupoDimher() {
       fecha: "05 Noviembre 2024",
       lecturaMin: 9,
       imagen: "from-pink-400 to-rose-600",
-      extracto: "Una cultura empresarial sólida es la base de equipos productivos y felices. Aprende cómo construir un ambiente laboral inspirador.",
+      extracto: "Una gran cultura empresarial crea equipos de alto impacto.",
       likes: 156,
       comentarios: 21,
       trending: false
@@ -109,8 +116,8 @@ export default function BlogGrupoDimher() {
       autor: "Diego Torres",
       fecha: "03 Noviembre 2024",
       lecturaMin: 5,
-      imagen: "from-blue-400 to-cyan-600",
-      extracto: "No necesitas ser un experto para empezar a invertir. Esta guía te mostrará los primeros pasos hacia la construcción de tu patrimonio.",
+      imagen: "https://wortev.capital/wp-content/uploads/2020/05/Inversiones-inteligentes-como-empiezo-WORTEV-CAPITAL.jpg",
+      extracto: "Esta guía te mostrará cómo comenzar a invertir sin conocimientos previos.",
       likes: 423,
       comentarios: 67,
       trending: true
@@ -122,8 +129,8 @@ export default function BlogGrupoDimher() {
       autor: "Isabel Moreno",
       fecha: "01 Noviembre 2024",
       lecturaMin: 6,
-      imagen: "from-green-400 to-emerald-600",
-      extracto: "Las habilidades técnicas te consiguen el trabajo, pero las habilidades blandas te ayudan a crecer. Descubre cuáles son las más valoradas.",
+      imagen: "https://www.squarepoint.es/wp-content/uploads/sites/3/2024/01/grupo-jovenes-empresarios-aplauden-su-colega-despues-presentacion.jpg",
+      extracto: "Las habilidades blandas son clave para tu crecimiento profesional.",
       likes: 267,
       comentarios: 34,
       trending: false
@@ -136,22 +143,9 @@ export default function BlogGrupoDimher() {
       fecha: "29 Octubre 2024",
       lecturaMin: 7,
       imagen: "from-orange-400 to-red-600",
-      extracto: "El tiempo es el recurso más valioso de un líder. Aprende técnicas avanzadas para maximizar tu productividad sin sacrificar tu bienestar.",
+      extracto: "Maximiza tu productividad con estas técnicas avanzadas.",
       likes: 198,
       comentarios: 25,
-      trending: false
-    },
-    {
-      id: 9,
-      titulo: "Blockchain y su Impacto en las Finanzas Corporativas",
-      categoria: 'tecnologia',
-      autor: "Patricia Ruiz",
-      fecha: "27 Octubre 2024",
-      lecturaMin: 11,
-      imagen: "from-indigo-400 to-purple-600",
-      extracto: "La tecnología blockchain está revolucionando las transacciones financieras. Conoce cómo puede beneficiar a tu empresa.",
-      likes: 334,
-      comentarios: 52,
       trending: false
     }
   ];
@@ -161,94 +155,16 @@ export default function BlogGrupoDimher() {
   const filteredArticulos = articulos.filter(art => {
     const matchCategory =
       selectedCategory === 'todos' || art.categoria === selectedCategory;
-
     const matchSearch =
       art.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
       art.extracto.toLowerCase().includes(searchTerm.toLowerCase());
-
     return matchCategory && matchSearch;
   });
 
-  const toggleLike = (id) => {
-    setLikedPosts((prev) => {
-      const newSet = new Set(prev);
-      newSet.has(id) ? newSet.delete(id) : newSet.add(id);
-      return newSet;
-    });
-  };
-
-  // LIKE AL POST FINANZAS
-  const toggleFinanzasLike = () => {
-    const newState = !finanzasLiked;
-    setFinanzasLiked(newState);
-
-    const newLikes = newState ? finanzasLikes + 1 : finanzasLikes - 1;
-    setFinanzasLikes(newLikes);
-
-    localStorage.setItem("finanzasLikes", JSON.stringify(newLikes));
-    localStorage.setItem("finanzasLiked", JSON.stringify(newState));
-  };
-
-  // ABRIR/CERRAR COMENTARIOS
-  const toggleComments = () => {
-    setCommentsOpen(!commentsOpen);
-  };
-
-  // AGREGAR COMENTARIO
-  const addComment = () => {
-    if (newComment.trim() === "") return;
-
-    const comment = {
-      id: Date.now(),
-      text: newComment,
-      likes: 0,
-      liked: false,
-      replies: []
-    };
-
-    const updated = [...comments, comment];
-    setComments(updated);
-    localStorage.setItem("finanzasComments", JSON.stringify(updated));
-
-    setNewComment("");
-  };
-
-  // LIKE A COMENTARIO
-  const toggleCommentLike = (id) => {
-    const updated = comments.map(c => {
-      if (c.id === id) {
-        return {
-          ...c,
-          liked: !c.liked,
-          likes: c.liked ? c.likes - 1 : c.likes + 1
-        };
-      }
-      return c;
-    });
-
-    setComments(updated);
-    localStorage.setItem("finanzasComments", JSON.stringify(updated));
-  };
-
-  // RESPONDER COMENTARIO
-  const replyToComment = (id, replyText) => {
-    const updated = comments.map(c => {
-      if (c.id === id) {
-        return {
-          ...c,
-          replies: [...c.replies, { id: Date.now(), text: replyText }]
-        };
-      }
-      return c;
-    });
-
-    setComments(updated);
-    localStorage.setItem("finanzasComments", JSON.stringify(updated));
-  };
-
   return (
     <div className="blog-dimher-wrapper">
-      {/* Hero */}
+
+      {/* HERO */}
       <div className="blog-hero-gradient">
         <div className="blog-hero-inner">
           <div className="blog-badge">
@@ -256,15 +172,12 @@ export default function BlogGrupoDimher() {
             <span>Blog Grupo Dimher</span>
           </div>
 
-          <h1 className="blog-hero-title">
-            Inspiración y Conocimiento
-          </h1>
+          <h1 className="blog-hero-title">Inspiración y Conocimiento</h1>
 
           <p className="blog-hero-sub">
             Artículos, consejos y tendencias para impulsar tu crecimiento profesional y financiero
           </p>
 
-          {/* Buscador */}
           <div className="blog-search-wrapper">
             <Search className="blog-search-icon" />
             <input
@@ -278,8 +191,16 @@ export default function BlogGrupoDimher() {
         </div>
       </div>
 
-      {/* Contenido Principal */}
+      {/* 🧭 Anclas invisibles */}
+      <div id="finanzas" className="blog-category-anchor"></div>
+      <div id="carrera" className="blog-category-anchor"></div>
+      <div id="liderazgo" className="blog-category-anchor"></div>
+      <div id="tecnologia" className="blog-category-anchor"></div>
+      <div id="cultura" className="blog-category-anchor"></div>
+
+      {/* CONTENIDO */}
       <div className="blog-main">
+
         {/* Categorías */}
         <div className="blog-categorias-wrapper">
           <div className="blog-categorias-head">
@@ -292,7 +213,7 @@ export default function BlogGrupoDimher() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                data-cat={cat.id}  // ← agregado
+                data-cat={cat.id}
                 className={`blog-cat-btn ${
                   selectedCategory === cat.id ? "blog-cat-active" : ""
                 }`}
@@ -303,207 +224,86 @@ export default function BlogGrupoDimher() {
           </div>
         </div>
 
-        {/* Destacados */}
-        {selectedCategory === "todos" && searchTerm === "" && (
-          <div className="blog-destacados">
-            <div className="blog-destacados-title">
-              <TrendingUp className="icon" /> {/* Icono negro y grande */}
-              <h2>Artículos Destacados</h2>  {/* Texto negro, grande y grueso */}
+   {/* Destacados */}
+{selectedCategory === "todos" && searchTerm === "" && (
+  <div className="blog-destacados">
+    <div className="blog-destacados-title">
+      <TrendingUp className="icon" />
+      <h2>Artículos Destacados</h2>
+    </div>
+
+    <div className="blog-destacados-grid">
+      {articulosDestacados.map(art => (
+        <div key={art.id} className="blog-card-dest">
+
+          {/* IMAGEN */}
+          <div
+            className="blog-card-dest-bg"
+            style={{
+              backgroundImage: `url(${art.imagen})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
+          />
+
+          {/* CONTENIDO */}
+          <div className="blog-card-dest-inner">
+
+            {/* METADATA SUPERIOR */}
+            <div className="blog-card-dest-meta">
+              <span
+                className={`blog-card-dest-tag ${categorias.find(c => c.id === art.categoria).color}`}
+                data-cat={art.categoria}
+              >
+                {categorias.find(c => c.id === art.categoria).name}
+              </span>
+
+              <span className="flex items-center gap-1 text-gray-500 text-sm">
+                <Clock className="w-4 h-4" />
+                {art.lecturaMin} min
+              </span>
             </div>
 
-            <div className="blog-destacados-grid">
-              {articulosDestacados.map(art => (
-                <div key={art.id} className="blog-card-dest">
+            {/* TÍTULO */}
+            <h3 className="blog-card-dest-title">{art.titulo}</h3>
 
-                  {/* FONDO SUPERIOR */}
-                  <div className="blog-card-dest-bg">
-                    <div className="blog-card-dest-img">
-                      <i className="lucide lucide-trending-up"></i>
-                    </div>
-                  </div>
+            {/* EXTRACTO */}
+            <p className="blog-card-dest-text">{art.extracto}</p>
 
-                  {/* CONTENIDO */}
-                  <div className="blog-card-dest-inner">
+            {/* BLOQUE INFERIOR */}
+            <div className="meta-finanzas" style={{ marginTop: "14px" }}>
 
-                    <div className="blog-card-dest-meta">
-                      <span className={`blog-card-dest-tag ${categorias.find(c => c.id === art.categoria).color}`}>
-                        {categorias.find(c => c.id === art.categoria).name}
-                      </span>
+              {/* ICONO + AUTOR */}
+              <div className="meta-item autor-inline">
+                <div className="autor-icon">{art.autor.charAt(0)}</div>
+                <span className="autor-nombre">{art.autor}</span>
+              </div>
 
-                      <span className="flex items-center gap-1 text-gray-500 text-sm">
-                        <Clock className="w-4 h-4" />
-                        {art.lecturaMin} min
-                      </span>
-                    </div>
-
-                    <h3 className="blog-card-dest-title">{art.titulo}</h3>
-                    <p className="blog-card-dest-text">{art.extracto}</p>
-
-                    {/* FOOTER */}
-                    <div className="blog-card-dest-footer">
-                      <div className="flex items-center gap-2">
-                        <div className="blog-author-circle">{art.autor.charAt(0)}</div>
-                        <span className="text-sm text-gray-600">{art.autor}</span>
-                      </div>
-
-                      <button className="blog-leer-btn">
-                        Leer <ChevronRight className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              ))}
+              {/* BOTÓN LEER */}
+              <button
+                className="blog-leer-small-btn"
+                onClick={() => irACategoria(art.categoria)}
+                style={{ marginLeft: "auto" }}
+              >
+                Leer
+              </button>
             </div>
+
           </div>
-        )}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
 
-        {/* Lista de Artículos */}
+
+        {/* LISTA DE ARTÍCULOS */}
         <div>
           <h2 className="blog-todos-title">
             {selectedCategory === "todos"
               ? "Todos los Artículos"
               : `Artículos de ${categorias.find(c => c.id === selectedCategory)?.name}`}
           </h2>
-
-          {selectedCategory === "finanzas" && filteredArticulos.length > 0 && (
-            <div className="finanzas-featured">
-
-              {/* IMAGEN */}
-              <img 
-                src="https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg"
-                alt="Metas Financieras"
-                className="finanzas-featured-img"
-              />
-
-              <div className="finanzas-featured-inner">
-                
-                <span className="blog-card-dest-tag">Finanzas</span>
-
-                <h3 className="finanzas-featured-title">
-                  {filteredArticulos[0].titulo}
-                </h3>
-
-                <p className="finanzas-featured-text">
-                  {filteredArticulos[0].extracto}
-                </p>
-
-                {/* META: FECHA + AUTOR */}
-                <div className="meta-finanzas">
-                  <div className="meta-item">
-                    <Calendar size={16} />
-                    <span>15 Noviembre 2024</span>
-                  </div>
-
-                  <div className="meta-item autor-inline">
-                    <User size={16} />
-                    <span className="autor-nombre">{filteredArticulos[0].autor}</span>
-                  </div>
-                </div>
-
-                {/* FOOTER COMPLETO CON ICONOS Y BOTÓN */}
-                <div className="finanzas-footer">
-
-                  {/* ICONOS INTERACTIVOS */}
-                  <div className="finanzas-icons">
-
-                    {/* ❤️ LIKE AL POST */}
-                    <div className="icon-item" onClick={toggleFinanzasLike} style={{cursor: "pointer"}}>
-                      <Heart 
-                        size={18} 
-                        color={finanzasLiked ? "red" : "#777"} 
-                        fill={finanzasLiked ? "red" : "none"} 
-                      />
-                      <span>{finanzasLikes}</span>
-                    </div>
-
-                    {/* 💬 COMENTARIOS */}
-                    <div className="icon-item" onClick={toggleComments} style={{cursor: "pointer"}}>
-                      <MessageCircle size={18} />
-                      <span>{comments.length}</span>
-                    </div>
-
-                    {/* 🔗 COMPARTIR */}
-                    <div className="icon-item">
-                      <Share2 size={18} /> 
-                    </div>
-
-                  </div>
-
-                  {/* BOTÓN LEER MÁS */}
-                  <button className="finanzas-leer-mas">
-                    Leer más
-                  </button>
-                </div>
-
-                {/* DESPLIEGUE DE COMENTARIOS */}
-                {commentsOpen && (
-                  <div className="comments-box">
-
-                    <h4>Comentarios</h4>
-
-                    <textarea
-                      placeholder="Escribe un comentario..."
-                      value={newComment}
-                      onChange={(e) => setNewComment(e.target.value)}
-                      className="comment-textarea"
-                    />
-
-                    <button onClick={addComment} className="comment-btn">Comentar</button>
-
-                    <div className="comments-list">
-                      {comments.map(comment => (
-                        <div key={comment.id} className="comment-item">
-
-                          <p>{comment.text}</p>
-
-                          <div className="comment-actions">
-
-                            <span 
-                              onClick={() => toggleCommentLike(comment.id)} 
-                              style={{cursor: "pointer"}}
-                            >
-                              <Heart 
-                                size={14} 
-                                color={comment.liked ? "red" : "#777"} 
-                                fill={comment.liked ? "red" : "none"} 
-                              /> {comment.likes}
-                            </span>
-
-                            <span 
-                              className="comment-reply" 
-                              onClick={() => {
-                                const replyText = prompt("Escribe tu respuesta:");
-                                if (replyText) replyToComment(comment.id, replyText);
-                              }}
-                            >
-                              Responder
-                            </span>
-                          </div>
-
-                          {comment.replies.length > 0 && (
-                            <div className="comment-replies">
-                              {comment.replies.map(r => (
-                                <div key={r.id} className="reply-item">
-                                  {r.text}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-
-                        </div>
-                      ))}
-                    </div>
-
-                  </div>
-                )}
-
-              </div>
-            </div>
-          )}
-          {/* ⬆️⬆️ AQUI TERMINA el contenedor destacado solo-finanzas ⬆️⬆️ */}
 
           {filteredArticulos.length === 0 && (
             <div className="blog-empty">
@@ -514,31 +314,94 @@ export default function BlogGrupoDimher() {
               <p>Intenta con otra búsqueda o categoría</p>
             </div>
           )}
+
+          {filteredArticulos.map(art => (
+            <div key={art.id} className="blog-card-dest" style={{ marginBottom: '40px' }}>
+              <div
+                className="blog-card-dest-bg"
+                style={{
+                  backgroundImage: `url(${art.imagen})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center"
+                }}
+              />
+
+              <div className="blog-card-dest-inner">
+
+                {/* META SUPERIOR */}
+                <div className="blog-card-dest-meta">
+                  <span
+                    className={`blog-card-dest-tag ${categorias.find(c => c.id === art.categoria).color}`}
+                    data-cat={art.categoria}
+                  >
+                    {categorias.find(c => c.id === art.categoria).name}
+                  </span>
+
+                  <span className="flex items-center gap-1 text-gray-500 text-sm">
+                    <Clock className="w-4 h-4" />
+                    {art.lecturaMin} min
+                  </span>
+                </div>
+
+                <h3 className="blog-card-dest-title">{art.titulo}</h3>
+                <p className="blog-card-dest-text">{art.extracto}</p>
+
+                {/* META INFERIOR */}
+                <div className="meta-finanzas">
+
+                  <div className="meta-item">
+                    <Calendar className="w-4 h-4" />
+                    {art.fecha}
+                  </div>
+
+                  <div className="meta-item autor-inline">
+                    <div className="autor-icon">{art.autor.charAt(0)}</div>
+                    <span className="autor-nombre">{art.autor}</span>
+                  </div>
+
+                </div>
+
+                {/* BOTÓN LEER MÁS */}
+                <button 
+                  className="blog-leer-small-btn"
+                  onClick={() => irACategoria(art.categoria)}
+                >
+                  Leer más
+                </button>
+
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Newsletter */}
+      {/* NEWSLETTER */}
       <div className="blog-newsletter">
         <div className="blog-newsletter-inner">
-          <h2 className="text-4xl font-black text-white mb-4">
-            Suscríbete a Nuestro Newsletter
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Suscríbete a nuestro newsletter
           </h2>
-          <p className="text-white/90 text-lg mb-8">
-            Recibe los mejores artículos directamente en tu correo cada semana
+
+          <p className="text-white mb-6">
+            Recibe las últimas novedades y artículos directamente en tu correo.
           </p>
 
-          <div className="blog-newsletter-form">
+          <form className="flex gap-4">
             <input
               type="email"
-              placeholder="tu@email.com"
+              placeholder="Tu correo electrónico"
               className="blog-newsletter-input"
             />
-            <button className="blog-newsletter-btn">
+            <button
+              type="submit"
+              className="blog-newsletter-btn"
+            >
               Suscribirme
             </button>
-          </div>
+          </form>
         </div>
       </div>
+
     </div>
   );
 }

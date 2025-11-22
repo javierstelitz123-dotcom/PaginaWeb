@@ -69,6 +69,7 @@
   font-weight: 800;       /* un poco más grueso */
   color: #000000;         /* color negro */
   margin-bottom: 1.5rem;  /* espacio debajo, opcional */
+    margin-top: 85px;
 }
 
 
@@ -181,13 +182,16 @@
 /* FONDO SUPERIOR COMPLETO */
 .blog-card-dest-bg {
     width: 100%;
-    height: 240px;
-    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    height: 400px; /* aumenta este valor para que se vea más grande */
+    background-image: url('https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg');
+    background-size: cover; /* hace que la imagen cubra todo el contenedor */
+    background-position: center; /* centra la imagen */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
+
 
 /* ICONO CENTRADO SOBRE EL FONDO */
 .blog-card-dest-img {
@@ -594,19 +598,24 @@
 /* Imagen arriba del subtitulo Finanzas */
 .finanzas-featured-img {
   width: 100%;
-  max-width: 900px;      /* Largo horizontal */
+  max-width: 900px;
   height: auto;
   aspect-ratio: 16/7;
   object-fit: cover;
-
   border-radius: 14px;
-
   display: block;
-
-  margin-top: 40px;      /* 🔹 Espacio arriba */
-  margin-bottom: 10px;   /* 🔹 Más pegada hacia abajo */
-  margin-left: 0;        /* 🔹 Alineada completamente a la izquierda */
+  margin-top: 40px;
+  margin-bottom: 10px;
+  margin-left: 0;
 }
+/* Contenedor principal de la Publicación 1 */
+.finanzas-featured {
+  margin-top: 70px;   /* 🔹 Despega toda la publicación de arriba */
+}
+.blog-author-circle {
+  display: none;
+}
+
 
 
 /* Autor alineado */
@@ -757,4 +766,125 @@
   padding: 8px;
   border-radius: 8px;
   margin-bottom: 6px;
+}
+/* ANCLA INVISIBLE PARA SCROLL */
+.blog-category-anchor {
+  height: 1px;
+  width: 100%;
+  margin-top: 80px; /* espacio para que no quede pegado al borde */
+}
+
+/* BOTÓN DESTACADO (MAGENTA) */
+.blog-leer-destacado-btn {
+  background: #e62dce;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(230, 45, 206, 0.3);
+  transition: 0.2s ease;
+}
+
+.blog-leer-destacado-btn:hover {
+  background: #d024b9;
+  transform: translateY(-2px);
+}
+
+/* BOTÓN PEQUEÑO DE LA LISTA INFERIOR */
+.blog-leer-small-btn {
+  background: transparent;
+  color: #b833f0;
+  border: 2px solid #b833f0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.blog-leer-small-btn:hover {
+  background: #b833f0;
+  color: white;
+}
+
+/* CÍRCULO DE AUTOR (ya existía, no modificado) */
+.blog-author-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+/* Círculo con inicial del autor */
+.autor-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Línea inferior donde va la fecha y autor */
+.meta-finanzas {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 12px;
+  margin-top: 10px;
+}
+
+/* Botón "Leer más" versión pequeña */
+.blog-leer-small-btn {
+  background: transparent;
+  border: 2px solid #b833f0;
+  color: #b833f0;
+  padding: 7px 16px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.blog-leer-small-btn:hover {
+  background: #b833f0;
+  color: white;
+}
+/* Finanzas azul */
+.blog-card-dest-tag[data-cat="finanzas"] {
+  background: #3b82f6;
+}
+
+/* Desarrollo Profesional verde */
+.blog-card-dest-tag[data-cat="carrera"] {
+  background: #16a34a;
+}
+
+/* Liderazgo naranja */
+.blog-card-dest-tag[data-cat="liderazgo"] {
+  background: #f97316;
+}
+
+/* Tecnología violeta */
+.blog-card-dest-tag[data-cat="tecnologia"] {
+  background: #8b5cf6;
+}
+
+/* Cultura rosa */
+.blog-card-dest-tag[data-cat="cultura"] {
+  background: #ec4899;
 }
