@@ -81,6 +81,7 @@
   gap: 10px;
   align-items: center;
   margin-bottom: 20px;
+    margin-top: -390px;
 }
 
 .blog-categorias-list {
@@ -223,6 +224,8 @@
 
 .blog-card-dest-inner {
     padding: 30px 35px;
+      display: flex;
+       flex-direction: column;
 }
 
 /* META */
@@ -230,7 +233,8 @@
     display: flex;
     gap: 12px;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 1.4rem !important;
 }
 
 .blog-card-dest-tag {
@@ -242,7 +246,7 @@
 }
 
 .blog-card-dest-title {
-    font-size: 1.6rem;
+  font-size: 2rem !important;
     font-weight: 800;
     margin-bottom: 12px;
     color: #1a1a1a;
@@ -250,206 +254,11 @@
 
 /* TEXTO */
 .blog-card-dest-text {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #555;
     line-height: 1.6;
     margin-bottom: 20px;
-}
-
-/* FOOTER */
-.blog-card-dest-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #eee;
-    padding-top: 18px;
-}
-
-/* AUTOR */
-.blog-author-circle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #c084fc, #f472b6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: 900;
-}
-
-/* BOTÓN LEER */
-.blog-leer-btn {
-    color: #9333ea;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-}
-
-
-
-
-/* GRID GENERAL */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-/* TARJETAS GENERALES */
-.blog-card {
-  background: white;
-  border-radius: 25px;
-  overflow: hidden;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px #0002;
-}
-
-.blog-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px #0003;
-}
-
-.blog-card-img {
-  height: 170px;
-  position: relative;
-}
-
-.blog-card-trending {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 5px 10px;
-  font-size: 0.7rem;
-  background: white;
-  border-radius: 20px;
-  display: flex;
-  gap: 5px;
-  color: #ea580c;
-  font-weight: 700;
-}
-
-/* META */
-.blog-card-meta {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 15px;
-  color: #777;
-}
-
-.blog-card-time {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.75rem;
-}
-
-/* TEXTOS TARJETAS */
-.blog-card-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #333;
-  cursor: pointer;
-}
-
-.blog-card-title:hover {
-  color: #9333ea;
-}
-
-.blog-card-text {
-  color: #666;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-}
-
-/* INFO EXTRA */
-.blog-card-info {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 20px;
-  color: #777;
-  font-size: 0.85rem;
-}
-
-.blog-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #eee;
-  padding-top: 15px;
-}
-
-/* ICONOS ACCIONES */
-.blog-card-actions {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.blog-like-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #999;
-  transition: 0.2s;
-}
-
-.blog-like-btn.liked {
-  color: red;
-}
-
-.blog-comment-btn,
-.blog-share-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #999;
-  transition: 0.2s;
-}
-
-.blog-comment-btn:hover {
-  color: #3b82f6;
-}
-
-.blog-share-btn:hover {
-  color: #10b981;
-}
-
-.blog-readmore-btn {
-  padding: 8px 18px;
-  color: white;
-  font-weight: 700;
-  border-radius: 20px;
-  background: linear-gradient(90deg, #9333ea, #db2777);
-  transition: 0.3s;
-}
-
-.blog-readmore-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 15px #0003;
-}
-
-/* VACÍO */
-.blog-empty {
-  text-align: center;
-  padding: 70px 0;
-}
-
-.blog-empty-icon {
-  width: 90px;
-  height: 90px;
-  background: #eee;
-  border-radius: 50%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    
 }
 
 /* NEWSLETTER */
@@ -615,7 +424,6 @@
 .blog-author-circle {
   display: none;
 }
-
 
 
 /* Autor alineado */
@@ -806,6 +614,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s ease;
+    align-self: flex-end; 
 }
 
 .blog-leer-small-btn:hover {
@@ -849,15 +658,22 @@
 
 /* Botón "Leer más" versión pequeña */
 .blog-leer-small-btn {
-  background: transparent;
-  border: 2px solid #b833f0;
-  color: #b833f0;
-  padding: 7px 16px;
-  border-radius: 18px;
+  padding: 10px 20px;
+  background-color: #8a2be2; /* ← COLOR IGUAL AL BOTÓN DE FINANZAS */
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
   cursor: pointer;
-  font-size: 14px;
+  transition: 0.3s ease;
   font-weight: 600;
-  transition: 0.2s ease;
+    align-self: flex-end; 
+      margin-top: 10px; 
+}
+
+.blog-leer-small-btn:hover {
+  transform: translateY(-2px);
+  opacity: .85;
 }
 
 .blog-leer-small-btn:hover {
@@ -888,3 +704,703 @@
 .blog-card-dest-tag[data-cat="cultura"] {
   background: #ec4899;
 }
+/* Color del botón Leer Más (igual que en tu segunda captura) */
+.article-readmore {
+  color: white;
+  background-color: #f15a24; /* EL COLOR DEL BOTÓN LEER MÁS */
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Contenedor de acciones */
+.blog-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 18px;
+}
+
+.blog-actions .lucide {
+  width: 18px;
+  height: 18px;
+}
+
+/* Botones */
+.like-btn,
+.comment-btn,
+.share-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+
+.blog-like-btn.liked {
+  background: #ff4d8b20;
+  border-color: #ff4d8b;
+  color: #ff4d8b;
+}
+
+.blog-like-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  color: #6e6e6e;
+  cursor: pointer;
+  padding: 0;
+}
+
+.blog-like-btn .lucide {
+  width: 18px;
+  height: 18px;
+}
+
+.blog-like-btn.liked {
+  color: #ff4d8b;
+}
+.blog-like-btn.liked .lucide {
+  stroke: #ff4d8b;
+}
+.blog-like-btn:hover {
+  background: #f5f5f5;
+}
+.blog-comment-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  color: #6e6e6e;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+.blog-comment-btn:hover {
+  background: #f5f5f5;
+}
+.blog-share-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  color: #6e6e6e;
+  cursor: pointer;
+  padding: 0;
+}
+
+.blog-share-btn:hover {
+  background: #f5f5f5;
+}
+/* Línea gris arriba de los iconos */
+.post-icons-top-line {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de los iconos */
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;   /* separación entre los 3 iconos (puedes bajarlo a 18px) */
+  margin-top: 25px;
+}
+/* Ícono individual */
+.post-action-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  color: #7a7a7a;  /* Gris suave */
+  font-size: 14px;
+}
+
+.post-action-item:hover {
+  color: #000;
+}
+
+/* Iconos */
+.action-icon {
+  width: 19px;
+  height: 19px;
+}
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;   /* ícono + palabra bien juntos */
+  cursor: pointer;
+  font-size: 17px;
+  color: #666;
+}
+
+/* Botón leer más a la derecha */
+.read-more-btn {
+  display: flex;
+  margin-left: auto;
+  margin-top: 25px; /* distancia debajo de los iconos */
+  background-color: #f15a24;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.read-more-btn:hover {
+  opacity: 0.85;
+}
+/* ESTILO NORMAL */
+.post-action-item.like-item .lucide {
+  stroke: #6d6d6d;       /* gris normal */
+}
+
+
+/* Estado normal */
+.action-item .action-icon {
+  stroke: #777;
+  transition: 0.2s ease;
+}
+
+/* Cuando está likeado */
+.action-item.liked .action-icon {
+  stroke: #e02626 !important;
+  fill: #e02626 !important;
+}
+
+.action-item.liked span {
+  color: #e02626 !important;
+  font-weight: 600;
+}
+.blog-extra-content {
+  margin-top: 12px;
+}
+
+.blog-extra-text {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+/* Contenedor del contenido de la categoría Finanzas */
+.blog-extra-full {
+  margin-top: 20px;
+  color: #333;           /* COLOR GENERAL DEL TEXTO */
+  font-size: 16px;       /* TAMAÑO GENERAL DEL TEXTO */
+  line-height: 1.2;      /* SEPARACIÓN ENTRE LÍNEAS */
+}
+
+/* Títulos (h3) dentro de Finanzas */
+.blog-extra-full h3 {
+  font-size: 22px;       /* TAMAÑO DE LOS TÍTULOS */
+  color: black;        /* COLOR DE LOS TÍTULOS */
+  font-weight: 500;      /* MÁS GROSOR */
+  margin-top: 20px;
+}
+
+/* Párrafos dentro de Finanzas */
+.blog-extra-full p {
+  font-size: 19px;       /* TAMAÑO DEL TEXTO */
+  color: #444;           /* COLOR DEL TEXTO */
+  margin-top: 10px;
+}
+
+/* Listas dentro de Finanzas */
+.blog-extra-full ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.blog-extra-full ul li {
+  font-size: 17px;
+  color: #444;
+  margin-bottom: 6px;
+}
+/* CONTENIDO EXTRA PARA LA SEGUNDA PUBLICACIÓN */
+.blog-extra-content {
+  font-size: 16px;        /* tamaño de letra base */
+  color: #333;            /* color del texto */
+  line-height: 1.7;
+}
+
+/* CONTENIDO EXTRA DE LAS PUBLICACIONES (UNIFORME) */
+.blog-extra-content,
+.blog-extra-full {
+  font-size: 17px;         /* tamaño uniforme de todo el contenido */
+  font-family: inherit;    /* respeta tu fuente actual */
+  color: #555;             /* texto normal gris */
+  line-height: 1.7;
+}
+
+/* TITULOS Y SUBTITULOS EN NEGRO */
+.blog-extra-full h2,
+.blog-extra-full h3,
+.blog-extra-full h4 {
+  color: #555555;             /* negro */
+  font-weight: 700;        /* énfasis */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Tamaños consistentes para títulos */
+.blog-extra-full h2 {
+  font-size: 24px;
+}
+
+.blog-extra-full h3 {
+  font-size: 20px;
+}
+
+.blog-extra-full h4 {
+  font-size: 18px;
+}
+
+/* Párrafos en gris */
+.blog-extra-full p {
+  color: #555;             /* gris para texto normal */
+  margin-bottom: 12px;
+}
+
+/* Listas en gris */
+.blog-extra-full ul li {
+  color: #555;             /* gris */
+  margin-bottom: 6px;
+}
+/* ----- FORMATO GENERAL DEL CONTENIDO PROFESIONAL ----- */
+
+.blog-extra-full {
+  font-family: "Inter", sans-serif; /* MISMA FUENTE PARA TODO */
+  line-height: 1.7;
+}
+
+/* ----- TÍTULOS PRINCIPALES ----- */
+.blog-extra-full h2 {
+  font-size: 1.5rem;      /* MÁS GRANDE */
+  color: #555555;         /* NEGRO */
+  font-weight: 00;
+  margin-bottom: 15px;
+}
+
+/* ----- SUBTÍTULOS H3 ----- */
+.blog-extra-full h3 {
+  font-size: 1.5rem;      /* MÁS GRANDE */
+  color: #555555;         /* NEGRO */
+  font-weight: 500;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* ----- SUBTÍTULOS H4 ----- */
+.blog-extra-full h4 {
+  font-size: 1.3rem;      /* MÁS GRANDE */
+  color: #555555;         /* NEGRO */
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+/* ----- PÁRRAFOS ----- */
+.blog-extra-full p {
+  font-size: 1.4rem;     /* MÁS GRANDE */
+  color: #555555;         /* GRIS */
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+/* ----- LISTA UL Y LI ----- */
+.blog-extra-full .blog-list li {
+  font-size: 1.25rem;     /* MÁS GRANDE */
+  color: #555555;         /* GRIS */
+  margin-bottom: 8px;
+  padding-left: 5px;
+}
+
+/* 🔥 FORMATO GENERAL PARA TODO EL CONTENIDO EXTRA */
+.blog-extra-full {
+  font-family: "Inter", sans-serif; /* MISMA FUENTE */
+  line-height: 1.7;
+  color: #555555; /* TODO EL TEXTO GRIS POR DEFECTO */
+  font-size: 1.6rem; /* MISMO TAMAÑO PARA TODO */
+}
+
+/* 🔥 TÍTULOS PRINCIPALES (H2) */
+.blog-extra-full h2 {
+  font-size: 1.6rem;      /* Grande */
+  color: #555555;         /* Negro */
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* 🔥 SUBTÍTULOS H3 */
+.blog-extra-full h3 {
+  font-size: 1.6rem;
+  color: #555555;         /* Negro */
+  font-weight: 500;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* 🔥 SUBTÍTULOS H4 */
+.blog-extra-full h4 {
+  font-size: 1.6rem;
+  color:#555555;         /* Negro */
+  font-weight: 500;
+  margin-top: 22px;
+  margin-bottom: 8px;
+}
+
+/* 🔥 PÁRRAFOS */
+.blog-extra-full p {
+  font-size: 1.6rem;
+  color: #555555;         /* Gris */
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* 🔥 LISTAS */
+.blog-extra-full .blog-list li {
+  font-size: 1.6rem;
+  color: #555555;         /* Gris */
+  margin-bottom: 8px;
+}
+/* Contenedor de acciones en el post */
+.post-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #555;
+}
+
+/* Item individual */
+.action-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+  font-size: 14px;
+}
+
+.action-item:hover {
+  color: #1a73e8; /* azul profesional */
+}
+
+/* Iconos */
+.action-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  stroke-width: 1.5;
+  color: inherit;
+}
+
+/* Estado liked para corazón */
+.action-item.liked {
+  color: #e0245e; /* rojo vibrante */
+}
+
+.action-item.liked:hover {
+  color: #c2184b; /* rojo oscuro */
+}
+
+/* Texto al lado del icono */
+.action-item span {
+  user-select: none;
+}
+
+/* Para separar visualmente los botones */
+.action-item:not(:last-child) {
+  padding-right: 16px;
+  border-right: 1px solid #ddd;
+}
+
+.action-item:last-child {
+  padding-left: 16px;
+}
+
+/* Ajuste responsive */
+@media (max-width: 480px) {
+  .post-actions {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .action-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+.comment-container {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 15px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: 0.2s ease-in-out;
+   max-width: 750px;
+}
+
+.comment-container:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.comment-avatar {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #ff6f61, #ff3d7f);
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+
+.comment-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-username {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2e3a59;
+}
+
+.comment-time {
+  font-size: 0.85rem;
+  color: #9aa0a6;
+}
+.comment-textarea {
+  width: 100%;
+  resize: none;
+  padding: 12px;
+  border: 1px solid #d7dce5;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-top: 5px;
+  background: #fafbff;
+  transition: border 0.2s;
+   height: 100px;
+  box-sizing: border-box;
+}
+.comment-textarea:focus {
+  outline: none;
+  border: 1px solid #3f72ff;
+  box-shadow: 0 0 4px rgba(63, 114, 255, 0.33);
+}
+.comment-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.comment-btn {
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+
+.comment-btn.primary {
+  background: linear-gradient(135deg, #3f72ff, #0056d6);
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 86, 214, 0.25);
+}
+
+.comment-btn.primary:hover {
+  background: linear-gradient(135deg, #3f72ff, #0049b7);
+}
+
+.comment-btn.secondary {
+  background: #e9ecf3;
+  color: #2e3a59;
+}
+
+.comment-btn.secondary:hover {
+  background: #dce0eb;
+}
+
+.action-item.comment-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.action-icon {
+  margin-right: 5px;
+}
+.comments-list {
+  margin-top: 15px;
+}
+.comment-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.comment-item:hover {
+  background: #f7f9fc;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #d9534f;
+}
+
+.comment-body {
+  flex: 1;
+}
+
+.comment-header {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.comment-text {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #445065;
+}
+
+.comment-menu {
+  position: relative;
+}
+
+
+.dots-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 6px;
+  color: #6c7a97;
+  transition: 0.2s;
+}
+
+.dots-btn:hover {
+  background: #eaeef5;
+}
+
+.menu-popup {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  animation: fadeIn 0.15s ease-in-out;
+  min-width: 130px;
+  border: 1px solid #ececec;
+}
+
+.menu-popup button {
+  padding: 10px 16px;
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #2e3a59;
+  transition: background 0.15s;
+}
+
+.menu-popup button:hover {
+  background: #f0f4ff;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.comment-textarea {
+  width: 100%;
+  box-sizing: border-box;   /* 🔥 evita que se salga */
+  display: block;
+}
+.article-meta {
+  font-size: 1.1rem;  /* antes: 0.85–1rem */
+  color: #666;
+}
+.blog-card-author {
+  font-size: 1.4rem !important;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.blog-card-date {
+  font-size: 1.3rem !important;
+  color: #555;
+  font-weight: 500;
+}
+/* Autor */
+.blog-card-dest-meta .autor-nombre {
+  font-size: 1.4rem !important;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Contenedor de acciones (me gusta, comentar, compartir) */
+.post-actions {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+/* Cada botón de acción */
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Iconos en acciones */
+.action-icon {
+  width: 24px;  /* tamaño más grande */
+  height: 24px;
+  stroke-width: 1.5; /* Si quieres que los íconos se vean más gruesos */
+  transition: transform 0.2s ease;
+}
+
+.action-item:hover .action-icon {
+  transform: scale(1.1);
+}
+
+
