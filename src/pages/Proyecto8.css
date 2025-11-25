@@ -27,23 +27,85 @@
   transform: translateY(-2px);
 }
 
-/* Imagen principal */
+/* Banner con slider */
 .proyecto-banner {
   position: relative;
   width: 100%;
-  height: 65vh;
+  max-height: 600px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
   margin: 20px 0;
+}
+
+.galeria-container {
+  position: relative;
+}
+
+.imagen-principal {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
 }
 
 .proyecto-banner-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
+  display: block;
 }
 
-/* Badge sobre la imagen */
+/* Flechas slider */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.flecha.izquierda {
+  left: 10px;
+}
+
+.flecha.derecha {
+  right: 10px;
+}
+
+.flecha:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* Miniaturas */
+.miniaturas {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.miniatura {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.miniatura.activa,
+.miniatura:hover {
+  opacity: 1;
+  border-color: #ff7a00;
+}
+
+/* Badge */
 .proyecto-badge {
   position: absolute;
   top: 20px;
@@ -59,7 +121,7 @@
   z-index: 10;
 }
 
-/* Título sobre la imagen */
+/* Texto del banner */
 .proyecto-banner-texto {
   position: absolute;
   bottom: 0;
@@ -79,10 +141,9 @@
 
 .proyecto-banner-texto p {
   font-size: 1.2rem;
-  color: #f1f1f1;
 }
 
-/* Información general */
+/* Info del proyecto */
 .proyecto-info-container {
   max-width: 1200px;
   margin: 40px auto 0;
@@ -93,13 +154,14 @@
   justify-content: space-between;
 }
 
-/* Descripción */
-.proyecto-descripcion {
+.proyecto-descripcion,
+.proyecto-caracteristicas {
   flex: 1;
-  min-width: 400px;
+  min-width: 350px;
 }
 
-.proyecto-descripcion h2 {
+.proyecto-descripcion h2,
+.proyecto-caracteristicas h2 {
   font-size: 1.8rem;
   color: #1d3557;
   margin-bottom: 15px;
@@ -109,18 +171,6 @@
   line-height: 1.7;
   font-size: 1.1rem;
   color: #444;
-}
-
-/* Características */
-.proyecto-caracteristicas {
-  flex: 1;
-  min-width: 350px;
-}
-
-.proyecto-caracteristicas h2 {
-  font-size: 1.8rem;
-  color: #1d3557;
-  margin-bottom: 15px;
 }
 
 .proyecto-caracteristicas ul {
@@ -143,7 +193,7 @@
   margin-right: 10px;
 }
 
-/* Sección compartir */
+/* Compartir */
 .blog1-share {
   max-width: 1200px;
   margin: 60px auto;
@@ -163,23 +213,11 @@
   transition: color 0.3s;
 }
 
-.blog1-social-icons a.facebook:hover {
-  color: #3b5998;
-}
+.blog1-social-icons a.facebook:hover { color: #3b5998; }
+.blog1-social-icons a.instagram:hover { color: #e1306c; }
+.blog1-social-icons a.whatsapp:hover { color: #25d366; }
+.blog1-social-icons a.youtube:hover { color: #ff0000; }
 
-.blog1-social-icons a.instagram:hover {
-  color: #e1306c;
-}
-
-.blog1-social-icons a.whatsapp:hover {
-  color: #25d366;
-}
-
-.blog1-social-icons a.youtube:hover {
-  color: #ff0000;
-}
-
-/* Copiar link */
 .blog1-copy-link-wrapper {
   margin-top: 20px;
   display: flex;
@@ -205,9 +243,7 @@
   transition: background 0.3s;
 }
 
-.blog1-copy-button:hover {
-  background-color: #ff9500;
-}
+.blog1-copy-button:hover { background-color: #ff9500; }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -217,11 +253,42 @@
   }
 
   .proyecto-banner {
-    height: 50vh;
+    max-height: 400px;
   }
 
   .proyecto-badge {
     font-size: 1.5rem;
     padding: 10px 20px;
   }
+.miniaturas {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  position: relative; /* para que z-index funcione */
+  z-index: 20; /* para asegurar que esté encima */
+  background: #fff; /* opcional, si quieres que las miniaturas tengan fondo */
+  padding: 10px 0; /* un poco de espacio arriba y abajo */
+}
+
+.miniatura {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  border-radius: 4px; /* para un toque estético */
+  box-shadow: 0 0 4px rgba(0,0,0,0.1); /* sombra ligera */
+}
+
+.miniatura.activa,
+.miniatura:hover {
+  opacity: 1;
+  border-color: #ff7a00;
+  box-shadow: 0 0 8px #ff7a00;
+}
+
 }

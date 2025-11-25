@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Proyecto2.css";
 import { MapPin, Home, Ruler, Building2 } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaArrowLeft, FaCopy } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Proyecto2 = () => {
@@ -19,8 +19,27 @@ const Proyecto2 = () => {
     navigate(-1);
   };
 
-  // Mantengo tu primera imagen como principal (igual que Proyecto 4)
-  const imagenPrincipal = "https://grupodimher.com/assets/images/property/thumb/682ebf83c161b1747894147.jpg";
+  const imagenes = [
+    "https://grupodimher.com/assets/images/property/gallery/682ebf842a8b21747894148.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ebf84653881747894148.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ebf84a7eca1747894148.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ebf84e60091747894148.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ebf852b8771747894149.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ebf85610be1747894149.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ebf859d62c1747894149.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ebf85e1cd11747894149.jpg",
+  ];
+
+  const [imagenActual, setImagenActual] = useState(0);
+
+  const moverImagen = (direccion) => {
+    setImagenActual((prev) => {
+      const nueva = prev + direccion;
+      if (nueva < 0) return imagenes.length - 1;
+      if (nueva >= imagenes.length) return 0;
+      return nueva;
+    });
+  };
 
   return (
     <section className="proyecto-detalle">
@@ -34,11 +53,19 @@ const Proyecto2 = () => {
       <div className="proyecto-banner">
         <div className="proyecto-badge">Detalles de propiedad</div>
 
-        <img
-          src={imagenPrincipal}
-          alt="Residencial Doña Amalia 2"
-          className="proyecto-banner-img"
-        />
+        <div className="galeria-container">
+          <button className="flecha izquierda" onClick={() => moverImagen(-1)}>‹</button>
+
+          <div className="imagen-principal">
+            <img
+              src={imagenes[imagenActual]}
+              alt="Residencial Doña Amalia 2"
+              className="proyecto-banner-img"
+            />
+          </div>
+
+          <button className="flecha derecha" onClick={() => moverImagen(1)}>›</button>
+        </div>
 
         <div className="proyecto-banner-texto">
           <h1>Residencial Doña Amalia 2</h1>
@@ -69,7 +96,6 @@ const Proyecto2 = () => {
           </p>
         </div>
 
-        {/* Características – mantuve ejemplo igual que Proyecto 4 */}
         <div className="proyecto-caracteristicas">
           <h2>Características</h2>
           <ul>

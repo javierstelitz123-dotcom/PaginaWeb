@@ -19,6 +19,28 @@ const Proyecto1 = () => {
     navigate(-1);
   };
 
+  const imagenes = [
+    "https://grupodimher.com/assets/images/property/gallery/682ec1845a6c61747894660.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ec18497b531747894660.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ec184d1a981747894660.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ec1851a39c1747894661.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ec185518601747894661.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ec1858da4a1747894661.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ec185ca8021747894661.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682ec18429d251747894660.jpg",
+  ];
+
+  const [imagenActual, setImagenActual] = useState(0);
+
+  const moverImagen = (direccion) => {
+    setImagenActual((prev) => {
+      const nueva = prev + direccion;
+      if (nueva < 0) return imagenes.length - 1;
+      if (nueva >= imagenes.length) return 0;
+      return nueva;
+    });
+  };
+
   return (
     <section className="proyecto-detalle">
       {/* Botón Volver */}
@@ -30,11 +52,20 @@ const Proyecto1 = () => {
       {/* Imagen principal con badge y título */}
       <div className="proyecto-banner">
         <div className="proyecto-badge">Detalles de propiedad</div>
-        <img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-          alt="Villas el Americano"
-          className="proyecto-banner-img"
-        />
+        <div className="galeria-container">
+          <button className="flecha izquierda" onClick={() => moverImagen(-1)}>‹</button>
+
+          <div className="imagen-principal">
+            <img
+              src={imagenes[imagenActual]}
+              alt="Imagen del proyecto"
+              className="proyecto-banner-img"
+            />
+          </div>
+
+          <button className="flecha derecha" onClick={() => moverImagen(1)}>›</button>
+        </div>
+
         <div className="proyecto-banner-texto">
           <h1>Villas el Americano</h1>
           <p>Bonao</p>

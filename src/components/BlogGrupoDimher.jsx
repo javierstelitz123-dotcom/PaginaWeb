@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './BlogGrupoDimher.css';
+import { useLocation } from "react-router-dom";
+
 import { 
   Search, Calendar, User, Tag, Clock, TrendingUp, BookOpen, 
   MessageCircle, Share2, Heart, ChevronRight, Filter 
 } from 'lucide-react';
 
 export default function BlogGrupoDimher() {
-  
+  const location = useLocation();
+const params = new URLSearchParams(location.search);
+
+const categoriaFromURL = params.get("categoria");
+const idFromURL = Number(params.get("id"));
+
 
   // ✅ Estado general
-  const [selectedCategory, setSelectedCategory] = useState('todos');
+const [selectedCategory, setSelectedCategory] = useState(categoriaFromURL || "todas");
+
   const [searchTerm, setSearchTerm] = useState('');
 
   // ❤️ Likes
@@ -155,7 +163,7 @@ const saveEditedComment = (postId) => {
     },
     {
       id: 2,
-      titulo: "Cómo Construir una Carrera Exitosa desde Cero",
+      titulo: "¿Cómo Construir una Carrera Exitosa desde Cero?",
       categoria: 'carrera',
       autor: "Carlos Ramírez",
       fecha: "12 Noviembre 2025",
@@ -173,7 +181,7 @@ const saveEditedComment = (postId) => {
       autor: "Ana Martínez",
       fecha: "10 Noviembre 2025",
       lecturaMin: 10,
-      imagen: "from-orange-400 to-red-600",
+      imagen: "https://th.bing.com/th/id/R.adffbdcce3bbfcdd012beeb17004a50b?rik=RTiSeOkxzTRIgA&pid=ImgRaw&r=0",
       extracto: "Un líder no solo dirige, transforma. Conoce las claves del liderazgo que está revolucionando el mundo corporativo y cómo puedes aplicarlo.",
       likes: 312,
       comentarios: 45,
@@ -435,16 +443,17 @@ const saveEditedComment = (postId) => {
 <p className="blog-card-dest-text">{art.extracto}</p>
 
 {/* 📌 TEXTO SOLO PARA LA PRIMERA PUBLICACIÓN */}
-{/* 📌 TEXTO SOLO PARA LA PRIMERA PUBLICACIÓN */}
-{art.id === 1 && (
+{art.id === idFromURL && (
   <div className="blog-extra-content">
+
 
     {/* TEXTO BREVE PARA LA VISTA INICIAL */}
     <p className="blog-extra-text">
     </p>
 
     {/* TEXTO COMPLETO SOLO CUANDO SE ESTÁ EN LA CATEGORÍA FINANZAS */}
-    {selectedCategory === "finanzas" && (
+    {selectedCategory === categoriaFromURL && (
+
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h3><strong>Introducción</strong></h3>

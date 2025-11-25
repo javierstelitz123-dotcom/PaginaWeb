@@ -201,20 +201,21 @@ const Inicio = () => {
     <div className="blog-card">
       <div className="blog-img">
         <img
-          src="http://grupodimher.com/assets/images/frontend/blog//thumb_663f5f2adbcc81715429162.png"
-          alt="Superando desafíos comunes"
+          src="https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg"
+          alt="5 Estrategias para Alcanzar tus Metas Financieras en 2025"
         />
         <div className="blog-date">
-          <span className="day">11</span>
-          <span className="month">may</span>
+          <span className="day">15</span>
+          <span className="month">Nov</span>
         </div>
       </div>
       <div className="blog-content">
-        <h3>Superando desafíos comunes</h3>
+        <h3>5 Estrategias para Alcanzar tus Metas Financieras en 2025</h3>
         <p>
-          Invertir en bienes raíces puede ser un desafío, pero con planificación, dedicación y las mejores decisiones…
+          Invertir en bienes raíces puede ser un desafío, pero con planificación, dedicación y las mejores decisiones…Descubre cómo planificar tus finanzas personales con métodos probados que te ayudarán a lograr la libertad financiera que siempre has deseado.
         </p>
-        <Link to="/blog1" className="blog-read">Leer más</Link>
+       <Link to="/blog?categoria=finanzas&id=1" className="blog-read">Leer más</Link>
+
       </div>
     </div>
 
@@ -222,20 +223,22 @@ const Inicio = () => {
     <div className="blog-card">
       <div className="blog-img">
         <img
-          src="http://grupodimher.com/assets/images/frontend/blog//thumb_663f5eb92cc0a1715429049.png"
-          alt="¿Qué es inversión llave en mano?"
+          src="https://media.licdn.com/dms/image/v2/D4D12AQFOZ0PV5jGTog/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656016261162?e=2147483647&v=beta&t=9mrP2iYOOLzVpCJ81i3DgRMGV3zOlIh2kOl7MS3eXFo"
+          alt="Cómo Construir una Carrera Exitosa desde Cero"
         />
         <div className="blog-date">
-          <span className="day">11</span>
-          <span className="month">may</span>
+          <span className="day">12</span>
+          <span className="month">Nov</span>
         </div>
       </div>
       <div className="blog-content">
-        <h3>¿Qué es inversión llave en mano?</h3>
+        <h3>Cómo Construir una Carrera Exitosa desde Cero</h3>
         <p>
-          Inversiones llave en mano: una opción práctica para obtener resultados rápidos y seguros…
+          Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional con consejos de expertos en recursos humanos.
         </p>
-        <Link to="/blog2" className="blog-read">Leer más</Link>
+<Link to="/blog?categoria=carrera&id=2" className="blog-read">Leer más</Link>
+
+
       </div>
     </div>
 
@@ -243,20 +246,21 @@ const Inicio = () => {
     <div className="blog-card">
       <div className="blog-img">
         <img
-          src="http://grupodimher.com/assets/images/frontend/blog//thumb_663f5e99687181715429017.png"
-          alt="Consejos para invertir en bienes raíces"
+          src="https://th.bing.com/th/id/R.adffbdcce3bbfcdd012beeb17004a50b?rik=RTiSeOkxzTRIgA&pid=ImgRaw&r=0"
+          alt="El Poder del Liderazgo Transformacional en las Empresas"
         />
         <div className="blog-date">
-          <span className="day">24</span>
-          <span className="month">mar</span>
+          <span className="day">10</span>
+          <span className="month">Nov</span>
         </div>
       </div>
       <div className="blog-content">
-        <h3>Consejos para invertir en bienes raíces</h3>
+        <h3>El Poder del Liderazgo Transformacional en las Empresas</h3>
         <p>
-          Mejora tu inversión inmobiliaria con estos consejos prácticos de expertos del sector…
+ Un líder no solo dirige, transforma. Conoce las claves del liderazgo que está revolucionando el mundo corporativo y cómo puedes aplicarlo.
         </p>
-        <Link to="/blog3" className="blog-read">Leer más</Link>
+       <Link to="/blog?categoria=liderazgo&id=3" className="blog-read">Leer más</Link>
+
       </div>
     </div>
   </div>

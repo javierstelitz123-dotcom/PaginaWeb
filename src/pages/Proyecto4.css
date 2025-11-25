@@ -1,3 +1,6 @@
+/* ================================
+   CONTENEDOR GENERAL
+================================ */
 .proyecto-detalle {
   background: #ffffff;
   min-height: 100vh;
@@ -5,7 +8,9 @@
   overflow: hidden;
 }
 
-/* Botón Volver */
+/* ================================
+   BOTÓN VOLVER
+================================ */
 .proyecto-volver {
   display: inline-flex;
   align-items: center;
@@ -27,48 +32,116 @@
   transform: translateY(-2px);
 }
 
-/* Imagen principal */
+/* ================================
+   CONTENEDOR DEL BANNER + SLIDER
+================================ */
 .proyecto-banner {
   position: relative;
   width: 100%;
-  height: 65vh;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  margin: 20px 0;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.proyecto-banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Badge sobre la imagen */
+/* Badge */
 .proyecto-badge {
   position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
   background-color: orange;
   color: black;
-  padding: 15px 30px;
+  padding: 12px 30px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 2rem;
-  text-align: center;
+  font-size: 1.6rem;
   z-index: 10;
 }
 
-/* Título sobre la imagen */
-.proyecto-banner-texto {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+/* ================================
+   GALERÍA (slider + miniaturas)
+================================ */
+.galeria-container {
+  position: relative;
+  width: 70%;
+  margin: 60px auto 20px;
+  text-align: center;
+}
+
+/* Imagen principal */
+.imagen-principal img {
   width: 100%;
+  height: 55vh;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Flechas */
+.flecha {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  padding: 12px 18px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.flecha.izquierda {
+  left: -45px;
+}
+
+.flecha.derecha {
+  right: -45px;
+}
+
+.flecha:hover {
+  background: white;
+}
+
+/* Miniaturas */
+.miniaturas {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.miniatura {
+  width: 90px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.miniatura:hover {
+  opacity: 1;
+}
+
+.miniatura.activa {
+  border: 3px solid #ff7a00;
+  opacity: 1 !important;
+}
+
+/* ================================
+   TEXTO MOSTRADO SOLO EN IMAGEN PRINCIPAL
+================================ */
+.proyecto-banner-texto {
   background: rgba(0, 0, 0, 0.45);
   color: #fff;
-  padding: 40px;
-  text-align: left;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 30px;
+  border-radius: 12px;
 }
 
 .proyecto-banner-texto h1 {
@@ -79,10 +152,11 @@
 
 .proyecto-banner-texto p {
   font-size: 1.2rem;
-  color: #f1f1f1;
 }
 
-/* Información general */
+/* ================================
+   INFORMACIÓN DEL PROYECTO
+================================ */
 .proyecto-info-container {
   max-width: 1200px;
   margin: 40px auto 0;
@@ -93,13 +167,14 @@
   justify-content: space-between;
 }
 
-/* Descripción */
-.proyecto-descripcion {
+.proyecto-descripcion,
+.proyecto-caracteristicas {
   flex: 1;
-  min-width: 400px;
+  min-width: 350px;
 }
 
-.proyecto-descripcion h2 {
+.proyecto-descripcion h2,
+.proyecto-caracteristicas h2 {
   font-size: 1.8rem;
   color: #1d3557;
   margin-bottom: 15px;
@@ -109,18 +184,6 @@
   line-height: 1.7;
   font-size: 1.1rem;
   color: #444;
-}
-
-/* Características */
-.proyecto-caracteristicas {
-  flex: 1;
-  min-width: 350px;
-}
-
-.proyecto-caracteristicas h2 {
-  font-size: 1.8rem;
-  color: #1d3557;
-  margin-bottom: 15px;
 }
 
 .proyecto-caracteristicas ul {
@@ -143,7 +206,9 @@
   margin-right: 10px;
 }
 
-/* Sección compartir */
+/* ================================
+   SECCIÓN COMPARTIR
+================================ */
 .blog1-share {
   max-width: 1200px;
   margin: 60px auto;
@@ -209,19 +274,33 @@
   background-color: #ff9500;
 }
 
-/* Responsive */
+/* ================================
+   RESPONSIVE
+================================ */
 @media (max-width: 900px) {
+  .galeria-container {
+    width: 90%;
+  }
+
+  .imagen-principal img {
+    height: 45vh;
+  }
+
+  .flecha.izquierda {
+    left: -25px;
+  }
+
+  .flecha.derecha {
+    right: -25px;
+  }
+
+
+  .proyecto-banner-texto {
+    width: 90%;
+  }
+
   .proyecto-info-container {
     flex-direction: column;
     align-items: center;
-  }
-
-  .proyecto-banner {
-    height: 50vh;
-  }
-
-  .proyecto-badge {
-    font-size: 1.5rem;
-    padding: 10px 20px;
   }
 }

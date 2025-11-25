@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import "./Proyecto4.css";
 import { MapPin, Home, Ruler, Building2 } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaArrowLeft } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaWhatsapp,
+  FaYoutube,
+  FaArrowLeft,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Proyecto4 = () => {
@@ -9,48 +17,90 @@ const Proyecto4 = () => {
   const currentUrl = window.location.href;
   const navigate = useNavigate();
 
+  // Imagen principal del Proyecto 4
+  const imagenPrincipal =
+    "https://novaris.grupodimher.com/documentos/empresas/877/pr8/FEP76RK2EQ6X2A8AQ4YRFW8F87537XQDY6P3T0P6NS121EVP8R6TLJZQML6T.jpg";
+
+  // Carrusel de imágenes
+  const imagenes = [
+    imagenPrincipal,
+    "https://grupodimher.com/assets/images/property/thumb/682ebf83c161b1747894147.jpg",
+    "https://images.unsplash.com/photo-1586105251261-72a756497a11",
+    "https://images.unsplash.com/photo-1583855282680-6dbdc69b0931",
+  ];
+
+  const [imagenActual, setImagenActual] = useState(0);
+
+  const moverImagen = (direccion) => {
+    setImagenActual((prev) => {
+      const nueva = prev + direccion;
+      if (nueva < 0) return imagenes.length - 1;
+      if (nueva >= imagenes.length) return 0;
+      return nueva;
+    });
+  };
+
   const handleCopy = () => {
     navigator.clipboard.writeText(currentUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleVolver = () => {
-    navigate(-1);
-  };
+  const handleVolver = () => navigate(-1);
 
   return (
     <section className="proyecto-detalle">
-      {/* Botón Volver arriba */}
+      {/* Botón Volver */}
       <button className="proyecto-volver" onClick={handleVolver}>
         <FaArrowLeft />
         Volver
       </button>
 
-      {/* Imagen principal con badge y título */}
+      {/* Banner + Slider */}
       <div className="proyecto-banner">
         <div className="proyecto-badge">Detalles de propiedad</div>
-        <img
-          src="https://novaris.grupodimher.com/documentos/empresas/877/pr8/FEP76RK2EQ6X2A8AQ4YRFW8F87537XQDY6P3T0P6NS121EVP8R6TLJZQML6T.jpg"
-          alt="Residencial Doña Amalia"
-          className="proyecto-banner-img"
-        />
-        <div className="proyecto-banner-texto">
-          <h1>Residencial Doña Amalia</h1>
-          <p>Bonao</p>
+
+        <div className="galeria-container">
+          {/* Flecha izquierda */}
+          <button className="flecha izquierda" onClick={() => moverImagen(-1)}>
+            <FaChevronLeft />
+          </button>
+
+          {/* Imagen principal */}
+          <div className="imagen-principal">
+            <img
+              src={imagenes[imagenActual]}
+              alt="Residencial Doña Amalia"
+              className="proyecto-banner-img"
+            />
+          </div>
+
+          {/* Flecha derecha */}
+          <button className="flecha derecha" onClick={() => moverImagen(1)}>
+            <FaChevronRight />
+          </button>
+
+          {/* Miniaturas eliminadas */}
         </div>
+
+        {/* TÍTULO SOLO EN LA PRIMERA IMAGEN */}
+        {imagenActual === 0 && (
+          <div className="proyecto-banner-texto">
+            <h1>Residencial Doña Amalia</h1>
+            <p>Bonao</p>
+          </div>
+        )}
       </div>
 
-      {/* Información del proyecto */}
+      {/* Información */}
       <div className="proyecto-info-container">
         <div className="proyecto-descripcion">
           <h2>Detalles del Proyecto</h2>
           <p>
             El Residencial Doña Amalia ofrece una combinación de elegancia,
-            confort y seguridad en una ubicación privilegiada en Bonao.
-            Diseñado para brindar una vida moderna y práctica, este proyecto
-            cuenta con amplios espacios, áreas verdes y un ambiente familiar
-            ideal.
+            confort y seguridad en una ubicación privilegiada en Bonao. Diseñado
+            para brindar una vida moderna y práctica, este proyecto cuenta con
+            amplios espacios, áreas verdes y un ambiente familiar ideal.
           </p>
         </div>
 
@@ -73,9 +123,10 @@ const Proyecto4 = () => {
         </div>
       </div>
 
-      {/* Sección Compartir ahora */}
+      {/* Compartir */}
       <div className="blog1-share">
         <h3>Compartir ahora</h3>
+
         <div className="blog1-social-icons">
           <a
             href="https://www.facebook.com/share/1AduQcnyL6/?mibextid=wwXIfr"
@@ -94,7 +145,7 @@ const Proyecto4 = () => {
             <FaInstagram />
           </a>
           <a
-            href="https://api.whatsapp.com/send/?phone=18098327894&text&type=phone_number&app_absent=0&wame_ctl=1"
+            href="https://api.whatsapp.com/send/?phone=18098327894"
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp"

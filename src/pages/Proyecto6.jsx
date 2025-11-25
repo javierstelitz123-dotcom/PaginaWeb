@@ -16,7 +16,24 @@ const Proyecto6 = () => {
 
   const currentUrl = window.location.href;
 
-  const imagen = "https://grupodimher.com/assets/images/property/thumb/682eb642f0e451747891778.jpeg";
+  // Imagen principal y carrusel
+  const imagenes = [
+    "https://grupodimher.com/assets/images/property/gallery/682eb643ae3e61747891779.jpeg",
+    "https://grupodimher.com/assets/images/property/gallery/682eb643376161747891779.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eb6436294a1747891779.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eb6438841c1747891779.jpeg",
+  ];
+
+  const [imagenActual, setImagenActual] = useState(0);
+
+  const moverImagen = (direccion) => {
+    setImagenActual((prev) => {
+      const nueva = prev + direccion;
+      if (nueva < 0) return imagenes.length - 1;
+      if (nueva >= imagenes.length) return 0;
+      return nueva;
+    });
+  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(currentUrl);
@@ -35,13 +52,43 @@ const Proyecto6 = () => {
         <FaArrowLeft /> Volver
       </button>
 
-      {/* Banner */}
+      {/* Banner con slider */}
       <div className="proyecto-banner">
-        <img src={imagen} alt="Residencial Don Bumba" className="proyecto-banner-img" />
-        <div className="proyecto-banner-texto">
-          <h1>Residencial Don Bumba</h1>
-          <p>Bonao</p>
+        <div className="proyecto-badge">Detalles de Propiedad</div>
+
+        {/* GALERÍA */}
+        <div className="galeria-container">
+          <button
+            className="flecha izquierda"
+            onClick={() => moverImagen(-1)}
+          >
+            ‹
+          </button>
+
+          <div className="imagen-principal">
+            <img
+              src={imagenes[imagenActual]}
+              alt={`Proyecto 6 - Imagen ${imagenActual + 1}`}
+            />
+          </div>
+
+          <button
+            className="flecha derecha"
+            onClick={() => moverImagen(1)}
+          >
+            ›
+          </button>
+
+          {/* Miniaturas eliminadas */}
         </div>
+
+        {/* Titulo solo en la primera imagen */}
+        {imagenActual === 0 && (
+          <div className="proyecto-banner-texto">
+            <h1>Residencial Don Bumba</h1>
+            <p>Bonao</p>
+          </div>
+        )}
       </div>
 
       {/* Información */}
@@ -49,8 +96,8 @@ const Proyecto6 = () => {
         <div className="proyecto-descripcion">
           <h2>Descripción</h2>
           <p>
-            Residencial Don Bumba está ubicado en Bonao y ofrece espacios
-            modernos, accesibles y creados para brindar comodidad a toda la familia.
+            Residencial Don Bumba está ubicado en Bonao y ofrece espacios modernos,
+            accesibles y creados para brindar comodidad a toda la familia.
           </p>
         </div>
 

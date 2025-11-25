@@ -27,20 +27,81 @@
   transform: translateY(-2px);
 }
 
-/* Imagen principal */
+/* Banner / Slider */
 .proyecto-banner {
   position: relative;
   width: 100%;
-  height: 65vh;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
   margin: 20px 0;
 }
 
+.galeria-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen-principal {
+  width: 100%;
+  max-height: 65vh;
+  overflow: hidden;
+}
+
 .proyecto-banner-img {
   width: 100%;
-  height: 100%;
+  height: 65vh;
   object-fit: cover;
+}
+
+/* Flechas slider */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 122, 0, 0.8);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 5;
+  transition: background 0.3s;
+}
+
+.flecha:hover {
+  background-color: #ff9500;
+}
+
+.flecha.izquierda { left: 20px; }
+.flecha.derecha { right: 20px; }
+
+/* Miniaturas */
+.miniaturas {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.miniatura {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: border 0.3s, transform 0.2s;
+}
+
+.miniatura:hover {
+  transform: scale(1.05);
+}
+
+.miniatura.activa {
+  border: 2px solid #ff7a00;
 }
 
 /* Badge sobre la imagen */
@@ -163,21 +224,10 @@
   transition: color 0.3s;
 }
 
-.blog1-social-icons a.facebook:hover {
-  color: #3b5998;
-}
-
-.blog1-social-icons a.instagram:hover {
-  color: #e1306c;
-}
-
-.blog1-social-icons a.whatsapp:hover {
-  color: #25d366;
-}
-
-.blog1-social-icons a.youtube:hover {
-  color: #ff0000;
-}
+.blog1-social-icons a.facebook:hover { color: #3b5998; }
+.blog1-social-icons a.instagram:hover { color: #e1306c; }
+.blog1-social-icons a.whatsapp:hover { color: #25d366; }
+.blog1-social-icons a.youtube:hover { color: #ff0000; }
 
 /* Copiar link */
 .blog1-copy-link-wrapper {
@@ -216,9 +266,11 @@
     align-items: center;
   }
 
-  .proyecto-banner {
+  .proyecto-banner-img {
     height: 50vh;
   }
+
+
 
   .proyecto-badge {
     font-size: 1.5rem;

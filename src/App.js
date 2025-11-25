@@ -33,6 +33,8 @@ import Bonao from "./pages/Bonao";
 import Ciudades from "./pages/Ciudades";
 
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import ProyectoRouter from "./pages/ProyectoRouter";
+
 
 function AppContent() {
   const location = useLocation();
@@ -65,6 +67,9 @@ function AppContent() {
         <Route path="/ciudades" element={<Ciudades />} />
         <Route path="/nagua" element={<Nagua />} />
         <Route path="/bonao" element={<Bonao />} />
+
+         {/* Ruta dinámica */}
+        <Route path="/proyecto/:id" element={<ProyectoRouter />} />
         
       </Routes>
       <ScrollToTopButton /> {/* este botón siempre estará visible cuando hagas scroll */}

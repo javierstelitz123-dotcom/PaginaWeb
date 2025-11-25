@@ -18,21 +18,33 @@ const Proyecto3 = () => {
 
   const currentUrl = window.location.href;
 
-  // 🔥 Tus imágenes originales del proyecto 3
+  // Imagen principal (igual que Proyecto 4)
+  const imagenPrincipal =
+    "https://grupodimher.com/assets/images/property/thumb/682ebf83c161b1747894147.jpg";
+
+  // Carrusel imágenes Proyecto 3
   const imagenes = [
-    "https://grupodimher.com/assets/images/property/thumb/682eba0839c291747892744.jpg",
-    "https://grupodimher.com/assets/images/property/thumb/682ebf83c161b1747894147.jpg",
-    "https://images.unsplash.com/photo-1586105251261-72a756497a11",
-    "https://images.unsplash.com/photo-1583855282680-6dbdc69b0931",
-    "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf",
-    "https://images.unsplash.com/photo-1595846723761-e...jpg",
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "https://grupodimher.com/assets/images/property/gallery/682eba08908541747892744.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eba08ccf161747892744.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eba090f0461747892745.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eba09445dd1747892745.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eba098d7c61747892745.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eba09ceda01747892745.jpg",
+    "https://grupodimher.com/assets/images/property/gallery/682eba0a24b4e1747892746.jpg",
   ];
 
-  const [indice, setIndice] = useState(0);
+  const [imagenActual, setImagenActual] = useState(0);
 
-  // Botón para copiar enlace
+  const moverImagen = (direccion) => {
+    setImagenActual((prev) => {
+      const nueva = prev + direccion;
+      if (nueva < 0) return imagenes.length - 1;
+      if (nueva >= imagenes.length) return 0;
+      return nueva;
+    });
+  };
+
+  // Botón copiar link
   const handleCopy = () => {
     navigator.clipboard.writeText(currentUrl);
     setCopied(true);
@@ -41,15 +53,6 @@ const Proyecto3 = () => {
 
   const handleVolver = () => {
     navigate(-1);
-  };
-
-  // Slider
-  const siguiente = () => {
-    setIndice((prev) => (prev + 1) % imagenes.length);
-  };
-
-  const anterior = () => {
-    setIndice((prev) => (prev - 1 + imagenes.length) % imagenes.length);
   };
 
   return (
@@ -64,28 +67,42 @@ const Proyecto3 = () => {
       <div className="proyecto-banner">
         <div className="proyecto-badge">Detalles de propiedad</div>
 
-        <img
-          src={imagenes[indice]}
-          alt="Proyecto 3"
-          className="proyecto-banner-img"
-        />
+        <div className="galeria-container">
+          {/* Flecha izquierda */}
+          <button
+            className="flecha izquierda"
+            onClick={() => moverImagen(-1)}
+          >
+            <FaChevronLeft />
+          </button>
 
-        {/* TÍTULO SOLO EN LA IMAGEN PRINCIPAL */}
-        {indice === 0 && (
+          {/* Imagen principal */}
+          <div className="imagen-principal">
+            <img
+              src={imagenes[imagenActual] || imagenPrincipal}
+              alt="Proyecto 3"
+              className="proyecto-banner-img"
+            />
+          </div>
+
+          {/* Flecha derecha */}
+          <button
+            className="flecha derecha"
+            onClick={() => moverImagen(1)}
+          >
+            <FaChevronRight />
+          </button>
+
+          {/* Miniaturas eliminadas */}
+        </div>
+
+        {/* TÍTULO SOLO EN LA PRIMERA IMAGEN */}
+        {imagenActual === 0 && (
           <div className="proyecto-banner-texto">
-            <h1>Residencial Palma Real</h1>
-            <p>La Vega</p>
+            <h1>Residencial Don Soto</h1>
+            <p>Bonao</p>
           </div>
         )}
-
-        {/* Flechas */}
-        <button className="proyecto-arrow left" onClick={anterior}>
-          <FaChevronLeft />
-        </button>
-
-        <button className="proyecto-arrow right" onClick={siguiente}>
-          <FaChevronRight />
-        </button>
       </div>
 
       {/* Información */}

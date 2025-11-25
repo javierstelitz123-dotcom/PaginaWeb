@@ -6,8 +6,17 @@ import { useNavigate } from "react-router-dom";
 
 const Proyecto5 = () => {
   const [copied, setCopied] = useState(false);
-  const currentUrl = window.location.href;
+  const [imagenActual, setImagenActual] = useState(0);
   const navigate = useNavigate();
+
+  const currentUrl = window.location.href;
+
+  // Lista de imágenes del proyecto
+  const imagenes = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4fPotyHtJFVHh20SUub_rIghwmwwL5q7yzgBxQ-IkGnddC9B",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6VZYf3Rk_6s4R1DyjRzZn-r1iL1vZpP4JfA",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy8Q-1B9tVZpGmF0T6sNwK4P8VChM9x5AokA",
+  ];
 
   const handleCopy = () => {
     navigator.clipboard.writeText(currentUrl);
@@ -19,26 +28,38 @@ const Proyecto5 = () => {
     navigate(-1);
   };
 
-  const imagenPrincipal =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4fPotyHtJFVHh20SUub_rIghwmwwL5q7yzgBxQ-IkGnddC9B";
+  const siguienteImagen = () => {
+    setImagenActual((prev) => (prev + 1) % imagenes.length);
+  };
+
+  const anteriorImagen = () => {
+    setImagenActual((prev) => (prev - 1 + imagenes.length) % imagenes.length);
+  };
 
   return (
     <section className="proyecto-detalle">
       {/* Botón Volver */}
       <button className="proyecto-volver" onClick={handleVolver}>
-        <FaArrowLeft />
-        Volver
+        <FaArrowLeft /> Volver
       </button>
 
-      {/* Banner */}
+      {/* Banner / Slider */}
       <div className="proyecto-banner">
         <div className="proyecto-badge">Detalles de propiedad</div>
 
-        <img
-          src={imagenPrincipal}
-          alt="Residencial Dimher"
-          className="proyecto-banner-img"
-        />
+        <div className="galeria-container">
+          <button className="flecha izquierda" onClick={anteriorImagen}>&lt;</button>
+          <div className="imagen-principal">
+            <img
+              src={imagenes[imagenActual]}
+              alt={`Vista ${imagenActual + 1}`}
+              className="proyecto-banner-img"
+            />
+          </div>
+          <button className="flecha derecha" onClick={siguienteImagen}>&gt;</button>
+        </div>
+
+        {/* Miniaturas eliminadas */}
 
         <div className="proyecto-banner-texto">
           <h1>Residencial Dimher</h1>
@@ -59,18 +80,10 @@ const Proyecto5 = () => {
         <div className="proyecto-caracteristicas">
           <h2>Características</h2>
           <ul>
-            <li>
-              <Home className="icono" /> Acabados modernos
-            </li>
-            <li>
-              <Ruler className="icono" /> Excelente distribución
-            </li>
-            <li>
-              <Building2 className="icono" /> Diseño funcional
-            </li>
-            <li>
-              <MapPin className="icono" /> Ubicado en Bonao
-            </li>
+            <li><Home className="icono" /> Acabados modernos</li>
+            <li><Ruler className="icono" /> Excelente distribución</li>
+            <li><Building2 className="icono" /> Diseño funcional</li>
+            <li><MapPin className="icono" /> Ubicado en Bonao</li>
           </ul>
         </div>
       </div>
@@ -78,46 +91,13 @@ const Proyecto5 = () => {
       {/* Compartir */}
       <div className="blog1-share">
         <h3>Compartir ahora</h3>
-
         <div className="blog1-social-icons">
-          <a
-            href="https://www.facebook.com/share/1AduQcnyL6/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="facebook"
-          >
-            <FaFacebookF />
-          </a>
-
-          <a
-            href="https://www.instagram.com/grupodimher?igsh=MXJrcmt5OXNwamc5Mg=="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="instagram"
-          >
-            <FaInstagram />
-          </a>
-
-          <a
-            href="https://api.whatsapp.com/send/?phone=18098327894&text&type=phone_number&app_absent=0&wame_ctl=1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp"
-          >
-            <FaWhatsapp />
-          </a>
-
-          <a
-            href="https://www.youtube.com/results?search=query=grupo+dimher"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="youtube"
-          >
-            <FaYoutube />
-          </a>
+          <a href="https://www.facebook.com/share/1AduQcnyL6/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="facebook"><FaFacebookF /></a>
+          <a href="https://www.instagram.com/grupodimher?igsh=MXJrcmt5OXNwamc5Mg==" target="_blank" rel="noopener noreferrer" className="instagram"><FaInstagram /></a>
+          <a href="https://api.whatsapp.com/send/?phone=18098327894&text&type=phone_number&app_absent=0&wame_ctl=1" target="_blank" rel="noopener noreferrer" className="whatsapp"><FaWhatsapp /></a>
+          <a href="https://www.youtube.com/results?search=query=grupo+dimher" target="_blank" rel="noopener noreferrer" className="youtube"><FaYoutube /></a>
         </div>
 
-        {/* Copiar Link */}
         <div className="blog1-copy-link-wrapper">
           <input type="text" value={currentUrl} readOnly className="blog1-copy-input" />
           <button className="blog1-copy-button" onClick={handleCopy}>

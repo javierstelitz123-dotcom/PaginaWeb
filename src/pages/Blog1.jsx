@@ -35,7 +35,7 @@ const Blog1 = () => {
         <div className="blog1-container">
           {/* Imagen con fecha */}
           <div className="blog1-image-wrapper">
-            <div className="blog1-date">11 Mayo</div>
+            <div className="blog1-date"></div>
             <img
               src="http://grupodimher.com/assets/images/frontend/blog//thumb_663f5f2adbcc81715429162.png"
               alt="Superando desafíos comunes"
@@ -45,7 +45,7 @@ const Blog1 = () => {
 
           {/* Título y descripción */}
           <div className="blog1-text">
-            <h1 className="blog1-title-left">Superando desafíos comunes</h1>
+            <h1 className="blog1-title-left"> desafíos comunes</h1>
             <p>
               Invertir en bienes raíces puede ser un emprendimiento lucrativo, pero
               no está exento de desafíos. Desde fluctuaciones del mercado hasta
