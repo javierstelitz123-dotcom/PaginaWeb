@@ -4,18 +4,21 @@
 }
 .banner-nosotros {
   position: relative;
-  height: 400px; /* altura del banner */
-  background: url("https://grupodimher.com/assets/images/frontend/breadcrumb/663f60dbb6e921715429595.png")
-    center/cover no-repeat; /* Imagen de fondo */
+  height: 400px;  
+  background-image: url('../assets/grupo.jpg');
+  background-size: cover;       /* 🔥 zoom controlado */
+  background-position: center;  /* 🔥 centrada */
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   color: black;
   text-align: center;
-  padding-top: 10px; /* espacio desde el header */
-  background-color: white; /* quitar color de fondo */
+  padding-top: 10px;
+  background-color: white;
 }
+
 
 .banner-nosotros .overlay {
   display: none; /* quitar overlay negro */
@@ -25,7 +28,7 @@
   font-weight: 700;
   z-index: 1;
   margin-bottom: 2px;
-  color: black;
+  color: white;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
 }
 
@@ -33,6 +36,7 @@
   font-size: 3.9rem; /* tu tamaño actual */
   z-index: 2; /* que quede encima de la imagen */
   position: relative;
+  color: black;
 }
 
 .banner-nosotros span {
@@ -51,6 +55,8 @@
   z-index: 1;
   font-size: 1.5rem; /* más grande */
   margin-top: 1px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.425);
 }
 
 
@@ -217,7 +223,7 @@
 
 /* Estadísticas */
 .stats-section {
-  color: #1D3557;
+  color: black;
     font-size: 1.5rem;
   padding: 90px 30px;
   text-align: center;

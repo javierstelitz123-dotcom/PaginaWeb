@@ -73,9 +73,8 @@ const Inicio = () => {
           >
             {/* ⚠️ Mantengo tu texto original (NO dinámico) */}
             <p className="hero-subtitle">
-              Innovamos el mundo inmobiliario con proyectos que combinan{" "}
-              <strong>seguridad, rentabilidad y excelencia</strong>. Transforma
-              tus sueños en realidades tangibles con nosotros.
+              Innovamos el mundo inmobiliario con proyectos que combinan <strong>seguridad, rentabilidad y excelencia</strong>.
+        
             </p>
 
             <motion.div
@@ -224,7 +223,7 @@ const Inicio = () => {
       <div className="blog-img">
         <img
           src="https://media.licdn.com/dms/image/v2/D4D12AQFOZ0PV5jGTog/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656016261162?e=2147483647&v=beta&t=9mrP2iYOOLzVpCJ81i3DgRMGV3zOlIh2kOl7MS3eXFo"
-          alt="Cómo Construir una Carrera Exitosa desde Cero"
+          alt="¿Cómo Construir una Carrera Exitosa desde Cero?"
         />
         <div className="blog-date">
           <span className="day">12</span>
@@ -232,7 +231,7 @@ const Inicio = () => {
         </div>
       </div>
       <div className="blog-content">
-        <h3>Cómo Construir una Carrera Exitosa desde Cero</h3>
+        <h3>¿Cómo Construir una Carrera Exitosa desde Cero?</h3>
         <p>
           Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional con consejos de expertos en recursos humanos.
         </p>

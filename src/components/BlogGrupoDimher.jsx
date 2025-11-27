@@ -1,273 +1,357 @@
-import React, { useState, useEffect } from 'react';
-import './BlogGrupoDimher.css';
+import React, { useState, useEffect } from "react";
+import "./BlogGrupoDimher.css";
 import { useLocation } from "react-router-dom";
 
-import { 
-  Search, Calendar, User, Tag, Clock, TrendingUp, BookOpen, 
-  MessageCircle, Share2, Heart, ChevronRight, Filter 
-} from 'lucide-react';
+import {
+  Search,
+  Calendar,
+  User,
+  Tag,
+  Clock,
+  TrendingUp,
+  BookOpen,
+  MessageCircle,
+  Share2,
+  Heart,
+  ChevronRight,
+  Filter,
+} from "lucide-react";
 
 export default function BlogGrupoDimher() {
   const location = useLocation();
-const params = new URLSearchParams(location.search);
+  const params = new URLSearchParams(location.search);
+  const categoriaFromURL = params.get("categoria");
+  const idFromURL = Number(params.get("id"));
 
-const categoriaFromURL = params.get("categoria");
-const idFromURL = Number(params.get("id"));
+  const abrirArticulo = (categoria, id) => {
+  // 1. Cambiar categoría
+  setSelectedCategory(categoria);
+
+  // 2. Esperar a que React re-renderice
+  setTimeout(() => {
+    // 3. Ir a la categoría
+    const section = document.getElementById(categoria);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 60,
+        behavior: "smooth",
+      });
+    }
+  }, 100);
+
+  // 4. Poner el id del artículo en la URL
+  window.history.replaceState(null, "", `?categoria=${categoria}&id=${id}`);
+};
 
 
-  // ✅ Estado general
-const [selectedCategory, setSelectedCategory] = useState(categoriaFromURL || "todas");
+// Función para compartir
+const compartirArticulo = async (art) => {
+  const shareData = {
+    title: art.titulo,
+    text: art.extracto,
+    url: window.location.origin + `/blog?categoria=${art.categoria}&id=${art.id}`,
+  };
 
-  const [searchTerm, setSearchTerm] = useState('');
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      navigator.clipboard.writeText(shareData.url);
+      alert("Enlace copiado al portapapeles.");
+    }
+  } catch (error) {
+    console.log("Error al compartir:", error);
+  }
+};
 
-  // ❤️ Likes
-  const [blogLikes, setBlogLikes] = useState(
-    JSON.parse(localStorage.getItem("blogLikes")) || {}
+
+  // Estados principales
+  const [selectedCategory, setSelectedCategory] = useState(
+    categoriaFromURL && categoriaFromURL !== "" ? categoriaFromURL : "todos"
   );
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // Likes persistidos por artículo (obj: { [id]: true })
+  const [blogLikes, setBlogLikes] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("blogLikes")) || {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Comentarios por post (obj: { [postId]: [ {id, authorId, authorName, text, date} ] })
+  const [postComments, setPostComments] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("blogComments")) || {};
+    } catch {
+      return {};
+    }
+  });
+
+  // UI states
+  const [activeCommentBox, setActiveCommentBox] = useState(null); // postId que muestra la caja
+  const [editingComment, setEditingComment] = useState(null); // comment id en edición
+  const [commentText, setCommentText] = useState("");
+  const [menuOpen, setMenuOpen] = useState(null); // comment id cuyo menú está abierto
+
+  // Usuario simulado
+  const currentUser = { id: 1, name: "Usuario Actual" };
+
+  useEffect(() => {
+    if (location.pathname === "/blog") {
+      setSelectedCategory("todos");
+      setSearchTerm("");
+    }
+  }, [location.pathname]);
+
+  // Persistir likes y comentarios
+  useEffect(() => {
+    localStorage.setItem("blogLikes", JSON.stringify(blogLikes));
+  }, [blogLikes]);
+
+  useEffect(() => {
+    localStorage.setItem("blogComments", JSON.stringify(postComments));
+  }, [postComments]);
+
+  // Toggle like por artículo
   const toggleBlogLike = (id) => {
-    setBlogLikes(prev => {
+    setBlogLikes((prev) => {
       const updated = { ...prev, [id]: !prev[id] };
-      localStorage.setItem("blogLikes", JSON.stringify(updated));
       return updated;
     });
+    
   };
-
-  // ❗ Estado antiguo para finanzas (si lo usas)
-  const [finanzasLikes, setFinanzasLikes] = useState(
-    JSON.parse(localStorage.getItem("finanzasLikes")) || 245
-  );
-  const [finanzasLiked, setFinanzasLiked] = useState(
-    JSON.parse(localStorage.getItem("finanzasLiked")) || false
-  );
-  const [commentsOpen, setCommentsOpen] = useState(false);
-  const [comments, setComments] = useState(
-    JSON.parse(localStorage.getItem("finanzasComments")) || []
-  );
-  const [newComment, setNewComment] = useState('');
-  const [openMenuId, setOpenMenuId] = useState(null);
-  const [menuOpen, setMenuOpen] = useState(null);
-
-
-
-// 👉 Usuario actual simulado (en futuro puedes cambiarlo a login real)
-const currentUser = {
-  id: 1,
-  name: "Usuario Actual"
-};
-
-// 📌 Estado para comentarios por cada post
-const [postComments, setPostComments] = useState(() => {
-  const saved = localStorage.getItem("blogComments");
-  return saved ? JSON.parse(saved) : {};
-});
-
-const [activeCommentBox, setActiveCommentBox] = useState(null);
-const [editingComment, setEditingComment] = useState(null);
-const [commentText, setCommentText] = useState('');
-
-
-
-  // Guardar comentarios en localStorage automáticamente
+  useEffect(() => {
+    if (location.pathname === "/blog") {
+      setSelectedCategory("todos");
+      setSearchTerm("");
+    }
+}, [location.pathname]);
 useEffect(() => {
-  localStorage.setItem("blogComments", JSON.stringify(postComments));
-}, [postComments]);
-// 👉 Agregar comentario
-const addComment = (postId) => {
-  if (commentText.trim() === "") return;
-   const newComment = {
-    id: Date.now(),
-    authorId: currentUser.id,
-    authorName: currentUser.name,
-    text: commentText,
-    date: new Date().toLocaleString()
-  };
+  if (location.pathname === "/blog") {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+}, [location.pathname]);
 
 
-    const newEntry = { id: Date.now(), text: commentText };
-    setPostComments(prev => ({
+  // Agregar comentario (obj completo)
+  const addComment = (postId) => {
+    if (commentText.trim() === "") return;
+
+    const commentObj = {
+      id: Date.now(),
+      authorId: currentUser.id,
+      authorName: currentUser.name,
+      text: commentText.trim(),
+      date: new Date().toLocaleString(),
+    };
+
+    setPostComments((prev) => ({
       ...prev,
-      [postId]: prev[postId] ? [...prev[postId], newEntry] : [newEntry]
+      [postId]: prev[postId] ? [...prev[postId], commentObj] : [commentObj],
     }));
 
-    setCommentText('');
+    setCommentText("");
     setActiveCommentBox(null);
+    setEditingComment(null);
+    setMenuOpen(null);
   };
 
-// 👉 Eliminar comentario
-const deleteComment = (postId, commentId) => {
-  setPostComments(prev => ({
-    ...prev,
-    [postId]: prev[postId].filter(c => c.id !== commentId)
-  }));
-};
+  // Eliminar comentario
+  const deleteComment = (postId, commentId) => {
+    setPostComments((prev) => ({
+      ...prev,
+      [postId]: (prev[postId] || []).filter((c) => c.id !== commentId),
+    }));
+    setMenuOpen(null);
+  };
 
+  // Iniciar edición
+  const startEditingComment = (comment, postId) => {
+    setEditingComment(comment.id);
+    setCommentText(comment.text);
+    setActiveCommentBox(postId);
+    setMenuOpen(null);
+  };
 
+  // Guardar edición
+  const saveEditedComment = (postId) => {
+    if (commentText.trim() === "") return;
+    setPostComments((prev) => ({
+      ...prev,
+      [postId]: (prev[postId] || []).map((c) =>
+        c.id === editingComment ? { ...c, text: commentText.trim(), date: new Date().toLocaleString() } : c
+      ),
+    }));
+    setEditingComment(null);
+    setCommentText("");
+    setActiveCommentBox(null);
+    setMenuOpen(null);
+  };
 
-// 👉 Editar comentario
-const startEditingComment = (comment, postId) => {
-  setEditingComment(comment.id);
-  setCommentText(comment.text);
-  setActiveCommentBox(postId);
-};
-
-
-// 👉 Guardar edición
-const saveEditedComment = (postId) => {
-  setPostComments(prev => ({
-    ...prev,
-    [postId]: prev[postId].map(c =>
-      c.id === editingComment ? { ...c, text: commentText } : c
-    )
-  }));
-
-
-  setEditingComment(null);
-  setCommentText("");
-  setActiveCommentBox(null);
-};
-  // 🔽 Función de scroll
+  // Scroll a sección por id
   const irACategoria = (categoria) => {
     const section = document.getElementById(categoria);
     if (section) {
       window.scrollTo({
         top: section.offsetTop - 60,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
 
-  // 🔽 Tus categorías y artículos
+  // Datos (tal cual los tenías)
   const categorias = [
-    { id: 'todos', name: 'Todos', color: 'from-purple-500 to-pink-500' },
-    { id: 'finanzas', name: 'Finanzas', color: 'from-blue-500 to-cyan-500' },
-    { id: 'carrera', name: 'Desarrollo Profesional', color: 'from-green-500 to-emerald-500' },
-    { id: 'liderazgo', name: 'Liderazgo', color: 'from-orange-500 to-red-500' },
-    { id: 'tecnologia', name: 'Tecnología', color: 'from-indigo-500 to-purple-500' },
-    { id: 'cultura', name: 'Cultura Empresarial', color: 'from-pink-500 to-rose-500' }
+    { id: "todos", name: "Todos",  },
+    { id: "finanzas", name: "Finanzas"},
+    { id: "carrera", name: "Desarrollo Profesional" },
+    { id: "liderazgo", name: "Liderazgo"},
+    { id: "tecnologia", name: "Tecnología"},
+    { id: "cultura", name: "Cultura Empresarial" },
   ];
 
   const articulos = [
     {
       id: 1,
       titulo: "5 Estrategias para Alcanzar tus Metas Financieras en 2025",
-      categoria: 'finanzas',
+      categoria: "finanzas",
       autor: "María González",
       fecha: "15 Noviembre 2025",
       lecturaMin: 8,
-      imagen: "https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg",
-      extracto: "Descubre cómo planificar tus finanzas personales con métodos probados que te ayudarán a lograr la libertad financiera que siempre has deseado.",
+      imagen:
+        "https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg",
+      extracto:
+        "Descubre cómo planificar tus finanzas personales con métodos probados que te ayudarán a lograr la libertad financiera que siempre has deseado.",
       likes: 245,
       comentarios: 32,
-      trending: true
+      trending: true,
     },
     {
       id: 2,
       titulo: "¿Cómo Construir una Carrera Exitosa desde Cero?",
-      categoria: 'carrera',
+      categoria: "carrera",
       autor: "Carlos Ramírez",
       fecha: "12 Noviembre 2025",
       lecturaMin: 6,
-      imagen: "https://media.licdn.com/dms/image/v2/D4D12AQFOZ0PV5jGTog/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656016261162?e=2147483647&v=beta&t=9mrP2iYOOLzVpCJ81i3DgRMGV3zOlIh2kOl7MS3eXFo",
-      extracto: "Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional con consejos de expertos en recursos humanos.",
+      imagen:
+        "https://media.licdn.com/dms/image/v2/D4D12AQFOZ0PV5jGTog/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656016261162?e=2147483647&v=beta&t=9mrP2iYOOLzVpCJ81i3DgRMGV3zOlIh2kOl7MS3eXFo",
+      extracto:
+        "Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional con consejos de expertos en recursos humanos.",
       likes: 189,
       comentarios: 28,
-      trending: true
+      trending: true,
     },
     {
       id: 3,
       titulo: "El Poder del Liderazgo Transformacional en las Empresas",
-      categoria: 'liderazgo',
+      categoria: "liderazgo",
       autor: "Ana Martínez",
       fecha: "10 Noviembre 2025",
       lecturaMin: 10,
-      imagen: "https://th.bing.com/th/id/R.adffbdcce3bbfcdd012beeb17004a50b?rik=RTiSeOkxzTRIgA&pid=ImgRaw&r=0",
-      extracto: "Un líder no solo dirige, transforma. Conoce las claves del liderazgo que está revolucionando el mundo corporativo y cómo puedes aplicarlo.",
+      imagen:
+        "https://th.bing.com/th/id/R.adffbdcce3bbfcdd012beeb17004a50b?rik=RTiSeOkxzTRIgA&pid=ImgRaw&r=0",
+      extracto:
+        "Un líder no solo dirige, transforma. Conoce las claves del liderazgo que está revolucionando el mundo corporativo y cómo puedes aplicarlo.",
       likes: 312,
       comentarios: 45,
-      trending: true
+      trending: true,
     },
     {
       id: 4,
       titulo: "Inteligencia Artificial en el Sector Financiero",
-      categoria: 'tecnologia',
+      categoria: "tecnologia",
       autor: "Roberto Silva",
       fecha: "08 Noviembre 2025",
       lecturaMin: 7,
-      imagen: "from-indigo-400 to-purple-600",
-      extracto: "LLa IA está cambiando la forma en que las empresas financieras operan. Descubre las tendencias tecnológicas que marcarán la diferencia.",
+      imagen:
+        "https://conversesacatalunya.cat/wp-content/uploads/2024/07/inteligencia-artificial-1024x594.jpg",
+      extracto:
+        "LLa IA está cambiando la forma en que las empresas financieras operan. Descubre las tendencias tecnológicas que marcarán la diferencia.",
       likes: 278,
       comentarios: 38,
-      trending: false
+      trending: false,
     },
     {
       id: 5,
       titulo: "Cultura Organizacional: El Secreto del Éxito Empresarial",
-      categoria: 'cultura',
+      categoria: "cultura",
       autor: "Laura Pérez",
       fecha: "05 Noviembre 2025",
       lecturaMin: 9,
-      imagen: "from-pink-400 to-rose-600",
-      extracto: "Una cultura empresarial sólida es la base de equipos productivos y felices. Aprende cómo construir un ambiente laboral inspirador.",
+      imagen: "https://www.ceupe.co/images/easyblog_articles/152/img-portada-organizacional.png",
+      extracto:
+        "Una cultura empresarial sólida es la base de equipos productivos y felices. Aprende cómo construir un ambiente laboral inspirador.",
       likes: 156,
       comentarios: 21,
-      trending: false
+      trending: false,
     },
     {
       id: 6,
       titulo: "Inversiones Inteligentes para Principiantes",
-      categoria: 'finanzas',
+      categoria: "finanzas",
       autor: "Diego Torres",
       fecha: "03 Noviembre 2024",
       lecturaMin: 5,
-      imagen: "https://wortev.capital/wp-content/uploads/2020/05/Inversiones-inteligentes-como-empiezo-WORTEV-CAPITAL.jpg",
-      extracto: "No necesitas ser un experto para empezar a invertir. Esta guía te mostrará los primeros pasos hacia la construcción de tu patrimonio.",
+      imagen:
+        "https://tpp-blog-wordpress.s3.amazonaws.com/wp-content/uploads/2023/10/30185035/Inversiones-inteligentes-%C2%BFcomo-hacer-que-tu-dinero-trabaje-para-tu-empresa.jpg",
+      extracto:
+        "No necesitas ser un experto para empezar a invertir. Esta guía te mostrará los primeros pasos hacia la construcción de tu patrimonio.",
       likes: 423,
       comentarios: 67,
-      trending: true
+      trending: true,
     },
     {
       id: 7,
       titulo: "Habilidades Blandas: Tu Ventaja Competitiva",
-      categoria: 'carrera',
+      categoria: "carrera",
       autor: "Isabel Moreno",
       fecha: "01 Noviembre 2024",
       lecturaMin: 6,
-      imagen: "https://www.squarepoint.es/wp-content/uploads/sites/3/2024/01/grupo-jovenes-empresarios-aplauden-su-colega-despues-presentacion.jpg",
-      extracto: "Las habilidades técnicas te consiguen el trabajo, pero las habilidades blandas te ayudan a crecer. Descubre cuáles son las más valoradas.",
+      imagen:
+        "https://itcformacionyconsultoria.com/wp-content/uploads/2024/02/habilidades-blandas-o-soft-skills.jpg",
+      extracto:
+        "Las habilidades técnicas te consiguen el trabajo, pero las habilidades blandas te ayudan a crecer. Descubre cuáles son las más valoradas.",
       likes: 267,
       comentarios: 34,
-      trending: false
+      trending: false,
     },
     {
       id: 8,
       titulo: "Gestión del Tiempo para Líderes Ocupados",
-      categoria: 'liderazgo',
+      categoria: "liderazgo",
       autor: "Fernando López",
       fecha: "29 Octubre 2024",
       lecturaMin: 7,
-      imagen: "from-orange-400 to-red-600",
-      extracto: "El tiempo es el recurso más valioso de un líder. Aprende técnicas avanzadas para maximizar tu productividad sin sacrificar tu bienestar.",
+      imagen:
+        "https://cristianosempresarios.com/wp-content/uploads/2024/10/gestion-del-tiempo-estrategias-biblicas.jpg",
+      extracto:
+        "El tiempo es el recurso más valioso de un líder. Aprende técnicas avanzadas para maximizar tu productividad sin sacrificar tu bienestar.",
       likes: 198,
       comentarios: 25,
-      trending: false
-    }
+      trending: false,
+    },
   ];
-  const articulosDestacados = articulos.filter(art => art.trending).slice(0, 3);
-  const filteredArticulos = articulos.filter(art => {
-    const matchCategory =
-      selectedCategory === 'todos' || art.categoria === selectedCategory;
-    const matchSearch =
-      art.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      art.extracto.toLowerCase().includes(searchTerm.toLowerCase());
+
+  const articulosDestacados = articulos.filter((art) => art.trending).slice(0, 3);
+
+  const filteredArticulos = articulos.filter((art) => {
+    const matchCategory = selectedCategory === "todos" || art.categoria === selectedCategory;
+    const q = searchTerm.trim().toLowerCase();
+    const matchSearch = q === "" || art.titulo.toLowerCase().includes(q) || art.extracto.toLowerCase().includes(q);
     return matchCategory && matchSearch;
   });
 
-  return (
-    <div className="blog-dimher-wrapper">
+return (
 
+
+    <div className="blog-dimher-wrapper">
       {/* HERO */}
       <div className="blog-hero-gradient">
+
         <div className="blog-hero-inner">
           <div className="blog-badge">
             <BookOpen className="icon" />
@@ -294,15 +378,14 @@ const saveEditedComment = (postId) => {
       </div>
 
       {/* Anclas */}
-      <div id="finanzas" className="blog-category-anchor"></div>
-      <div id="carrera" className="blog-category-anchor"></div>
-      <div id="liderazgo" className="blog-category-anchor"></div>
-      <div id="tecnologia" className="blog-category-anchor"></div>
-      <div id="cultura" className="blog-category-anchor"></div>
+      <div id="finanzas" className="blog-category-anchor" />
+      <div id="carrera" className="blog-category-anchor" />
+      <div id="liderazgo" className="blog-category-anchor" />
+      <div id="tecnologia" className="blog-category-anchor" />
+      <div id="cultura" className="blog-category-anchor" />
 
       {/* CONTENIDO */}
       <div className="blog-main">
-
         {/* Categorías */}
         <div className="blog-categorias-wrapper">
           <div className="blog-categorias-head">
@@ -311,14 +394,12 @@ const saveEditedComment = (postId) => {
           </div>
 
           <div className="blog-categorias-list">
-            {categorias.map(cat => (
+            {categorias.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
                 data-cat={cat.id}
-                className={`blog-cat-btn ${
-                  selectedCategory === cat.id ? "blog-cat-active" : ""
-                }`}
+                className={`blog-cat-btn ${selectedCategory === cat.id ? "blog-cat-active" : ""}`}
               >
                 {cat.name}
               </button>
@@ -335,29 +416,21 @@ const saveEditedComment = (postId) => {
             </div>
 
             <div className="blog-destacados-grid">
-              {articulosDestacados.map(art => (
+              {articulosDestacados.map((art) => (
                 <div key={art.id} className="blog-card-dest">
-
                   <div
                     className="blog-card-dest-bg"
                     style={{
                       backgroundImage: `url(${art.imagen})`,
                       backgroundSize: "cover",
-                      backgroundPosition: "center"
+                      backgroundPosition: "center",
                     }}
                   />
-
                   <div className="blog-card-dest-inner">
-
                     <div className="blog-card-dest-meta">
-                      <span
-                        className={`blog-card-dest-tag ${
-                          categorias.find(c => c.id === art.categoria).color
-                        }`}
-                      >
-                        {categorias.find(c => c.id === art.categoria).name}
+                      <span className="blog-card-tag" data-cat={art.categoria}>
+                        {categorias.find((c) => c.id === art.categoria)?.name}
                       </span>
-
                       <span className="flex items-center gap-1 text-gray-500 text-sm">
                         <Clock className="w-4 h-4" />
                         {art.lecturaMin} min
@@ -365,25 +438,23 @@ const saveEditedComment = (postId) => {
                     </div>
 
                     <h3 className="blog-card-dest-title">{art.titulo}</h3>
-
                     <p className="blog-card-dest-text">{art.extracto}</p>
 
                     <div className="meta-finanzas" style={{ marginTop: "14px" }}>
                       <div className="meta-item autor-inline">
                         <div className="autor-icon">{art.autor.charAt(0)}</div>
-                       <span className="blog-card-author">{art.autor}</span>
-
+                        <span className="blog-card-author">{art.autor}</span>
                       </div>
 
                       <button
-                        className="blog-leer-small-btn"
-                        onClick={() => irACategoria(art.categoria)}
-                        style={{ marginLeft: "auto" }}
-                      >
-                        Leer
-                      </button>
-                    </div>
+  className="blog-leer-small-btn"
+  onClick={() => abrirArticulo(art.categoria, art.id)}
+  style={{ marginLeft: "auto" }}
+>
+  Leer
+</button>
 
+                    </div>
                   </div>
                 </div>
               ))}
@@ -392,47 +463,28 @@ const saveEditedComment = (postId) => {
         )}
 
         {/* LISTA DE ARTÍCULOS */}
-        <div>
-          <h2 className="blog-todos-title">
-            {selectedCategory === "todos"
-              ? "Todos los Artículos"
-              : `Artículos de ${
-                  categorias.find(c => c.id === selectedCategory)?.name
-                }`}
-          </h2>
+        <div className="blog-list-container">
+        <h2 className="blog-section-title blog-todos-title">
+  {selectedCategory === "todos" ? "Todos los artículos" : categorias.find((c) => c.id === selectedCategory)?.name}
+</h2>
 
-          {filteredArticulos.length === 0 && (
-            <div className="blog-empty">
-              <div className="blog-empty-icon">
-                <Search className="w-12 h-12 text-gray-400" />
-              </div>
-              <h3>No se encontraron artículos</h3>
-              <p>Intenta con otra búsqueda o categoría</p>
-            </div>
-          )}
 
-          {filteredArticulos.map(art => (
-            <div key={art.id} className="blog-card-dest" style={{ marginBottom: '40px' }}>
+          {filteredArticulos.map((art) => (
+            <div key={art.id} className="blog-card-dest" style={{ marginBottom: "40px" }}>
               <div
                 className="blog-card-dest-bg"
                 style={{
                   backgroundImage: `url(${art.imagen})`,
                   backgroundSize: "cover",
-                  backgroundPosition: "center"
+                  backgroundPosition: "center",
                 }}
               />
 
               <div className="blog-card-dest-inner">
-
                 <div className="blog-card-dest-meta">
-                  <span
-                    className={`blog-card-dest-tag ${
-                      categorias.find(c => c.id === art.categoria).color
-                    }`}
-                  >
-                    {categorias.find(c => c.id === art.categoria).name}
+                  <span className="blog-card-tag" data-cat={art.categoria}>
+                    {categorias.find((c) => c.id === art.categoria)?.name}
                   </span>
-
                   <span className="flex items-center gap-1 text-gray-500 text-sm">
                     <Clock className="w-4 h-4" />
                     {art.lecturaMin} min
@@ -440,84 +492,70 @@ const saveEditedComment = (postId) => {
                 </div>
 
                 <h3 className="blog-card-dest-title">{art.titulo}</h3>
-<p className="blog-card-dest-text">{art.extracto}</p>
+                <p className="blog-card-dest-text">{art.extracto}</p>
 
-{/* 📌 TEXTO SOLO PARA LA PRIMERA PUBLICACIÓN */}
-{art.id === idFromURL && (
+                {/* Mostrar contenido extra SOLO si coincide con idFromURL */}
+{/* TEXTO COMPLETO PARA PUBLICACIÓN 1 */}
+{art.id === 1 && selectedCategory === "finanzas" && (
   <div className="blog-extra-content">
+    <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
+      <h3><strong>Introducción</strong></h3>
+      <p>
+        La planificación financiera es la base del éxito económico. En 2025, con la economía global en constante evolución, 
+        es más importante que nunca tener un plan claro y ejecutable para alcanzar tus objetivos financieros.
+      </p>
 
-    {/* TEXTO BREVE PARA LA VISTA INICIAL */}
-    <p className="blog-extra-text">
-    </p>
+      <h3 style={{ marginTop: "18px" }}><strong>1. Establece Metas SMART</strong></h3>
+      <p>
+        Las metas financieras deben ser Específicas, Medibles, Alcanzables, Relevantes y con un Tiempo definido. 
+        En lugar de decir "quiero ahorrar más", establece: 
+        <em>"ahorraré $500 mensuales durante 12 meses para un fondo de emergencia de $6,000"</em>.
+      </p>
 
-    {/* TEXTO COMPLETO SOLO CUANDO SE ESTÁ EN LA CATEGORÍA FINANZAS */}
-    {selectedCategory === categoriaFromURL && (
+      <p style={{ marginTop: "10px" }}><strong>Ejemplo práctico:</strong></p>
+      <ul className="blog-list">
+        <li>Meta a corto plazo: Ahorrar $2,000 en 6 meses</li>
+        <li>Meta a mediano plazo: Pagar deudas de tarjetas en 18 meses</li>
+        <li>Meta a largo plazo: Acumular $50,000 para enganche de vivienda en 5 años</li>
+      </ul>
 
-      <div className="blog-extra-full" style={{ marginTop: "20px" }}>
+      <h3 style={{ marginTop: "18px" }}><strong>2. Crea un Presupuesto 50/30/20</strong></h3>
+      <p>
+        Esta regla divide tus ingresos en tres categorías: 50% necesidades, 30% deseos y 20% ahorros e inversiones. 
+        Es simple pero efectiva para mantener tus finanzas balanceadas.
+      </p>
 
-        <h3><strong>Introducción</strong></h3>
-        <p>
-          La planificación financiera es la base del éxito económico. En 2025, 
-          con la economía global en constante evolución, es más importante que 
-          nunca tener un plan claro y ejecutable para alcanzar tus objetivos financieros.
-        </p>
+      <h3 style={{ marginTop: "18px" }}><strong>3. Automatiza tus Ahorros</strong></h3>
+      <p>
+        La automatización elimina la tentación de gastar. Configura transferencias automáticas el día que recibes tu salario. 
+        Si no ves el dinero, no lo extrañarás.
+      </p>
 
-        <h3 style={{ marginTop: "18px" }}><strong>1. Establece Metas SMART</strong></h3>
-        <p>
-          Las metas financieras deben ser Específicas, Medibles, Alcanzables, 
-          Relevantes y con un Tiempo definido. En lugar de decir "quiero ahorrar más", 
-          establece: <em>"ahorraré $500 mensuales durante 12 meses para un fondo de 
-          emergencia de $6,000".</em>
-        </p>
+      <h3 style={{ marginTop: "18px" }}><strong>4. Diversifica tus Inversiones</strong></h3>
+      <p>
+        No pongas todos tus huevos en la misma canasta. Considera fondos indexados, bonos, bienes raíces y criptomonedas 
+        según tu perfil de riesgo. La diversificación protege tu patrimonio de la volatilidad del mercado.
+      </p>
 
-        <p style={{ marginTop: "10px" }}><strong>Ejemplo práctico:</strong></p>
-        <ul className="blog-list">
-          <li>Meta a corto plazo: Ahorrar $2,000 en 6 meses</li>
-          <li>Meta a mediano plazo: Pagar deudas de tarjetas en 18 meses</li>
-          <li>Meta a largo plazo: Acumular $50,000 para enganche de vivienda en 5 años</li>
-        </ul>
+      <h3 style={{ marginTop: "18px" }}><strong>5. Revisa y Ajusta Trimestralmente</strong></h3>
+      <p>
+        Tus metas financieras no están escritas en piedra. Revísalas cada trimestre y ajusta según cambios en tu vida, ingresos 
+        o prioridades. La flexibilidad es clave para el éxito financiero a largo plazo.
+      </p>
 
-        <h3 style={{ marginTop: "18px" }}><strong>2. Crea un Presupuesto 50/30/20</strong></h3>
-        <p>
-          Esta regla divide tus ingresos en tres categorías: 50% para necesidades, 
-          30% para deseos y 20% para ahorros e inversiones. Es simple pero efectiva 
-          para mantener tus finanzas balanceadas.
-        </p>
+      <h3 style={{ marginTop: "18px" }}><strong>Conclusión</strong></h3>
+      <p>
+        Alcanzar la libertad financiera requiere disciplina, paciencia y estrategia. Comienza hoy con estos cinco pasos y verás 
+        resultados tangibles en tu patrimonio personal. Recuerda: el mejor momento para planificar fue ayer, el segundo mejor 
+        momento es ahora.
+      </p>
 
-        <h3 style={{ marginTop: "18px" }}><strong>3. Automatiza tus Ahorros</strong></h3>
-        <p>
-          La automatización elimina la tentación de gastar. Configura transferencias 
-          automáticas el día que recibes tu salario. Si no ves el dinero, no lo extrañarás.
-        </p>
-
-        <h3 style={{ marginTop: "18px" }}><strong>4. Diversifica tus Inversiones</strong></h3>
-        <p>
-          No pongas todos tus huevos en la misma canasta. Considera fondos indexados, 
-          bonos, bienes raíces y criptomonedas según tu perfil de riesgo. La diversificación 
-          protege tu patrimonio de la volatilidad del mercado.
-        </p>
-
-        <h3 style={{ marginTop: "18px" }}><strong>5. Revisa y Ajusta Trimestralmente</strong></h3>
-        <p>
-          Tus metas financieras no están escritas en piedra. Revísalas cada trimestre 
-          y ajusta según cambios en tu vida, ingresos o prioridades. La flexibilidad 
-          es clave para el éxito financiero a largo plazo.
-        </p>
-
-        <h3 style={{ marginTop: "18px" }}><strong>Conclusión</strong></h3>
-        <p>
-          Alcanzar la libertad financiera requiere disciplina, paciencia y estrategia. 
-          Comienza hoy con estos cinco pasos y verás resultados tangibles en tu patrimonio 
-          personal. Recuerda: el mejor momento para planificar fue ayer, el segundo mejor 
-          momento es ahora.
-        </p>
-
-      </div>
-    )}
+    </div>
   </div>
-  
-)}  
+)}
+
+ 
 {/* 📌 TEXTO COMPLETO PARA LA SEGUNDA PUBLICACIÓN (INVERSIONES INTELIGENTES) */}
 {art.id === 6 && (
   <div className="blog-extra-content">
@@ -1176,7 +1214,8 @@ const saveEditedComment = (postId) => {
 {art.id === 5 && (
   <div className="blog-extra-content">
 
-    {selectedCategory === "cultura-empresarial" && (
+  {selectedCategory === "cultura" && (
+
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h2><strong>La Cultura: El ADN de tu Empresa</strong></h2>
@@ -1291,192 +1330,144 @@ const saveEditedComment = (postId) => {
   </div>
 )}
 
-     <div className="meta-finanzas">
+    <div className="meta-finanzas">
                   <div className="meta-item">
                     <Calendar className="w-4 h-4" />
-                  <span className="blog-card-date">{art.fecha}</span>
+                    <span className="blog-card-date">{art.fecha}</span>
                   </div>
-
 
                   <div className="meta-item autor-inline">
                     <div className="autor-icon">{art.autor.charAt(0)}</div>
                     <span className="autor-nombre">{art.autor}</span>
                   </div>
                 </div>
-   {/* LÍNEA GRIS ENCIMA DE LOS ICONOS */}
-                <div className="post-icons-top-line"></div>
-       
-              {/* BOTÓN LEER MÁS SOLO SI NO ESTÁ EN SU ÁREA */}
-{selectedCategory !== art.categoria && (
-  <button 
-    className="blog-leer-small-btn"
-    onClick={() => irACategoria(art.categoria)}
-  >
-    Leer más
-  </button>
-)}
 
+                <div className="post-icons-top-line" />
 
-             
-
-                {/* NUEVOS ICONOS ACTUALIZADOS */}
-                <div className="post-actions">
-
-                  {/* ❤️ ME GUSTA */}
-                <div 
-  className={`action-item ${blogLikes[art.id] ? "liked" : ""}`}
-  onClick={() => toggleBlogLike(art.id)}
+                {/* Botón leer más si no está en su área */}
+                {selectedCategory !== art.categoria && (
+               <button
+  className="blog-leer-small-btn"
+  onClick={() => abrirArticulo(art.categoria, art.id)}
 >
+  Leer más
+</button>
 
+                )}
+
+                {/* Acciones: like, comentar, compartir */}
+                <div className="post-actions">
+                  <div
+                    className={`action-item ${blogLikes[art.id] ? "liked" : ""}`}
+                    onClick={() => toggleBlogLike(art.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={() => {}}
+                  >
                     <Heart className="action-icon" />
                     <span>{blogLikes[art.id] ? art.likes + 1 : art.likes}</span>
-                  
                   </div>
-{/* 💬 COMENTAR */}
-<div 
-  className="action-item comment-toggle"
-  onClick={() => setActiveCommentBox(activeCommentBox === art.id ? null : art.id)}
+
+                  <div
+                    className="action-item comment-toggle"
+                    onClick={() => setActiveCommentBox(activeCommentBox === art.id ? null : art.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={() => {}}
+                  >
+                    <MessageCircle className="action-icon" />
+                    <span>{(postComments[art.id] || []).length}</span>
+                  </div>
+
+                  <div
+  className="action-item"
+  onClick={() => compartirArticulo(art)}
+  role="button"
+  tabIndex={0}
 >
-  <MessageCircle className="action-icon" />
-  <span>{postComments[art.id]?.length || 0}</span>
+  <Share2 className="action-icon" />
+  <span>Compartir</span>
 </div>
 
-{/* MOSTRAR SOLO SI EL USUARIO HACE CLICK */}
-{activeCommentBox === art.id && (
-  <div className="comments-section">
-
-    {/* 👉 CAJA PARA ESCRIBIR COMENTARIO */}
-    <div className="comment-container">
-      <div className="comment-header">
-        <div className="comment-avatar"></div>
-        <div className="comment-user-info">
-          <span className="comment-username">{currentUser.name}</span>
-          <span className="comment-time">• ahora</span>
-        </div>
-      </div>
-
-      <textarea
-        value={commentText}
-        onChange={(e) => setCommentText(e.target.value)}
-        placeholder="Escribe tu comentario aquí..."
-        className="comment-textarea"
-        rows={3}
-      />
-
-      <div className="comment-actions">
-        {!editingComment ? (
-          <button className="comment-btn primary" onClick={() => addComment(art.id)}>
-            Agregar comentario
-          </button>
-        ) : (
-          <button
-            className="comment-btn secondary"
-            onClick={() => saveEditedComment(art.id)}
-          >
-            Guardar edición
-          </button>
-        )}
-      </div>
-    </div>
- {/* 👉 LISTA DE COMENTARIOS */}
-    <div className="comments-list">
-   {postComments[art.id]?.map(comment => (
-  <div key={comment.id} className="comment-item">
-    
-    {/* Avatar */}
-    <div className="comment-avatar"></div>
-
-    {/* Contenido */}
-    <div className="comment-body">
-      <div className="comment-header">
-        <span className="comment-username">Usuario Actual</span>
-        <span className="comment-time">• ahora</span>
-      </div>
-
-      {/* Texto del comentario */}
-      <p className="comment-text">{comment.text}</p>
-    </div>
-
-    {/* Menú de opciones (tres puntitos) */}
-    <div className="comment-menu">
-      <button
-        className="dots-btn"
-        onClick={() =>
-          setMenuOpen(menuOpen === comment.id ? null : comment.id)
-        }>
-        ⋮
-      </button>
-
-      {menuOpen === comment.id && (
-        <div className="menu-popup">
-          <button
-            onClick={() => {
-              setEditingComment(comment.id);
-              setCommentText(comment.text);
-              setActiveCommentBox(art.id);
-              setMenuOpen(null);
-            }}
-          >
-            ✏ Editar
-          </button>
-
-          <button
-            onClick={() => deleteComment(art.id, comment.id)}
-          >
-            🗑 Eliminar
-          </button>
-        </div>
-      )}
-    </div>
-  </div>
-))}
-
-    </div>
-
-  </div>
-)}
-
-
-                  {/* 🔄 COMPARTIR */}
-                  <div className="action-item">
-                    <Share2 className="action-icon" />
-                    <span>Compartir</span>
-                  </div>
                 </div>
 
+                {/* Sección de comentarios (visible por artículo) */}
+                {activeCommentBox === art.id && (
+                  <div className="comments-section">
+                    <div className="comment-container">
+                      <div className="comment-header">
+                        <div className="comment-avatar" />
+                        <div className="comment-user-info">
+                          <span className="comment-username">{currentUser.name}</span>
+                          <span className="comment-time">• ahora</span>
+                        </div>
+                      </div>
+
+                      <textarea
+                        value={commentText}
+                        onChange={(e) => setCommentText(e.target.value)}
+                        placeholder="Escribe tu comentario aquí..."
+                        className="comment-textarea"
+                        rows={3}
+                      />
+
+                      <div className="comment-actions">
+                        {!editingComment ? (
+                          <button className="comment-btn primary" onClick={() => addComment(art.id)}>
+                            Agregar comentario
+                          </button>
+                        ) : (
+                          <button className="comment-btn secondary" onClick={() => saveEditedComment(art.id)}>
+                            Guardar edición
+                          </button>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="comments-list">
+                      {(postComments[art.id] || []).map((comment) => (
+                        <div key={comment.id} className="comment-item">
+                          <div className="comment-avatar" />
+                          <div className="comment-body">
+                            <div className="comment-header">
+                              <span className="comment-username">{comment.authorName}</span>
+                              <span className="comment-time">• {comment.date}</span>
+                            </div>
+                            <p className="comment-text">{comment.text}</p>
+                          </div>
+
+                          <div className="comment-menu">
+                            <button
+                              className="dots-btn"
+                              onClick={() => setMenuOpen(menuOpen === comment.id ? null : comment.id)}
+                            >
+                              ⋮
+                            </button>
+
+                            {menuOpen === comment.id && (
+                              <div className="menu-popup">
+                                <button onClick={() => startEditingComment(comment, art.id)}>✏ Editar</button>
+                                <button onClick={() => deleteComment(art.id, comment.id)}>🗑 Eliminar</button>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
+
       </div>
-
-      {/* NEWSLETTER */}
-      <div className="blog-newsletter">
-        <div className="blog-newsletter-inner">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Suscríbete a nuestro newsletter
-          </h2>
-
-          <p className="text-white mb-6">
-            Recibe las últimas novedades y artículos directamente en tu correo.
-          </p>
-
-          <form className="flex gap-4">
-            <input
-              type="email"
-              placeholder="Tu correo electrónico"
-              className="blog-newsletter-input"
-            />
-            <button
-              type="submit"
-              className="blog-newsletter-btn"
-            >
-              Suscribirme
-            </button>
-          </form>
-        </div>
-      </div>
-
     </div>
   );
 }
+
+
+
+
+
+

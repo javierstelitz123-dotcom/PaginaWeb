@@ -27,7 +27,7 @@
 .detalle-nombre {
   font-size: 2.3rem;
   font-weight: 700;
-  color: rgb(255, 101, 45);
+  color: #f15a24;
   margin-bottom: 1px;
     text-align: left;
 }
@@ -42,7 +42,7 @@
 }
 
 .icono-ubicacion {
-  color: #e86a00;
+  color: #f15a24;
   width: 22px;
   height: 22px;
 }
@@ -51,13 +51,13 @@
 .galeria-container {
   position: relative;
   text-align: center;
-    max-width: 70%;   /* Reduce el tamaño general del contenedor */
+    max-width: 80%;   /* Reduce el tamaño general del contenedor */
   margin: 0 auto;   /* Centra el carrusel */
 }
 
 .imagen-principal img {
   width: 80%;
-  max-height: 600px;
+  max-height: 700px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -68,61 +68,47 @@
   transform: scale(1.01);
 }
 
-/* Flechas */
+/* === FLECHAS IGUALES AL PROYECTO 3 === */
 .flecha {
   position: absolute;
-  top: 40%;
-  background: rgba(255, 255, 255, 0.8);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f15a24 !important;
+  color: white !important;
   border: none;
-  padding: 10px;
-  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease;
+  cursor: pointer;
+  z-index: 30;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ← ESTE ES EL IMPORTANTE */
+.flecha svg {
+  width: 38px !important;
+  height: 38px !important;
 }
 
 .flecha:hover {
-  background: #f15a24;
-  color: white;
+  background: #d94d1e !important;
 }
 
 .flecha.izquierda {
-  left: 10%;
+  left: -50px;
 }
 
 .flecha.derecha {
-  right: 10%;
+  right: -50px;
 }
 
-/* Miniaturas */
-.miniaturas {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 30px;
-  overflow-x: auto;
-  padding: 10px;
-}
 
-.miniatura {
-  width: 100px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
 
-.miniatura:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
 
-.miniatura.activa {
-  border: 3px solid #f15a24;
-  opacity: 0;
-}
+
 /* ===== Descripción de Propiedad ===== */
 .descripcion-propiedad {
   margin-top: 60px;
@@ -133,7 +119,7 @@
 .descripcion-propiedad h3 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: rgb(255, 101, 45);
+  color: #f15a24;
   margin-bottom: 20px;
 }
 
@@ -210,7 +196,7 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 100px;
   position: absolute;
   top: 40px; /* más visible arriba del título */
   left: 60px;
@@ -341,3 +327,34 @@
   right: 20px;
 }
 
+.proyecto-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f15a24;
+  color: white;
+  padding: 10px 18px;
+  font-size: 1.2rem; /* ← Aumenté tamaño */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 15px 0 25px 20px;
+}
+.proyecto-badge {
+  position: absolute;
+  top: 75px;
+  left: 170px;
+  z-index: 20;
+
+  background: transparent !important;  /* SIN FONDO */
+  padding: 0 !important;               /* SIN CAJA */
+  border-radius: 0 !important;         /* SIN BORDES */
+  color: #1d3557;                      /* COLOR DEL TEXTO */
+  font-size: 3rem;                   /* TAMAÑO DEL TEXTO (ajustable) */
+  font-weight: 900;                    /* NEGRITA */
+}
+
+.proyecto-banner {
+  position: relative; 
+  margin-top: 20px; /* espacio bajo el botón volver */
+}

@@ -13,10 +13,18 @@ const Proyecto5 = () => {
 
   // Lista de imágenes del proyecto
   const imagenes = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4fPotyHtJFVHh20SUub_rIghwmwwL5q7yzgBxQ-IkGnddC9B",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6VZYf3Rk_6s4R1DyjRzZn-r1iL1vZpP4JfA",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy8Q-1B9tVZpGmF0T6sNwK4P8VChM9x5AokA",
-  ];
+    
+    "https://www.bienesonline.com/republica-dominicana/photos/residencial-dimher-proyecto-de-solares-SOV213601658616160-924.jpg",
+    "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSc53NYupKj2sZuLxJ6hUUGwm65EeJsXqwkOneu0PwtewZghz7P",
+     "https://d2kflbb1pmooh4.cloudfront.net/eyJidWNrZXQiOiAiYWx0ZXJlc3RhdGUiLCAia2V5IjogInN0YXRpYy9wcm9wZXJ0aWVzLzZPRzczRVhWMjgvQTRBNlRQRzUwRi9CRTJpaG03RGRGLzhkZWEwMTRlLTJmN2ItNDJmNS1iODAzLWUzMTA3OTdjZjc2OC5qZmlmIiwgImVkaXRzIjogeyJyZXNpemUiOiB7IndpZHRoIjogMTI4MCwgImhlaWdodCI6IDk2MCwgImZpdCI6ICJpbnNpZGUifSwgInRvRm9ybWF0IjogImpwZWciLCAianBlZyI6IHsicXVhbGl0eSI6IDcwfX19",
+      "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTFBtsmviGEiNkHEtaQ5cGlcVa1eRxVW7ahvSxgqHgAlWy30M_F",
+       "https://www.bienesonline.com/republica-dominicana/photos/residencial-dimher-proyecto-de-solares-SOV213601658616192-490.jpg",
+        "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR5frOjvKTNJliQVhR98LiWSCqkOzcinNXIa_jyUFPKdkJRCB9O",
+         "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ7zQZi3fQubyGmhecxLORYnZNnTDDFVgVqiHlLPM9GcyH8nCgq",
+          "https://d2kflbb1pmooh4.cloudfront.net/eyJidWNrZXQiOiAiYWx0ZXJlc3RhdGUiLCAia2V5IjogInN0YXRpYy9wcm9wZXJ0aWVzLzZPRzczRVhWMjgvUkVQS1FXOUlaSS9qRUQ4TTg0VjRTL2EwNDI5M2NjLWUzZWItNGY1MC04MTI2LWNjZjQ3YjI4OTI5ZS5qZmlmIiwgImVkaXRzIjogeyJyZXNpemUiOiB7IndpZHRoIjogMTAyNCwgImhlaWdodCI6IDc2OCwgImZpdCI6ICJpbnNpZGUifSwgInRvRm9ybWF0IjogImpwZWciLCAianBlZyI6IHsicXVhbGl0eSI6IDcwfX19",
+      
+            "https://drive.usercontent.google.com/download?id=1_m6gOTOkR4ko-8nVYgGIom22Og4SbCmh&export=view&authuser=0",
+  ];    
 
   const handleCopy = () => {
     navigator.clipboard.writeText(currentUrl);

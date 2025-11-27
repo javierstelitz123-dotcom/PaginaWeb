@@ -63,7 +63,7 @@ function FAQ() {
       Todas tus consultas{" "}
       <FontAwesomeIcon icon={faQuestionCircle} className="faq-hero-icon" />
     </h2>
-    <p>Resuelve tus dudas sobre nuestros servicios y proyectos inmobiliarios.</p>
+    <p><strong>Resuelve tus dudas sobre nuestros servicios y proyectos inmobiliarios.</strong></p>
   </div>
 </section>
 

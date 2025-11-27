@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import "./Contacto.css";
 import emailjs from "emailjs-com";
-import { useLocation } from "react-router-dom";  // ✅ IMPORTANTE
+import { useLocation } from "react-router-dom";
 
 const Contacto = () => {
-  const location = useLocation(); // ✅ Detecta si viene con #mapa
+  const location = useLocation();
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -15,38 +15,47 @@ const Contacto = () => {
     mensaje: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
-    emailjs
-      .send(
-        "service_ID",
-        "template_ID",
+    try {
+      await emailjs.send(
+        "service_sd1n69h",        // ⚠️ Reemplaza con tu Service ID de EmailJS
+        "template_rxpva3n",       // ⚠️ Reemplaza con tu Template ID de EmailJS
         {
-          nombre: formData.nombre,
-          correo: formData.correo,
-          asunto: formData.asunto,
-          mensaje: formData.mensaje,
-          to_email: "soporte@grupodimher.com",
+          name: formData.nombre,     // Cambiado de from_name a name
+          email: formData.correo,    // Cambiado de from_email a email
+          subject: formData.asunto,
+          message: formData.mensaje,
         },
-        "public_key"
-      )
-      .then(
-        () => {
-          alert("✅ Mensaje enviado correctamente");
-          setFormData({ nombre: "", correo: "", asunto: "", mensaje: "" });
-        },
-        () => {
-          alert("❌ Error al enviar el mensaje, inténtalo nuevamente");
-        }
+        "VsCYH7sqq0ZCeJhK-"         // ⚠️ Reemplaza con tu Public Key de EmailJS
       );
+
+      setSubmitStatus('success');
+      setFormData({ nombre: "", correo: "", asunto: "", mensaje: "" });
+      
+      // Ocultar mensaje después de 5 segundos
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      console.error("Error al enviar:", error);
+      setSubmitStatus('error');
+      
+      // Ocultar mensaje después de 5 segundos
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  // ✅ Scroll inteligente: si viene con #mapa → baja al mapa
   useEffect(() => {
     if (location.hash === "#mapa") {
       setTimeout(() => {
@@ -56,7 +65,6 @@ const Contacto = () => {
       return;
     }
 
-    // Scroll normal cuando NO viene del footer
     const section = document.getElementById("contacto");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -65,14 +73,11 @@ const Contacto = () => {
 
   return (
     <>
-      {/* ===== SECCIÓN DE CONTACTO PRINCIPAL ===== */}
       <section className="contacto-section" id="contacto">
-
         <div className="contacto-overlay">
           <h1 className="titulo-contacto">Contáctanos</h1>
 
           <div className="info-form-container">
-            {/* ===== INFORMACIÓN DE CONTACTO ===== */}
             <div className="info-contacto">
               <div className="info-item">
                 <FontAwesomeIcon 
@@ -105,9 +110,37 @@ const Contacto = () => {
               </div>
             </div>
 
-            {/* ===== FORMULARIO ===== */}
             <form className="form-contacto" onSubmit={handleSubmit}>
               <h2 className="subtitulo-form">¿Tienes alguna pregunta?</h2>
+
+              {/* Mensajes de estado */}
+              {submitStatus === 'success' && (
+                <div style={{
+                  padding: "12px",
+                  marginBottom: "15px",
+                  backgroundColor: "#d4edda",
+                  color: "#155724",
+                  border: "1px solid #c3e6cb",
+                  borderRadius: "5px",
+                  textAlign: "center"
+                }}>
+                  ✅ Mensaje enviado correctamente
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div style={{
+                  padding: "12px",
+                  marginBottom: "15px",
+                  backgroundColor: "#f8d7da",
+                  color: "#721c24",
+                  border: "1px solid #f5c6cb",
+                  borderRadius: "5px",
+                  textAlign: "center"
+                }}>
+                  ❌ Error al enviar el mensaje, inténtalo nuevamente
+                </div>
+              )}
 
               <div className="campo">
                 <label>Nombre Completo</label>
@@ -118,6 +151,7 @@ const Contacto = () => {
                   onChange={handleChange}
                   placeholder="Escribe tu nombre completo"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -130,6 +164,7 @@ const Contacto = () => {
                   onChange={handleChange}
                   placeholder="ejemplo@correo.com"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -142,6 +177,7 @@ const Contacto = () => {
                   onChange={handleChange}
                   placeholder="Motivo del mensaje"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -154,18 +190,26 @@ const Contacto = () => {
                   placeholder="Escribe tu mensaje aquí"
                   rows="5"
                   required
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn-enviar">
-                Enviar Mensaje
+              <button 
+                type="submit" 
+                className="btn-enviar"
+                disabled={isSubmitting}
+                style={{
+                  opacity: isSubmitting ? 0.6 : 1,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer'
+                }}
+              >
+                {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
               </button>
             </form>
           </div>
         </div>
       </section>
 
-      {/* ===== SECCIÓN DEL MAPA ===== */}
       <section className="mapa-fondo" id="mapa">
         <h2 className="titulo-mapa">Nuestra Ubicación</h2>
 

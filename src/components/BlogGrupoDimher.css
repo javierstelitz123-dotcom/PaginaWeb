@@ -5,7 +5,7 @@
 
 /* HERO */
 .blog-hero-gradient {
-  background: linear-gradient(to right, #9333ea, #db2777, #f97316);
+  background: linear-gradient(to right,#1d3557, #1d3557,#f15a24, #f15a24);
   padding: 80px 20px;
   position: relative;
   overflow: hidden;
@@ -184,7 +184,7 @@
 .blog-card-dest-bg {
     width: 100%;
     height: 400px; /* aumenta este valor para que se vea más grande */
-    background-image: url('https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg');
+    background-image: url('https://drive.google.com/uc?export=view&id=1_m6gOTOkR4ko-8nVYgGIom22Og4SbCmh');
     background-size: cover; /* hace que la imagen cubra todo el contenedor */
     background-position: center; /* centra la imagen */
     display: flex;
@@ -239,11 +239,11 @@
 
 .blog-card-dest-tag {
     padding: 6px 12px;
-    background: #3b82f6;
     color: white;
     font-weight: 700;
     border-radius: 15px;
 }
+
 
 .blog-card-dest-title {
   font-size: 2rem !important;
@@ -345,63 +345,63 @@
 
 /* Colores por categoría (borde blanco) */
 .blog-cat-btn[data-cat="todos"] {
-  color: #6b21a8; 
+  color: black; 
   border: 2px solid white;
 }
 
 .blog-cat-btn[data-cat="finanzas"] {
-  color: #2563eb; 
+  color: black; 
   border: 2px solid white;
 }
 
 .blog-cat-btn[data-cat="carrera"] {
-  color: #16a34a; 
+  color: black; 
   border: 2px solid white;
 }
 
 .blog-cat-btn[data-cat="liderazgo"] {
-  color: #ea580c; 
+  color: black; 
   border: 2px solid white;
 }
 
 .blog-cat-btn[data-cat="tecnologia"] {
-  color: #4f46e5; 
+  color: black; 
   border: 2px solid white;
 }
 
 .blog-cat-btn[data-cat="cultura"] {
-  color: #db2777; 
+  color: black; 
   border: 2px solid white;
 }
 
 /* Botón activo: degradado */
 .blog-cat-btn.blog-cat-active[data-cat="todos"] {
-  background: linear-gradient(90deg, #a855f7, #ec4899);
+  background: linear-gradient(90deg, #0610a3, #2d67bd);
   color: white;
 }
 
 .blog-cat-btn.blog-cat-active[data-cat="finanzas"] {
-  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  background: linear-gradient(90deg, #1d3557, #154991);
   color: white;
 }
 
 .blog-cat-btn.blog-cat-active[data-cat="carrera"] {
-  background: linear-gradient(90deg, #22c55e, #10b981);
+  background: linear-gradient(90deg, #03b143, #2e8841);
   color: white;
 }
 
 .blog-cat-btn.blog-cat-active[data-cat="liderazgo"] {
-  background: linear-gradient(90deg, #f97316, #ef4444);
+  background: linear-gradient(90deg, #257439, #2b6d47e3);
   color: white;
 }
 
 .blog-cat-btn.blog-cat-active[data-cat="tecnologia"] {
-  background: linear-gradient(90deg, #6366f1, #a855f7);
+  background: linear-gradient(90deg, #f15a24, #ff5c21);
   color: white;
 }
 
 .blog-cat-btn.blog-cat-active[data-cat="cultura"] {
-  background: linear-gradient(90deg, #ec4899, #f43f5e);
+  background: linear-gradient(90deg, #dd4905, #e20f0f);
   color: white;
 }
 /* Imagen arriba del subtitulo Finanzas */
@@ -1403,4 +1403,52 @@
   transform: scale(1.1);
 }
 
+/* 🎨 ESTILOS PARA LOS BADGES DE CATEGORÍA CON GRADIENTES */
 
+.blog-card-tag {
+  display: inline-block;
+  padding: 9px 17px;
+  border-radius: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* 🎨 GRADIENTES POR CATEGORÍA */
+.blog-card-tag[data-cat="finanzas"] {
+  background: linear-gradient(135deg, #1d3557, #154991);
+}
+
+.blog-card-tag[data-cat="carrera"] {
+  background: linear-gradient(135deg, #03b143, #2e8841);
+}
+
+.blog-card-tag[data-cat="liderazgo"] {
+  background: linear-gradient(135deg, #257439, #2b6d47e3);
+}
+
+.blog-card-tag[data-cat="tecnologia"] {
+  background: linear-gradient(135deg, #f15a24, #ff5c21);
+}
+
+.blog-card-tag[data-cat="cultura"] {
+  background: linear-gradient(135deg,  #dd4905, #e20f0f);
+}
+
+.blog-card-tag[data-cat="todos"] {
+  background: linear-gradient(135deg, #0610a3, #2d67bd);
+}
+.blog-todos-title {
+  font-size: 2.8rem;        /* tamaño más grande */
+  font-weight: 900;         /* más grueso */
+  color: #000;              /* negro */
+  margin-top: 90px;
+}

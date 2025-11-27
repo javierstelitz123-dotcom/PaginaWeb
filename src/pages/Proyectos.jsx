@@ -3,8 +3,8 @@ import "./Proyectos.css";
 import { MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const edificio =
-  "https://grupodimher.com/assets/images/frontend/breadcrumb/663f60dbb6e921715429595.png";
+
+
 
 const proyecto1 =
   "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSEKQ3f6_P0lwvHskCszJCTijeyFRcFgp82KZb-HMvMLwVnimkD";
@@ -39,8 +39,8 @@ const Proyectos = () => {
 
       <div className="proyectos-content">
         <div className="imagen-container">
-          <img src={edificio} alt="Edificio" className="imagen-edificio" />
-          <div className="overlay-text">Proyectos</div>
+         
+          <div className="overlay-text"><strong>Proyectos</strong></div>
         </div>
 
         <div className="proyectos-grid">

@@ -80,34 +80,6 @@
 .proyecto-banner-texto p {
   font-size: 1.2rem;
 }
-
-/* Flechas */
-.proyecto-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.45);
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  font-size: 26px;
-  cursor: pointer;
-  z-index: 20;
-  border-radius: 50%;
-}
-
-.proyecto-arrow.left {
-  left: 20px;
-}
-
-.proyecto-arrow.right {
-  right: 20px;
-}
-
-.proyecto-arrow:hover {
-  background: rgba(0, 0, 0, 0.65);
-}
-
 /* Contenido */
 .proyecto-info-container {
   max-width: 1200px;
@@ -202,26 +174,6 @@
   border-radius: 12px;
 }
 
-.flecha {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  padding: 12px 18px;
-  font-size: 2rem;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-}
 
-.flecha.izquierda {
-  left: -50px;
-}
-
-.flecha.derecha {
-  right: -50px;
-}
 
 

@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  color: #1d3557;
 }
 
 /* Fondo inmobiliario detrás de las letras (imagen número 5) */
@@ -18,17 +17,23 @@
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  background: url('https://png.pngtree.com/thumb_back/fh260/background/20220312/pngtree-urban-high-rise-building-construction-image_1065163.jpg') center/cover no-repeat;
-  opacity: 0.25;
+  background-image: url('../assets/mi-fondo.jpg');
+
+  /* 🔥 Hace la imagen más grande */
+  background-size: cover;        
+  background-position: center;
+  background-repeat: no-repeat;
+
   z-index: 0;
   pointer-events: none;
   border-radius: 15px;
 }
 
+
 /* Letras de fondo centradas sobre el fondo */
 .hero-bg-nombre {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 10rem;
@@ -41,8 +46,9 @@
 }
 
 .hero-bg-nombre .grupo {
-  color: rgba(10, 22, 133, 0.4);
+  color: rgb(10, 22, 133); /* mismo color pero SIN opacidad */
 }
+
 
 .hero-bg-nombre .dimher {
   color: rgb(255, 101, 45);
@@ -63,23 +69,27 @@
 
 /* Texto hero */
 .hero-text p.hero-subtitle {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: black;
   margin-bottom: 30px;
   max-width: 700px;
+background-color: rgba(255, 255, 255, 0.425);
+   margin-top: -130px;
 }
 
 /* Botón hero */
 .cta-btn {
   background: #044f9e;
   color: #fff;
-  padding: 16px 32px;
+  padding: 18px 34px;
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(0, 123, 255, 0.3);
+    font-size: 1.2rem; /* ⬅️ AQUÍ SE AGRANDA LA LETRA */
+    margin-top: 20px;
 }
 
 .cta-btn:hover {

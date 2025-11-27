@@ -13,7 +13,7 @@ function Nosotros() {
   <h1>
     Conoce a <span className="grupo-azul">Grupo</span> <span>Dimher</span>
   </h1>
-  <p>Tu aliado confiable en el mundo inmobiliario.</p>
+  <p>Tu <strong>aliado confiable</strong> en el mundo inmobiliario.</p>
 </section>
 
 

@@ -56,53 +56,36 @@
 }
 
 /* Flechas slider */
+/* === FLECHAS NARANJA FIJO === */
 .flecha {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
-  background-color: rgba(255, 122, 0, 0.8);
-  border: none;
-  color: white;
+  background: #f15a24 !important;   /* ← FONDO NARANJA FIJO */
+  color: #ffffff !important;         /* ← ICONO BLANCO */
+  border: 2px solid #f15a24 !important;
+  padding: 12px 28px;
   font-size: 2rem;
-  padding: 10px 15px;
   cursor: pointer;
   border-radius: 50%;
-  z-index: 5;
-  transition: background 0.3s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
+/* Hover → solo ilumina, sin cambiar color */
 .flecha:hover {
-  background-color: #ff9500;
+  background: #f15a24 !important;
+  filter: brightness(1.1);
 }
 
-.flecha.izquierda { left: 20px; }
-.flecha.derecha { right: 20px; }
-
-/* Miniaturas */
-.miniaturas {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+.flecha.izquierda {
+  left: 20px;
 }
 
-.miniatura {
-  width: 80px;
-  height: 60px;
-  object-fit: cover;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  transition: border 0.3s, transform 0.2s;
+.flecha.derecha {
+  right: 20px;
 }
 
-.miniatura:hover {
-  transform: scale(1.05);
-}
 
-.miniatura.activa {
-  border: 2px solid #ff7a00;
-}
 
 /* Badge sobre la imagen */
 .proyecto-badge {
