@@ -207,133 +207,118 @@ useEffect(() => {
   // Datos (tal cual los tenías)
   const categorias = [
     { id: "todos", name: "Todos",  },
-    { id: "finanzas", name: "Finanzas"},
-    { id: "carrera", name: "Desarrollo Profesional" },
-    { id: "liderazgo", name: "Liderazgo"},
-    { id: "tecnologia", name: "Tecnología"},
-    { id: "cultura", name: "Cultura Empresarial" },
+    { id: "análisis de terrenos", name: "Análisis de Terrenos"},
+    { id: "leyes y regulaciones", name: "Leyes y Regulaciones " },
+    { id: "comercialización de lotes", name: "Comercialización de Lotes"},
+    { id: "plusvalía territorial", name: "Plusvalía Territorial"},
+    { id: "infraestructura en proyectos", name: "Infraestructura en Proyectos" },
   ];
 
   const articulos = [
     {
       id: 1,
-      titulo: "5 Estrategias para Alcanzar tus Metas Financieras en 2025",
-      categoria: "finanzas",
+      titulo: "¿Cómo asegurar una inversión inteligente mediante el análisis del terreno?",
+      categoria: "análisis de terrenos",
       autor: "María González",
       fecha: "15 Noviembre 2025",
       lecturaMin: 8,
       imagen:
-        "https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg",
+        "https://www.aguirrebaeza.com/wp-content/uploads/2015/12/5179550_m.jpg",
       extracto:
-        "Descubre cómo planificar tus finanzas personales con métodos probados que te ayudarán a lograr la libertad financiera que siempre has deseado.",
+        "El análisis de terrenos es el proceso de evaluación integral de una propiedad antes de su adquisición, considerando aspectos físicos, legales y de viabilidad técnica.",
       likes: 245,
       comentarios: 32,
       trending: true,
     },
     {
       id: 2,
-      titulo: "¿Cómo Construir una Carrera Exitosa desde Cero?",
-      categoria: "carrera",
+      titulo: "Normativas clave que rigen el desarrollo inmobiliario en República Dominicana",
+      categoria: "leyes y regulaciones",
       autor: "Carlos Ramírez",
       fecha: "12 Noviembre 2025",
       lecturaMin: 6,
       imagen:
-        "https://media.licdn.com/dms/image/v2/D4D12AQFOZ0PV5jGTog/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656016261162?e=2147483647&v=beta&t=9mrP2iYOOLzVpCJ81i3DgRMGV3zOlIh2kOl7MS3eXFo",
+        "https://presidencia.gob.do/sites/default/files/styles/large/public/news/2025-09/PHOTO-2025-09-11-20-05-30%20%281%29.jpg?itok=nAkYnjr0",
       extracto:
-        "Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional con consejos de expertos en recursos humanos.",
+        "En República Dominicana, desarrollar terrenos no es solo planificar calles, levantar infraestructura y vender lotes.",
       likes: 189,
       comentarios: 28,
       trending: true,
     },
     {
       id: 3,
-      titulo: "El Poder del Liderazgo Transformacional en las Empresas",
-      categoria: "liderazgo",
+      titulo: "¿Cómo la visión estratégica impulsa la comercialización efectiva de lotes?",
+      categoria: "comercialización de lotes",
       autor: "Ana Martínez",
       fecha: "10 Noviembre 2025",
       lecturaMin: 10,
       imagen:
-        "https://th.bing.com/th/id/R.adffbdcce3bbfcdd012beeb17004a50b?rik=RTiSeOkxzTRIgA&pid=ImgRaw&r=0",
+        "https://media.licdn.com/dms/image/v2/D4D12AQHxvhpu2kGoCA/article-cover_image-shrink_720_1280/B4DZkWbKByHYAM-/0/1757017846744?e=2147483647&v=beta&t=15UnuwXVIxvSCdaH0P_WmujlbnAKOPSlAHPaUTI7HGQ",
       extracto:
-        "Un líder no solo dirige, transforma. Conoce las claves del liderazgo que está revolucionando el mundo corporativo y cómo puedes aplicarlo.",
+        "Cuando hablamos de comercialización de lotes, no se trata solo de vender terrenos; se trata de aplicar estrategias inteligentes que permitan mover inventario rápido, posicionar el proyecto y alcanzar los ingresos que el desarrollo necesita para ser rentable.",
       likes: 312,
       comentarios: 45,
       trending: true,
     },
     {
       id: 4,
-      titulo: "Inteligencia Artificial en el Sector Financiero",
-      categoria: "tecnologia",
+      titulo: "¿Cómo Identificar Zonas con Alto Potencial Antes de Desarrollar un Terreno?",
+      categoria: "plusvalía territorial",
       autor: "Roberto Silva",
       fecha: "08 Noviembre 2025",
       lecturaMin: 7,
       imagen:
-        "https://conversesacatalunya.cat/wp-content/uploads/2024/07/inteligencia-artificial-1024x594.jpg",
+        "https://solario.pe/wp-content/uploads/2025/08/Terrenos-en-venta-en-Piura.jpg",
       extracto:
-        "LLa IA está cambiando la forma en que las empresas financieras operan. Descubre las tendencias tecnológicas que marcarán la diferencia.",
+        "Factores claves que permiten anticipar el crecimiento urbano y elegir terrenos que garanticen alta rentabilidad en el mediano y largo plazo.",
       likes: 278,
       comentarios: 38,
       trending: false,
     },
     {
       id: 5,
-      titulo: "Cultura Organizacional: El Secreto del Éxito Empresarial",
-      categoria: "cultura",
+      titulo: "Planificación de Infraestructura en Proyectos de Urbanización",
+      categoria: "infraestructura en proyectos",
       autor: "Laura Pérez",
       fecha: "05 Noviembre 2025",
       lecturaMin: 9,
-      imagen: "https://www.ceupe.co/images/easyblog_articles/152/img-portada-organizacional.png",
-      extracto:
-        "Una cultura empresarial sólida es la base de equipos productivos y felices. Aprende cómo construir un ambiente laboral inspirador.",
+      imagen: "https://d2fl3xywvvllvq.cloudfront.net/wp-content/uploads/2019/02/architecture.jpg",
+      extracto:  "Cuando hablamos de desarrollar terrenos, muchas personas piensan solo en el trazado de calles y la división de lotes. Pero la verdadera columna vertebral de un proyecto inmobiliario exitoso es la infraestructura. Sin infraestructura, un lote es solo tierra.",
       likes: 156,
       comentarios: 21,
       trending: false,
     },
     {
       id: 6,
-      titulo: "Inversiones Inteligentes para Principiantes",
-      categoria: "finanzas",
+      titulo: "¿Cómo evaluar si un terreno es apto para un desarrollo inmobiliario?",
+      categoria: "análisis de terrenos",
       autor: "Diego Torres",
       fecha: "03 Noviembre 2024",
       lecturaMin: 5,
       imagen:
-        "https://tpp-blog-wordpress.s3.amazonaws.com/wp-content/uploads/2023/10/30185035/Inversiones-inteligentes-%C2%BFcomo-hacer-que-tu-dinero-trabaje-para-tu-empresa.jpg",
+        "https://media.licdn.com/dms/image/v2/D5612AQFqYZqyDxldcQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1687286462862?e=2147483647&v=beta&t=BtwPO09rC0IT4JgzAr1jXP9Fn_hTD49RzbBLeJ5yemU",
       extracto:
-        "No necesitas ser un experto para empezar a invertir. Esta guía te mostrará los primeros pasos hacia la construcción de tu patrimonio.",
+        "Guía práctica y definitiva para identificar terrenos rentables, evitar riesgos y tomar decisiones seguras.",
       likes: 423,
       comentarios: 67,
       trending: true,
     },
     {
       id: 7,
-      titulo: "Habilidades Blandas: Tu Ventaja Competitiva",
-      categoria: "carrera",
+      titulo: "Guía esencial para evitar fraudes inmobiliarios",
+      categoria: "leyes y regulaciones",
       autor: "Isabel Moreno",
       fecha: "01 Noviembre 2024",
       lecturaMin: 6,
       imagen:
-        "https://itcformacionyconsultoria.com/wp-content/uploads/2024/02/habilidades-blandas-o-soft-skills.jpg",
+        "https://cdn-blog.arriendo.com/co/blog/wp-content/uploads/2022/11/estafas-en-finca-raiz-scaled.jpg",
       extracto:
-        "Las habilidades técnicas te consiguen el trabajo, pero las habilidades blandas te ayudan a crecer. Descubre cuáles son las más valoradas.",
+        "Comprar un terreno puede ser la mejor decisión para crear valor… o el peor error si no verificas su legalidad.",
       likes: 267,
       comentarios: 34,
       trending: false,
     },
-    {
-      id: 8,
-      titulo: "Gestión del Tiempo para Líderes Ocupados",
-      categoria: "liderazgo",
-      autor: "Fernando López",
-      fecha: "29 Octubre 2024",
-      lecturaMin: 7,
-      imagen:
-        "https://cristianosempresarios.com/wp-content/uploads/2024/10/gestion-del-tiempo-estrategias-biblicas.jpg",
-      extracto:
-        "El tiempo es el recurso más valioso de un líder. Aprende técnicas avanzadas para maximizar tu productividad sin sacrificar tu bienestar.",
-      likes: 198,
-      comentarios: 25,
-      trending: false,
-    },
+
   ];
 
   const articulosDestacados = articulos.filter((art) => art.trending).slice(0, 3);
@@ -495,262 +480,232 @@ return (
                 <p className="blog-card-dest-text">{art.extracto}</p>
 
                 {/* Mostrar contenido extra SOLO si coincide con idFromURL */}
-{/* TEXTO COMPLETO PARA PUBLICACIÓN 1 */}
-{art.id === 1 && selectedCategory === "finanzas" && (
+{/* TEXTO COMPLETO PARA PUBLICACIÓN 1 */} 
+{art.id === 1 && selectedCategory === "análisis de terrenos" && (
   <div className="blog-extra-content">
     <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-      <h3><strong>Introducción</strong></h3>
+      <h3><strong>Análisis de Terrenos</strong></h3>
       <p>
-        La planificación financiera es la base del éxito económico. En 2025, con la economía global en constante evolución, 
-        es más importante que nunca tener un plan claro y ejecutable para alcanzar tus objetivos financieros.
+        El análisis de terrenos es el proceso de evaluación integral de una propiedad antes de su adquisición, 
+        considerando aspectos físicos, legales y de viabilidad técnica.
       </p>
 
-      <h3 style={{ marginTop: "18px" }}><strong>1. Establece Metas SMART</strong></h3>
       <p>
-        Las metas financieras deben ser Específicas, Medibles, Alcanzables, Relevantes y con un Tiempo definido. 
-        En lugar de decir "quiero ahorrar más", establece: 
-        <em>"ahorraré $500 mensuales durante 12 meses para un fondo de emergencia de $6,000"</em>.
+        <strong>Objetivo:</strong> Minimizar riesgos de inversión identificando problemas potenciales y determinar 
+        la factibilidad técnica y económica del desarrollo proyectado antes de comprometer capital.
       </p>
 
-      <p style={{ marginTop: "10px" }}><strong>Ejemplo práctico:</strong></p>
-      <ul className="blog-list">
-        <li>Meta a corto plazo: Ahorrar $2,000 en 6 meses</li>
-        <li>Meta a mediano plazo: Pagar deudas de tarjetas en 18 meses</li>
-        <li>Meta a largo plazo: Acumular $50,000 para enganche de vivienda en 5 años</li>
-      </ul>
-
-      <h3 style={{ marginTop: "18px" }}><strong>2. Crea un Presupuesto 50/30/20</strong></h3>
+      <h3 style={{ marginTop: "18px" }}><strong>¿Qué evaluar antes de comprar?</strong></h3>
       <p>
-        Esta regla divide tus ingresos en tres categorías: 50% necesidades, 30% deseos y 20% ahorros e inversiones. 
-        Es simple pero efectiva para mantener tus finanzas balanceadas.
+        Antes de adquirir un terreno, es fundamental realizar estudios topográficos y de mecánica de suelos que 
+        revelen las características físicas del predio. Esto determina si el terreno soportará construcciones 
+        y qué costos de preparación serán necesarios.
       </p>
 
-      <h3 style={{ marginTop: "18px" }}><strong>3. Automatiza tus Ahorros</strong></h3>
+      <h3 style={{ marginTop: "18px" }}><strong>Due Diligence Legal</strong></h3>
       <p>
-        La automatización elimina la tentación de gastar. Configura transferencias automáticas el día que recibes tu salario. 
-        Si no ves el dinero, no lo extrañarás.
+        Verificar la situación jurídica es crítico: revisar escrituras, ausencia de gravámenes, sucesiones intestadas 
+        y que los linderos coincidan con la documentación. Un terreno con problemas legales puede convertirse 
+        en una inversión perdida.
       </p>
 
-      <h3 style={{ marginTop: "18px" }}><strong>4. Diversifica tus Inversiones</strong></h3>
+      <h3 style={{ marginTop: "18px" }}><strong>Servicios y Accesibilidad</strong></h3>
       <p>
-        No pongas todos tus huevos en la misma canasta. Considera fondos indexados, bonos, bienes raíces y criptomonedas 
-        según tu perfil de riesgo. La diversificación protege tu patrimonio de la volatilidad del mercado.
-      </p>
-
-      <h3 style={{ marginTop: "18px" }}><strong>5. Revisa y Ajusta Trimestralmente</strong></h3>
-      <p>
-        Tus metas financieras no están escritas en piedra. Revísalas cada trimestre y ajusta según cambios en tu vida, ingresos 
-        o prioridades. La flexibilidad es clave para el éxito financiero a largo plazo.
-      </p>
-
-      <h3 style={{ marginTop: "18px" }}><strong>Conclusión</strong></h3>
-      <p>
-        Alcanzar la libertad financiera requiere disciplina, paciencia y estrategia. Comienza hoy con estos cinco pasos y verás 
-        resultados tangibles en tu patrimonio personal. Recuerda: el mejor momento para planificar fue ayer, el segundo mejor 
-        momento es ahora.
+        La disponibilidad de agua, drenaje, electricidad y accesos pavimentados impacta directamente en los costos 
+        de urbanización. Terrenos bien ubicados con servicios cercanos reducen la inversión inicial y aceleran 
+        la comercialización.
       </p>
 
     </div>
   </div>
 )}
 
+
  
-{/* 📌 TEXTO COMPLETO PARA LA SEGUNDA PUBLICACIÓN (INVERSIONES INTELIGENTES) */}
+{/* 📌 TEXTO COMPLETO PARA LA SEGUNDA PUBLICACIÓN (ANÁLISIS DE TERRENOS) */} 
 {art.id === 6 && (
   <div className="blog-extra-content">
 
-    {/* TEXTO INICIAL MUY BREVE (VISIBLE EN TODOS) */}
-
-    {/* TEXTO COMPLETO SOLO CUANDO SE ESTÁ EN LA CATEGORÍA FINANZAS */}
-    {selectedCategory === "finanzas" && (
+    {/* TEXTO COMPLETO SOLO CUANDO SE ESTÁ EN LA CATEGORÍA Análisis de Terrenos */}
+    {selectedCategory === "análisis de terrenos" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-        <h2><strong>Desmitificando el Mundo de las Inversiones</strong></h2>
+        <h2><strong>Cómo evaluar si un terreno es apto para un desarrollo inmobiliario</strong></h2>
         <p>
-          Muchas personas creen que invertir es solo para los ricos o para expertos financieros. 
-          La realidad es otra: cualquiera puede empezar a invertir con conocimientos básicos y un plan sólido. 
-          No se trata de cuánto dinero tienes, sino de comenzar lo antes posible y mantener la consistencia.
+          Guía práctica y definitiva para identificar terrenos rentables, evitar riesgos y tomar decisiones seguras.
+          Comprar un terreno no es solo elegir un lugar bonito: es tomar una decisión estratégica que puede multiplicar 
+          (o destruir) tu inversión.  
+          En esta guía aprenderás, con pasos claros y aplicables, cómo determinar si un terreno es realmente viable 
+          para un desarrollo inmobiliario. Al finalizar tendrás un criterio profesional para decidir con seguridad, 
+          reducir riesgos y comunicar confianza a clientes o socios.
         </p>
 
-        <h3 style={{ marginTop: "18px" }}><strong>El Poder del Interés Compuesto</strong></h3>
+        <h3 style={{ marginTop: "18px" }}><strong>Empieza por la visión: ¿Qué quieres desarrollar?</strong></h3>
         <p>
-          Albert Einstein llamó al interés compuesto “la octava maravilla del mundo”. 
-          Cuando inviertes, no solo ganas rendimientos sobre tu inversión inicial, 
-          sino también sobre las ganancias acumuladas. Así es como pequeñas cantidades 
-          se convierten en grandes resultados con el tiempo.
+          Antes de analizar aspectos técnicos, define el objetivo: ¿lotes residenciales, proyectos turísticos, 
+          industriales o urbanizaciones?  
+          El uso propuesto determina las normativas aplicables, requisitos técnicos y perfil de comprador. 
+          Esta claridad ahorra tiempo y evita verificaciones innecesarias.
         </p>
 
-        <h4><strong>Ejemplo real:</strong></h4>
+        <h3 style={{ marginTop: "18px" }}><strong>Análisis físico del terreno (campo)</strong></h3>
         <ul className="blog-list">
-          <li>Si inviertes $200 mensuales con un rendimiento del 8% anual:</li>
-          <li>En 10 años: <strong>$36,500</strong></li>
-          <li>En 20 años: <strong>$118,000</strong></li>
-          <li>En 30 años: <strong>$298,000</strong></li>
-        </ul>
-        <p>
-          Tu aportación total sería solo $72,000 en 30 años, ¡pero el interés compuesto 
-          añade más de $226,000 adicionales!
-        </p>
-
-        <h3 style={{ marginTop: "20px" }}><strong>Tipos de Inversiones para Principiantes</strong></h3>
-
-        <h4><strong>1. Fondos Indexados</strong></h4>
-        <p>
-          Replican un índice del mercado (por ejemplo, el S&P 500).  
-          Ventajas: diversificación automática, bajas comisiones y no requieren gestión activa.
-        </p>
-
-        <h4><strong>2. Fondos de Inversión</strong></h4>
-        <p>
-          Son gestionados por profesionales. Ideales si quieres delegar tus decisiones, 
-          aunque las comisiones suelen ser más altas.
-        </p>
-
-        <h4><strong>3. Certificados de Depósito (CDs)</strong></h4>
-        <p>
-          Son inversiones de bajo riesgo donde prestas dinero al banco durante un plazo fijo. 
-          Ideales para dinero que no necesitarás pronto.
-        </p>
-
-        <h4><strong>4. Bonos</strong></h4>
-        <p>
-          Son préstamos al gobierno o empresas. Dan ingresos más estables y ayudan a balancear el riesgo total.
-        </p>
-
-        <h4><strong>5. Acciones Individuales</strong> (con precaución)</h4>
-        <p>
-          Pueden ser muy lucrativas, pero volátiles. Nunca coloques más del 5–10% 
-          en una sola acción sin experiencia previa.
-        </p>
-
-        <h3 style={{ marginTop: "20px" }}><strong>Los 5 Pasos para Empezar a Invertir</strong></h3>
-
-        <p><strong>Paso 1: Construye tu Fondo de Emergencia</strong></p>
-        <p>
-          Antes de invertir, asegúrate de tener entre 3 y 6 meses de gastos ahorrados. 
-          Esto te evitará vender tus inversiones en pérdida por una emergencia.
-        </p>
-
-        <p><strong>Paso 2: Define tus Objetivos</strong></p>
-        <p>
-          Tu estrategia depende de si buscas ahorrar para retiro, comprar casa o generar ingresos pasivos.
-        </p>
-
-        <p><strong>Paso 3: Conoce tu Tolerancia al Riesgo</strong></p>
-        <p>
-          Si una caída del 20% te quita el sueño, necesitas opciones más conservadoras.
-        </p>
-
-        <p><strong>Paso 4: Abre una Cuenta de Inversión</strong></p>
-        <p>
-          Plataformas como Vanguard, Fidelity o brokers locales son excelentes para empezar.
-        </p>
-
-        <p><strong>Paso 5: Invierte de Forma Pequeña y Consistente</strong></p>
-        <p>
-          No esperes “tener dinero”. Empieza con lo que puedas: incluso $50 al mes son suficientes.
-        </p>
-
-        <h3 style={{ marginTop: "20px" }}><strong>Errores Comunes que Debes Evitar</strong></h3>
-
-        <ul className="blog-list">
-          <li><strong>Intentar predecir el mercado.</strong> Nadie lo logra consistentemente.</li>
-          <li><strong>No diversificar.</strong> Distribuye entre activos y sectores.</li>
-          <li><strong>Seguir modas.</strong> Invierte basado en análisis, no en rumores.</li>
-          <li><strong>Ignorar comisiones.</strong> Busca fondos con menos de 0.5% anual.</li>
-          <li><strong>Pánico en caídas.</strong> Mantén la calma y sigue tu plan.</li>
+          <li><strong>Accesos y conectividad:</strong> mide carreteras, caminos y tiempo hacia zonas urbanas. Un terreno bien conectado vende más rápido.</li>
+          <li><strong>Topografía:</strong> pendientes fuertes o depresiones elevan costos de movimiento de tierra y drenaje.</li>
+          <li><strong>Suelo y geotecnia:</strong> solicita un estudio básico para evitar suelos inestables que encarezcan cimentaciones.</li>
+          <li><strong>Hidrología e inundaciones:</strong> revisa cauces, humedales e historial de crecidas.</li>
+          <li><strong>Servicios cercanos:</strong> agua, electricidad, saneamiento e internet. La ausencia de estos puede retrasar años un proyecto.</li>
+          <li><strong>Vegetación y restricciones ambientales:</strong> identifica áreas protegidas, especies o bosques no edificables.</li>
         </ul>
 
-        <h3 style={{ marginTop: "20px" }}><strong>Estrategia Simple para Principiantes: Regla 80/20</strong></h3>
-        <p>
-          80% en fondos indexados diversificados  
-          20% en bonos  
-          A medida que te acerques al retiro, aumenta el porcentaje en bonos.
-        </p>
+        <h3 style={{ marginTop: "18px" }}><strong>Análisis legal y registral (seguridad jurídica)</strong></h3>
+        <ul className="blog-list">
+          <li><strong>Titularidad y saneamiento:</strong> exige título, historial registral y ausencia de litigios.</li>
+          <li><strong>Linderos y planos:</strong> verifica coherencia entre el plano catastral y la realidad física.</li>
+          <li><strong>Servidumbres y restricciones:</strong> caminos, pasos, uso agrícola o limitaciones municipales.</li>
+          <li><strong>Compatibilidad municipal:</strong> uso de suelo, densi­dad, retraimientos y requisitos del ayuntamiento.</li>
+          <li><strong>Normas recientes:</strong> revisa nuevas ordenanzas que puedan afectar el proyecto.</li>
+        </ul>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Evaluación ambiental y permisos</strong></h3>
+        <ul className="blog-list">
+          <li><strong>DIA o estudios ambientales:</strong> determina si el proyecto requiere permisos ambientales.</li>
+          <li><strong>Zonas protegidas o riesgo de erosión:</strong> evita paralizaciones costosas.</li>
+          <li><strong>Plan de mitigación:</strong> considera costos y tiempos si hay afectación ambiental.</li>
+        </ul>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Factibilidad técnica (servicios e infraestructura)</strong></h3>
+        <ul className="blog-list">
+          <li><strong>Factibilidad eléctrica:</strong> solicita confirmación a EDENORTE, EDESUR o EDEESTE.</li>
+          <li><strong>Agua y saneamiento:</strong> disponibilidad o necesidad de pozos o plantas sépticas.</li>
+          <li><strong>Vialidad interna:</strong> determina si las vías soportan el tráfico proyectado.</li>
+          <li><strong>Telecomunicaciones:</strong> internet/fibra óptica es clave para la demanda actual.</li>
+          <li><strong>Costos de urbanización:</strong> movimiento de tierra, calles, desagüe, alumbrado y permisos.</li>
+        </ul>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Análisis de mercado y demanda</strong></h3>
+        <ul className="blog-list">
+          <li><strong>Perfil de comprador:</strong> inversionistas, constructores o usuarios finales.</li>
+          <li><strong>Competencia:</strong> evalúa oferta y velocidad de venta en la zona.</li>
+          <li><strong>Plusvalía proyectada:</strong> inversión pública, vías nuevas o crecimiento urbano.</li>
+          <li><strong>Estrategias de venta:</strong> financiamiento, precios, incentivos y argumentos de valor.</li>
+        </ul>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Evaluación financiera</strong></h3>
+        <ul className="blog-list">
+          <li>Costo total: adquisición + urbanización + permisos.</li>
+          <li>Precio de venta por lote y ritmo esperado.</li>
+          <li>Margen deseado y recuperación.</li>
+          <li>Escenarios negativos: menor precio, retraso en ventas.</li>
+          <li>Flujo de caja: preventas, préstamos o socios.</li>
+        </ul>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Riesgos comunes y cómo mitigarlos</strong></h3>
+        <ul className="blog-list">
+          <li><strong>Títulos no saneados →</strong> saneamiento previo y revisión registral.</li>
+          <li><strong>Problemas de drenaje →</strong> diseño pluvial profesional.</li>
+          <li><strong>Falta de servicios →</strong> acuerdos con suplidoras o ejecución por fases.</li>
+          <li><strong>Cambios normativos →</strong> constante actualización legal.</li>
+          <li><strong>Sobreoferta →</strong> diferenciación y estrategia comercial.</li>
+        </ul>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Cómo presentar tu análisis a socios o compradores</strong></h3>
+        <ul className="blog-list">
+          <li><strong>Resumen ejecutivo claro:</strong> 1 página con conclusión (apto/no apto).</li>
+          <li><strong>Anexos técnicos:</strong> estudios geotécnicos, registros, planos.</li>
+          <li><strong>Riesgos y mitigación:</strong> transparencia genera confianza.</li>
+          <li><strong>Plan comercial:</strong> cronograma de ventas y metas.</li>
+        </ul>
 
         <h3 style={{ marginTop: "20px" }}><strong>Conclusión</strong></h3>
         <p>
-          Invertir no tiene que ser complicado ni intimidante. Comienza con los fundamentos, 
-          invierte de forma constante y mantén una visión de largo plazo.  
-          Tu yo del futuro te lo agradecerá.
+          Un análisis de terreno bien ejecutado transforma incertidumbre en oportunidad. 
+          Evalúa aspectos técnicos, legales, comerciales y financieros para tomar una decisión informada.  
+          Con este enfoque no solo minimizas riesgos: aumentas la confianza del mercado, mejoras tu reputación 
+          y elevas las probabilidades de éxito en cualquier desarrollo.
         </p>
 
       </div>
     )}
   </div>
 )}
-{/* 📌 TEXTO EXTENDIDO SOLO PARA LA PRIMERA PUBLICACIÓN DE DESARROLLO PROFESIONAL */}
+
+{/* 📌 TEXTO EXTENDIDO SOLO PARA LA PRIMERA PUBLICACIÓN DE LEYES Y REGULACIONES */} 
 {art.id === 2 && (
   <div className="blog-extra-content">
 
-    {/* SE MUESTRA SOLO SI SELECCIONAN LA CATEGORÍA DESARROLLO PROFESIONAL */}
-    {selectedCategory === "carrera" && (
+    {selectedCategory === "leyes y regulaciones" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-        <h2><strong>El Inicio del Viaje Profesional</strong></h2>
+        <h2><strong>Leyes que protegen la inversión, garantizan el orden urbano y aseguran proyectos exitosos</strong></h2>
+
         <p>
-          Construir una carrera exitosa no sucede de la noche a la mañana. 
-          Requiere planificación estratégica, desarrollo continuo de habilidades 
-          y la capacidad de adaptarse a un mercado laboral en constante cambio.
+          En República Dominicana, desarrollar terrenos no es solo planificar calles, levantar infraestructura y vender lotes.
+          Detrás de cada proyecto responsable existe un marco legal sólido que garantiza orden, seguridad jurídica y crecimiento
+          sostenible.
         </p>
 
-        <h3><strong>Define tu Norte Profesional</strong></h3>
         <p>
-          Antes de dar el primer paso, pregúntate: ¿Dónde quiero estar en 5 años? 
-          ¿Qué tipo de profesional quiero ser? Tener claridad sobre tus objetivos 
-          te permitirá tomar decisiones más acertadas.
+          Para un desarrollador —ya sea pequeño, mediano o grande— entender estas normativas no es opcional: es la base para evitar
+          riesgos, proteger la inversión y asegurar que el proyecto pueda venderse sin contratiempos legales.
         </p>
 
-        <h4><strong>Ejercicio de autoevaluación:</strong></h4>
-        <ul className="blog-list">
-          <li>Identifica tus fortalezas y debilidades</li>
-          <li>Define qué te apasiona realmente</li>
-          <li>Investiga las tendencias de tu industria</li>
-          <li>Establece metas profesionales a corto, mediano y largo plazo</li>
-        </ul>
-
-        <h3><strong>Invierte en tu Educación</strong></h3>
         <p>
-          El aprendizaje nunca termina. Ya sea a través de educación formal, cursos 
-          online, certificaciones o autodidactismo, mantente actualizado con las 
-          últimas tendencias y tecnologías de tu campo.
+          Aquí te presento las leyes y regulaciones más importantes que rigen el desarrollo inmobiliario en el país, explicadas de manera clara y práctica.
         </p>
 
-        <h3><strong>Construye tu Red de Contactos</strong></h3>
+        <h3 style={{ marginTop: "18px" }}><strong>Ley 675-44 de Urbanización, Ornato Público y Construcciones</strong></h3>
         <p>
-          El networking no es solo intercambiar tarjetas. 
-          Es construir relaciones genuinas que pueden abrir puertas inesperadas. 
-          Asiste a eventos de la industria, participa en comunidades profesionales 
-          y mantén contacto regular con colegas.
+          Esta es la ley principal que regula cómo se desarrollan los terrenos en zonas urbanas y de expansión.
+          Establece requisitos para fraccionamientos y urbanizaciones, dimensiones mínimas de los lotes, ancho de calles, áreas verdes,
+          permisos obligatorios y normas de construcción y uso del suelo.
+          Sin cumplir con esta ley, ningún proyecto puede obtener aprobaciones oficiales ni venderse legalmente con confianza.
         </p>
 
-        <h3><strong>Desarrolla tu Marca Personal</strong></h3>
+        <h3 style={{ marginTop: "18px" }}><strong>Ley 176-07 del Distrito Nacional y los Municipios — Ordenamiento Territorial</strong></h3>
         <p>
-          En la era digital, tu presencia online es tu currículum viviente. 
-          Optimiza tu perfil de LinkedIn, comparte contenido relevante, participa 
-          en discusiones profesionales y posiciónate como experto en tu área.
+          Los ayuntamientos tienen un papel clave en la aprobación de proyectos.
+          Esta ley regula el ordenamiento urbano, la zonificación, el uso permitido del suelo y los permisos municipales.
+          Antes de comprar o desarrollar un terreno, es vital confirmar que su uso coincide con el tipo de proyecto que se quiere realizar.
         </p>
 
-        <h3><strong>Acepta Proyectos Desafiantes</strong></h3>
+        <h3 style={{ marginTop: "18px" }}><strong>Ley 64-00 — Ministerio de Medio Ambiente</strong></h3>
         <p>
-          La zona de confort es enemiga del crecimiento. 
-          Busca oportunidades que te obliguen a desarrollar nuevas habilidades. 
-          Los errores son maestros valiosos.
+          Todo desarrollo genera impacto, por eso esta ley exige Declaración de Impacto Ambiental (DIA), licencias ambientales según
+          el tamaño del proyecto y buenas prácticas en manejo de desechos, agua, suelo y vegetación.
+          Un proyecto sin permisos ambientales puede ser paralizado, multado o incluso clausurado.
         </p>
 
-        <h3><strong>Busca Mentores</strong></h3>
+        <h3 style={{ marginTop: "18px" }}><strong>Normas Eléctricas y Distribuidoras (EDENORTE, EDESUR, EDEESTE)</strong></h3>
         <p>
-          Un buen mentor puede acelerar tu crecimiento profesional años luz. 
-          Busca personas que ya están donde tú quieres llegar y aprende de sus experiencias.
+          Antes de instalar energía eléctrica, se requiere factibilidad eléctrica, aprobación de diseño e infraestructura conforme a
+          reglamentos técnicos. Muchos proyectos se retrasan por no gestionar este permiso a tiempo.
         </p>
 
-        <h3><strong>Conclusión</strong></h3>
+        <h3 style={{ marginTop: "18px" }}><strong>Registro de Títulos — Ley 108-05 de Registro Inmobiliario</strong></h3>
         <p>
-          Construir una carrera exitosa es un maratón, no un sprint. 
-          Mantén la paciencia, la persistencia y nunca dejes de aprender. 
-          Tu éxito está directamente relacionado con tu disposición a crecer, 
-          adaptarte y superar obstáculos.
+          La seguridad jurídica es vital. Esta ley regula el saneamiento y deslinde de propiedades, certificaciones de título,
+          actualización y división de terrenos, registro de hipotecas y ventas.
+          Sin un título saneado, ningún lote puede venderse con seguridad.
+        </p>
+
+        <h3 style={{ marginTop: "18px" }}><strong>¿Por qué estas normas son tan importantes?</strong></h3>
+        <p>
+          Porque protegen a los compradores, a los desarrolladores y a las inversiones, garantizando que los proyectos sean legales,
+          seguros, con servicios reales y con plusvalía sostenible.
+        </p>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Conclusión</strong></h3>
+        <p>
+          El desarrollo inmobiliario responsable no solo requiere visión y capital, sino también un dominio profundo del marco legal
+          dominicano. Conocer y aplicar estas normativas evita contratiempos, da confianza al mercado y convierte un simple proyecto
+          en un desarrollo sólido, sostenible y de alto valor.
+        </p>
+
+        <p>
+          Quien respeta la ley, construye futuro.  
+          Y quien la domina, construye proyectos exitosos con plusvalía garantizada.
         </p>
 
       </div>
@@ -758,155 +713,85 @@ return (
   </div>
 )}
 
-{/* 📌 TEXTO EXTENDIDO PARA LA SEGUNDA PUBLICACIÓN DE DESARROLLO PROFESIONAL */}
+{/* 📌 TEXTO EXTENDIDO PARA LA SEGUNDA PUBLICACIÓN DE VALIDACIÓN LEGAL DE TERRENOS */}
 {art.id === 7 && (
   <div className="blog-extra-content">
     
-    {selectedCategory === "carrera" && (
+    {selectedCategory === "leyes y regulaciones" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-        <h2><strong>La Nueva Moneda del Mercado Laboral</strong></h2>
+        <h2><strong>Cómo Validar la Legalidad de un Terreno Antes de Comprar</strong></h2>
         <p>
-          En una era donde la inteligencia artificial puede escribir código y analizar datos, 
-          las habilidades humanas se vuelven más valiosas que nunca. 
-          Las habilidades blandas son lo que te hace irreemplazable en el mundo laboral moderno.
+          Esta guía te enseña qué revisar, en qué orden, y por qué cada paso es crítico. 
+          Siguiendo estos pasos reduces el riesgo, proteges capital y transmites confianza 
+          a socios y compradores.
         </p>
 
-        <h3><strong>¿Qué Son las Habilidades Blandas?</strong></h3>
+        <h3><strong>¿Por qué validar la legalidad es lo primero que debes hacer?</strong></h3>
         <p>
-          Las habilidades blandas (soft skills) son atributos personales que te permiten 
-          interactuar efectivamente con otros. A diferencia de las habilidades técnicas (hard skills), 
-          son transferibles entre industrias y roles. Son la diferencia entre un empleado competente 
-          y un líder excepcional.
+          La seguridad jurídica es la base del negocio inmobiliario: sin un título saneado, 
+          sin registros claros o sin permisos ambientales, una parcela puede quedar inmovilizada 
+          por años o perder su valor. Por eso este proceso no es opcional: 
+          <strong>es la protección de tu inversión.</strong>
         </p>
 
-        <h3><strong>Las 10 Habilidades Blandas Más Demandadas</strong></h3>
-
-        <h4><strong>1. Comunicación Efectiva</strong></h4>
-        <p>
-          No se trata solo de hablar bien, sino de transmitir ideas claramente, escuchar activamente 
-          y adaptar tu mensaje a diferentes audiencias. Un comunicador efectivo puede inspirar equipos, 
-          negociar acuerdos y resolver conflictos.
-        </p>
-        <p><strong>Cómo desarrollarla:</strong></p>
+        <h3><strong>Paso 1 — Verifica el título y el estado registral (Registro de Títulos)</strong></h3>
+        <p><strong>Qué hacer:</strong></p>
         <ul className="blog-list">
-          <li>Practica la escucha activa sin interrumpir</li>
-          <li>Simplifica ideas complejas</li>
-          <li>Pide retroalimentación sobre tu comunicación</li>
-          <li>Lee libros y practica presentaciones públicas</li>
+          <li>Solicita el Certificado de Título o un extracto actualizado en la Oficina de Registro de Títulos.</li>
+          <li>Revisa titularidad, historial de transferencias, gravámenes, hipotecas, embargos o limitaciones.</li>
+          <li>Pide una Certificación de Estado Jurídico si está disponible.</li>
+        </ul>
+        <p>
+          <strong>Por qué:</strong> El sistema dominicano de Registro Inmobiliario (Ley 108-05) garantiza la seguridad del derecho real. 
+          Un título vigente es la primera evidencia de que puedes comprar con confianza.
+        </p>
+
+        <h3><strong>Paso 2 — Revisa normativa municipal y zonificación (Ayuntamiento / Ordenamiento Territorial)</strong></h3>
+        <p><strong>Qué hacer:</strong></p>
+        <ul className="blog-list">
+          <li>Verifica el uso de suelo permitido (residencial, comercial, industrial, mixto).</li>
+          <li>Consulta ordenanzas locales, retraimientos, áreas verdes mínimas y densidad permitida.</li>
         </ul>
 
-        <h4><strong>2. Inteligencia Emocional</strong></h4>
-        <p>
-          La capacidad de reconocer, entender y gestionar tus propias emociones y las de otros. 
-          Los líderes con alta inteligencia emocional crean ambientes de trabajo más saludables 
-          y equipos más productivos.
-        </p>
-        <p><strong>Componentes clave:</strong></p>
+        <h3><strong>Paso 3 — Permisos ambientales y DIA</strong></h3>
+        <p><strong>Qué hacer:</strong></p>
         <ul className="blog-list">
-          <li>Autoconciencia</li>
-          <li>Autorregulación</li>
-          <li>Empatía</li>
-          <li>Habilidades sociales</li>
+          <li>Confirma si el proyecto requiere Declaración o Estudio de Impacto Ambiental.</li>
+          <li>Revisa si el terreno está en áreas protegidas, humedales o zonas de riesgo.</li>
+          <li>Pide certificaciones ambientales vigentes.</li>
         </ul>
 
-        <h4><strong>3. Pensamiento Crítico</strong></h4>
-        <p>
-          Analizar información objetivamente, cuestionar suposiciones y tomar decisiones basadas 
-          en evidencia. En un mundo de información abundante, el pensamiento crítico te ayuda 
-          a separar señal del ruido.
-        </p>
+        <h3><strong>Paso 4 — Controles técnicos: topografía, geotecnia e hidrología</strong></h3>
+        <p><strong>Qué hacer:</strong></p>
+        <ul className="blog-list">
+          <li>Haz un levantamiento topográfico profesional.</li>
+          <li>Solicita un estudio geotécnico preliminar.</li>
+          <li>Evalúa hidrología: riesgo de inundaciones y drenaje natural.</li>
+        </ul>
 
-        <h4><strong>4. Resolución de Problemas</strong></h4>
-        <p>
-          Identificar obstáculos, generar soluciones creativas e implementar planes de acción. 
-          Las empresas valoran a quienes no solo señalan problemas, sino que proponen soluciones.
-        </p>
+        <h3><strong>Paso 5 — Registros adicionales y antecedentes</strong></h3>
+        <p><strong>Qué hacer:</strong></p>
+        <ul className="blog-list">
+          <li>Revisa archivos de Mensuras Catastrales, Registro Inmobiliario y Catastro.</li>
+          <li>Busca resoluciones administrativas, sanciones o reclamaciones.</li>
+          <li>Consulta con la comunidad local sobre antecedentes del terreno.</li>
+        </ul>
 
-        <h4><strong>5. Adaptabilidad</strong></h4>
-        <p>
-          La capacidad de ajustarte rápidamente a nuevas circunstancias, tecnologías y metodologías. 
-          En un mundo que cambia constantemente, la rigidez es obsolescencia.
-        </p>
-
-        <h4><strong>6. Trabajo en Equipo</strong></h4>
-        <p>
-          Colaborar efectivamente con personas de diferentes estilos de trabajo y perspectivas. 
-          Los proyectos complejos requieren equipos diversos trabajando en armonía.
-        </p>
-
-        <h4><strong>7. Gestión del Tiempo</strong></h4>
-        <p>
-          Priorizar tareas, cumplir deadlines y mantener productividad sin sacrificar calidad. 
-          El tiempo es tu recurso más limitado; gestionarlo bien es una superpotencia.
-        </p>
-
-        <h4><strong>8. Liderazgo</strong></h4>
-        <p>
-          Influir, inspirar y guiar a otros hacia objetivos comunes. No necesitas un título de gerente 
-          para ser líder; el liderazgo puede ejercerse desde cualquier posición.
-        </p>
-
-        <h4><strong>9. Creatividad e Innovación</strong></h4>
-        <p>
-          Pensar fuera de la caja, conectar ideas no relacionadas y proponer enfoques novedosos. 
-          La creatividad impulsa la innovación que mantiene a las empresas competitivas.
-        </p>
-
-        <h4><strong>10. Resiliencia</strong></h4>
-        <p>
-          Recuperarte de fracasos, mantener motivación ante adversidades y aprender de errores. 
-          La resiliencia te permite convertir obstáculos en oportunidades de crecimiento.
-        </p>
-
-        <h3><strong>Por Qué las Habilidades Blandas Son tu Ventaja Competitiva</strong></h3>
-        <p><strong>Son difíciles de automatizar:</strong> la IA no puede replicar empatía, creatividad o liderazgo.</p>
-        <p><strong>Son transferibles:</strong> si cambias de industria, tus soft skills viajan contigo.</p>
-        <p><strong>Multiplican el impacto de tus habilidades técnicas:</strong> un técnico competente con buenas soft skills sobresale.</p>
-
-        <h3><strong>Estrategias para Desarrollar Habilidades Blandas</strong></h3>
-
-        <h4><strong>1. Busca Retroalimentación Constante</strong></h4>
-        <p>
-          Solicita opiniones a colegas y mentores. La retroalimentación honesta es oro para el crecimiento.
-        </p>
-
-        <h4><strong>2. Sal de tu Zona de Confort</strong></h4>
-        <p>
-          Acepta proyectos que te desafíen. Si te cuesta presentar, ofrece hacerlo tú.
-        </p>
-
-        <h4><strong>3. Observa a los Mejores</strong></h4>
-        <p>
-          Identifica personas con soft skills fuertes. Analiza cómo manejan situaciones difíciles.
-        </p>
-
-        <h4><strong>4. Practica la Reflexión</strong></h4>
-        <p>
-          Reflexiona al final del día: ¿qué salió bien? ¿Qué mejorarías?
-        </p>
-
-        <h4><strong>5. Invierte en Formación</strong></h4>
-        <p>
-          Cursos, talleres, coaching. Invertir en habilidades humanas es invertir en tu futuro.
-        </p>
-
-        <h3><strong>Midiendo el Progreso</strong></h3>
-        <p>
-          Aunque no se certifican fácilmente, pueden medirse mediante retroalimentación 360°, 
-          evaluaciones y la forma en que otros responden a ti.
-        </p>
-
-        <h3><strong>El Mito del "Nací Así"</strong></h3>
-        <p>
-          Las soft skills NO son innatas. Se desarrollan con práctica, constancia y conciencia personal.
-        </p>
+        <h3><strong>Análisis financiero y de riesgo</strong></h3>
+        <p><strong>Qué hacer:</strong></p>
+        <ul className="blog-list">
+          <li>Suma precio + saneamiento + urbanización + tiempo de permisos.</li>
+          <li>Define escenarios: optimista, base y pesimista.</li>
+          <li>Determina si el negocio sigue siendo viable.</li>
+        </ul>
 
         <h3><strong>Conclusión</strong></h3>
         <p>
-          En el futuro laboral, la tecnología hará lo técnico, pero las habilidades humanas 
-          serán tu verdadera ventaja competitiva. Desarrollarlas no solo te hará más empleable: 
-          te hará mejor ser humano.
+          Validar la legalidad de un terreno no es burocracia: es la diferencia entre un proyecto que crece 
+          y una inversión que se hunde. Si quieres proteger capital y generar confianza, 
+          el due diligence debe ser tu primera inversión. 
+          La verificación sistemática reduce sorpresas, protege tu reputación y atrae compradores seguros.
         </p>
 
       </div>
@@ -914,421 +799,287 @@ return (
 
   </div>
 )}
-{/* 📌 TEXTO EXTENDIDO PARA LA PRIMERA PUBLICACIÓN DE LIDERAZGO */}
-{art.id === 8 && (
-  <div className="blog-extra-content">
 
-    {selectedCategory === "liderazgo" && (
-      <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-        <h2><strong>¿Qué es el Liderazgo Transformacional?</strong></h2>
-        <p>
-          El liderazgo transformacional va más allá de la simple gestión. 
-          Se trata de inspirar, motivar y empoderar a tu equipo para alcanzar resultados extraordinarios 
-          mientras desarrollan su máximo potencial.
-        </p>
-
-        <h3><strong>Las 4 Dimensiones del Líder Transformacional</strong></h3>
-
-        <h4><strong>1. Influencia Idealizada</strong></h4>
-        <p>
-          Los líderes transformacionales sirven como modelos a seguir. Actúan con integridad, 
-          demuestran altos estándares éticos y ganan el respeto y la confianza de su equipo 
-          a través de sus acciones, no solo sus palabras.
-        </p>
-
-        <h4><strong>2. Motivación Inspiradora</strong></h4>
-        <p>
-          Comunican una visión clara y convincente del futuro. Articulan expectativas altas 
-          y demuestran compromiso con las metas organizacionales, inspirando a otros a dar lo mejor de sí.
-        </p>
-
-        <h4><strong>3. Estimulación Intelectual</strong></h4>
-        <p>
-          Fomentan la innovación y la creatividad. Desafían el status quo, cuestionan suposiciones 
-          y alientan a los miembros del equipo a pensar de manera crítica y abordar problemas 
-          desde nuevas perspectivas.
-        </p>
-
-        <h4><strong>4. Consideración Individualizada</strong></h4>
-        <p>
-          Reconocen que cada miembro del equipo es único. Actúan como mentores, prestan atención 
-          a las necesidades individuales de desarrollo y crean oportunidades personalizadas de crecimiento.
-        </p>
-
-        <h3><strong>Impacto en la Cultura Organizacional</strong></h3>
-        <p>Las organizaciones lideradas por líderes transformacionales experimentan:</p>
-        <ul className="blog-list">
-          <li>Mayor compromiso y satisfacción de los empleados</li>
-          <li>Reducción significativa en la rotación de personal</li>
-          <li>Aumento en la innovación y creatividad</li>
-          <li>Mejor desempeño organizacional general</li>
-          <li>Cultura de aprendizaje continuo y mejora</li>
-        </ul>
-
-        <h3><strong>Cómo Desarrollar tu Liderazgo Transformacional</strong></h3>
-
-        <h4><strong>Autoconocimiento Profundo</strong></h4>
-        <p>
-          Comprende tus fortalezas, debilidades, valores y motivaciones. 
-          La autenticidad es fundamental para el liderazgo transformacional.
-        </p>
-
-        <h4><strong>Comunica una Visión Inspiradora</strong></h4>
-        <p>
-          Articula claramente hacia dónde va la organización y por qué es importante. 
-          Conecta el trabajo diario con un propósito mayor.
-        </p>
-
-        <h4><strong>Desarrolla Inteligencia Emocional</strong></h4>
-        <p>
-          Aprende a leer y responder a las emociones de tu equipo. 
-          La empatía y la conexión emocional son herramientas poderosas del líder transformacional.
-        </p>
-
-        <h4><strong>Invierte en el Desarrollo de Otros</strong></h4>
-        <p>
-          Dedica tiempo y recursos al crecimiento de tu equipo. 
-          El éxito del líder transformacional se mide por el éxito de quienes lidera.
-        </p>
-
-        <h3><strong>Casos de Éxito</strong></h3>
-        <p>
-          Líderes como Satya Nadella en Microsoft han demostrado el poder del liderazgo transformacional. 
-          Al cambiar la cultura de la empresa de “sabelotodo” a “aprende-todo”, 
-          transformó Microsoft en una de las empresas más valiosas del mundo.
-        </p>
-
-        <h3><strong>Conclusión</strong></h3>
-        <p>
-          El liderazgo transformacional no es un destino, es un viaje continuo de crecimiento personal 
-          y profesional. Requiere valentía para desafiar el status quo, humildad para admitir 
-          que no tienes todas las respuestas y un compromiso genuino con el desarrollo de otros.
-          Su impacto trasciende números y métricas: se mide en vidas cambiadas y potencial liberado.
-        </p>
-
-      </div>
-    )}
-  </div>
-)}
-{/* 📌 TEXTO EXTENDIDO PARA LA PUBLICACIÓN DE LIDERAZGO (ID 3) */}
+{/* 📌 TEXTO EXTENDIDO PARA LA PUBLICACIÓN DE COMERCIALIZACIÓN DE LOTES (ID 3) */} 
 {art.id === 3 && (
   <div className="blog-extra-content">
 
-    {selectedCategory === "liderazgo" && (
+    {selectedCategory === "comercialización de lotes" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-        <h2><strong>¿Qué es el Liderazgo Transformacional?</strong></h2>
+        <h2><strong>Comercialización de Lotes</strong></h2>
         <p>
-          El liderazgo transformacional va más allá de la simple gestión. Se trata de inspirar, 
-          motivar y empoderar a tu equipo para alcanzar resultados extraordinarios mientras 
-          desarrollan su máximo potencial.
+          Cuando hablamos de comercialización de lotes, no se trata solo de vender terrenos; 
+          se trata de aplicar estrategias inteligentes que permitan mover inventario rápido, 
+          posicionar el proyecto y alcanzar los ingresos que el desarrollo necesita para ser rentable. 
+          Vender lotes con éxito es una mezcla de marketing, análisis del mercado y una buena estructura comercial.
         </p>
 
-        <h3><strong>Las 4 Dimensiones del Líder Transformacional</strong></h3>
-
-        <h4><strong>1. Influencia Idealizada</strong></h4>
+        <h3><strong>Segmentación de Mercado</strong></h3>
         <p>
-          Los líderes transformacionales sirven como modelos a seguir. Actúan con integridad, 
-          demuestran altos estándares éticos y ganan el respeto y la confianza de su equipo 
-          a través de sus acciones, no solo sus palabras.
+          Primero, es fundamental entender a quién va dirigido el desarrollo. Esto es lo que llamamos 
+          segmentación de mercado. No es lo mismo hablarle a un constructor, que busca lotes grandes, 
+          listos para construir y con buena zonificación, que a un inversionista, que se enfoca en plusvalía, 
+          precios competitivos y opciones de financiamiento. Y tampoco es igual si te diriges a un comprador final, 
+          que valora las facilidades de pago, la ubicación, los servicios y el estilo de vida que el proyecto ofrece.
+          Cuando defines correctamente tu público, toda tu estrategia comercial se vuelve más efectiva.
         </p>
 
-        <h4><strong>2. Motivación Inspiradora</strong></h4>
+        <h3><strong>Estrategias de Venta</strong></h3>
         <p>
-          Comunican una visión clara y convincente del futuro. Articulan expectativas altas 
-          y demuestran compromiso con las metas organizacionales, inspirando a otros a dar 
-          lo mejor de sí mismos.
+          Ahora, ¿cómo conviertes ese interés en ventas reales? Aquí entran las estrategias de venta. 
+          Ofrecer financiamiento directo, por ejemplo, abre la puerta a compradores que quizás no califican 
+          en la banca tradicional. Los descuentos por pronto pago atraen inversionistas, y los paquetes 
+          de varios lotes son ideales para constructores que buscan desarrollar. Además, la escrituración inmediata 
+          y contar con servicios ya instalados se convierten en argumentos de peso, porque muestran que el proyecto 
+          está listo y evita riesgos.
         </p>
 
-        <h4><strong>3. Estimulación Intelectual</strong></h4>
+        <h3><strong>Marketing Digital</strong></h3>
         <p>
-          Fomentan la innovación y la creatividad. Desafían el status quo, cuestionan suposiciones 
-          y alientan a los miembros del equipo a pensar de manera crítica y abordar problemas 
-          desde nuevas perspectivas.
-        </p>
-
-        <h4><strong>4. Consideración Individualizada</strong></h4>
-        <p>
-          Reconocen que cada miembro del equipo es único. Actúan como mentores, prestan atención 
-          a las necesidades individuales de desarrollo y crean oportunidades personalizadas 
-          de crecimiento.
-        </p>
-
-        <h3><strong>Impacto en la Cultura Organizacional</strong></h3>
-        <p>Las organizaciones lideradas por líderes transformacionales experimentan:</p>
-
-        <ul className="blog-list">
-          <li>Mayor compromiso y satisfacción de los empleados</li>
-          <li>Reducción significativa en la rotación de personal</li>
-          <li>Aumento en la innovación y creatividad</li>
-          <li>Mejor desempeño organizacional general</li>
-          <li>Cultura de aprendizaje continuo y mejora</li>
-        </ul>
-
-        <h3><strong>Cómo Desarrollar tu Liderazgo Transformacional</strong></h3>
-
-        <h4><strong>Autoconocimiento Profundo</strong></h4>
-        <p>
-          Comprende tus fortalezas, debilidades, valores y motivaciones. 
-          La autenticidad es fundamental para el liderazgo transformacional.
-        </p>
-
-        <h4><strong>Comunica una Visión Inspiradora</strong></h4>
-        <p>
-          Articula claramente hacia dónde va la organización y por qué es importante. 
-          Conecta el trabajo diario con un propósito mayor.
-        </p>
-
-        <h4><strong>Desarrolla Inteligencia Emocional</strong></h4>
-        <p>
-          Aprende a leer y responder a las emociones de tu equipo. La empatía y la conexión 
-          emocional son herramientas poderosas del líder transformacional.
-        </p>
-
-        <h4><strong>Invierte en el Desarrollo de Otros</strong></h4>
-        <p>
-          Dedica tiempo y recursos al crecimiento de tu equipo. El éxito del líder 
-          transformacional se mide por el éxito de quienes lidera.
-        </p>
-
-        <h3><strong>Casos de Éxito</strong></h3>
-        <p>
-          Líderes como Satya Nadella en Microsoft han demostrado el poder del liderazgo 
-          transformacional. Al cambiar la cultura de la empresa de “sabelotodo” a 
-          “aprende-todo”, transformó Microsoft en una de las empresas más valiosas del mundo.
+          En el mercado actual, nada acelera más las ventas que un buen marketing digital. Hoy, las personas 
+          compran información antes de comprar un lote. Por eso es clave usar redes sociales, Google Ads, 
+          recorridos virtuales 360° y sitios web especializados. Mostrar el avance de obras, la plusvalía proyectada, 
+          los beneficios del entorno y testimonios reales genera credibilidad. En un mundo saturado de opciones, 
+          quien comunica mejor, vende más.
         </p>
 
         <h3><strong>Conclusión</strong></h3>
         <p>
-          El liderazgo transformacional no es un destino, es un viaje continuo de crecimiento 
-          personal y profesional. Requiere valentía para desafiar el status quo, humildad para 
-          reconocer que no tienes todas las respuestas y un compromiso genuino con el desarrollo 
-          de otros. Su impacto trasciende números y métricas; se mide en vidas cambiadas y 
-          potencial liberado.
+          La comercialización de lotes se trata de entender a tu público, ofrecer las facilidades correctas 
+          y comunicar el valor del proyecto con claridad y estrategia. Cuando dominas estos tres pilares, 
+          no solo vendes lotes: creas demanda, posicionas tu marca y aseguras la rentabilidad del desarrollo.
         </p>
 
       </div>
     )}
   </div>
 )}
-{/* 📌 TEXTO EXTENDIDO PARA LA PUBLICACIÓN DE TECNOLOGÍA (ID 4) */}
+
+{/* 📌 TEXTO EXTENDIDO PARA LA PUBLICACIÓN DE PLUSVALÍA TERRITORIAL (ID 4) */} 
 {art.id === 4 && (
   <div className="blog-extra-content">
 
-    {selectedCategory === "tecnologia" && (
+    {selectedCategory === "plusvalía territorial" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-        <h2><strong>La Revolución Silenciosa</strong></h2>
+        <h2><strong>Evaluación de Plusvalía Territorial</strong></h2>
         <p>
-          La Inteligencia Artificial no es el futuro del sector financiero, es el presente. 
-          Desde algoritmos de trading hasta asistentes virtuales para clientes, la IA está 
-          transformando cada aspecto de la industria financiera.
+          Elegir el terreno correcto es la decisión más importante de todo el proceso 
+          de desarrollo inmobiliario. Puedes tener la mejor urbanización, las calles 
+          más amplias o las mejores facilidades, pero si el terreno está en un área 
+          sin proyección, la inversión simplemente no crece.
         </p>
 
-        <h3><strong>Aplicaciones Clave de la IA en Finanzas</strong></h3>
-
-        <h4><strong>1. Detección de Fraudes en Tiempo Real</strong></h4>
         <p>
-          Los sistemas de IA pueden analizar millones de transacciones por segundo, identificando 
-          patrones sospechosos que escaparían al ojo humano. El Machine Learning permite que estos 
-          sistemas mejoren continuamente, adaptándose a nuevas técnicas de fraude.
+          Por eso, los desarrolladores exitosos no “compran tierra”: <strong>compran futuro</strong>.
         </p>
 
-        <h4><strong>2. Trading Algorítmico</strong></h4>
         <p>
-          Los algoritmos de IA pueden procesar vastas cantidades de datos del mercado, noticias y 
-          redes sociales para tomar decisiones de inversión en milisegundos. El 70–80% del trading 
-          en Wall Street ya es ejecutado por algoritmos.
+          La evaluación de plusvalía territorial es el análisis profundo que permite 
+          identificar cuáles zonas tienen potencial de crecimiento y cuáles no. 
+          Esta práctica te ayuda a invertir antes de que la zona explote, 
+          garantizando una ventaja competitiva enorme.
         </p>
 
-        <h4><strong>3. Análisis Crediticio Mejorado</strong></h4>
-        <p>
-          La IA puede evaluar el riesgo crediticio utilizando cientos de variables, no solo el 
-          historial crediticio tradicional. Esto permite a las instituciones financieras tomar 
-          decisiones más precisas y ofrecer crédito a poblaciones previamente desatendidas.
-        </p>
-
-        <h4><strong>4. Personalización de Servicios</strong></h4>
-        <p>
-          Chatbots y asistentes virtuales impulsados por IA proporcionan atención al cliente 24/7, 
-          respondiendo preguntas, procesando transacciones y ofreciendo asesoramiento financiero 
-          personalizado basado en el perfil único de cada cliente.
-        </p>
-
-        <h3><strong>Beneficios Medibles</strong></h3>
+        <h3><strong>El crecimiento urbano nunca es aleatorio</strong></h3>
+        <p>Toda expansión de la ciudad sigue patrones. Las zonas que incrementan su valor lo hacen por una combinación de factores:</p>
 
         <ul className="blog-list">
-          <li><strong>Reducción de costos:</strong> Automatización de tareas repetitivas permite reducir costos operativos hasta un 40%.</li>
-          <li><strong>Mejora en la experiencia del cliente:</strong> Respuestas instantáneas y servicios personalizados aumentan la satisfacción.</li>
-          <li><strong>Minimización de riesgos:</strong> Detección temprana de anomalías y fraudes.</li>
-          <li><strong>Decisiones más inteligentes:</strong> Análisis de datos complejos para insights accionables.</li>
+          <li>Nuevas vías de acceso</li>
+          <li>Proximidad a centros urbanos</li>
+          <li>Infraestructura en desarrollo</li>
         </ul>
 
-        <h3><strong>Desafíos y Consideraciones Éticas</strong></h3>
-
-        <h4><strong>Sesgo Algorítmico</strong></h4>
+        <h3><strong>La infraestructura crea valor antes de que se construya</strong></h3>
         <p>
-          Los sistemas de IA aprenden de datos históricos que pueden contener sesgos. 
-          Es crucial desarrollar algoritmos justos que no discriminen basándose en raza, 
-          género o estatus socioeconómico.
+          Un anuncio gubernamental sobre una nueva carretera o una ampliación eléctrica 
+          puede ser suficiente para duplicar la plusvalía futura de una zona.
         </p>
 
-        <h4><strong>Privacidad de Datos</strong></h4>
-        <p>
-          La IA requiere grandes cantidades de datos personales. Las instituciones deben 
-          balancear la innovación con una protección rigurosa de la privacidad del cliente.
-        </p>
-
-        <h4><strong>Explicabilidad</strong></h4>
-        <p>
-          Las decisiones financieras tomadas por IA deben ser explicables. 
-          Los reguladores y clientes tienen derecho a entender cómo se llegan 
-          a conclusiones que afectan sus finanzas.
-        </p>
-
-        <h3><strong>El Futuro: IA Generativa en Finanzas</strong></h3>
-        <p>La próxima frontera es la IA generativa. Imagina sistemas que puedan:</p>
+        <p>Un desarrollador inteligente analiza:</p>
 
         <ul className="blog-list">
-          <li>Generar reportes financieros personalizados en lenguaje natural</li>
-          <li>Crear estrategias de inversión únicas para cada cliente</li>
-          <li>Simular escenarios económicos complejos para planificación estratégica</li>
-          <li>Producir documentación legal y contratos automáticamente</li>
+          <li>Proyectos viales futuros</li>
+          <li>Planes municipales</li>
+          <li>Expansiones de servicios públicos</li>
         </ul>
+
+        <h3><strong>Riesgos que pueden frenar la plusvalía</strong></h3>
+        <p>Así como hay factores que impulsan el crecimiento, también hay señales de alerta:</p>
+
+        <ul className="blog-list">
+          <li>Zonas con conflictos legales o de títulos</li>
+          <li>Problemas ambientales (inundaciones, suelos de mala calidad)</li>
+        </ul>
+
+        <h3><strong>Un terreno bien evaluado es un proyecto exitoso garantizado</strong></h3>
+        <p>Cuando un terreno cumple con:</p>
+
+        <ul className="blog-list">
+          <li>Ubicación estratégica</li>
+          <li>Accesibilidad</li>
+          <li>Servicios cercanos</li>
+          <li>Proyecciones reales de crecimiento</li>
+        </ul>
+
+        <p>
+          Tienes en las manos un proyecto con <strong>plusvalía asegurada</strong>, 
+          incluso antes de urbanizarlo.
+        </p>
 
         <h3><strong>Conclusión</strong></h3>
         <p>
-          La IA no está aquí para reemplazar a los profesionales financieros, sino para potenciarlos. 
-          Aquellos que adopten estas tecnologías y desarrollen habilidades complementarias estarán 
-          mejor posicionados para prosperar en la nueva era del sector financiero. 
-          La pregunta no es si debes adoptar la IA, sino qué tan rápido puedes hacerlo 
-          de manera responsable y efectiva.
+          La evaluación de plusvalía territorial no solo mejora tus decisiones de compra, 
+          sino que multiplica tus resultados. Un buen terreno no es el que cuesta barato… 
+          <strong>es el que crecerá sin que tú tengas que empujarlo</strong>.
+        </p>
+
+        <p>
+          Quien domina esta habilidad no solo desarrolla terrenos: 
+          <strong>anticipa el futuro y construye oportunidades</strong>.
         </p>
 
       </div>
     )}
   </div>
 )}
-{/* 📌 TEXTO EXTENDIDO PARA LA PUBLICACIÓN DE CULTURA EMPRESARIAL (ID 5) */}
+
+{/* 📌 TEXTO EXTENDIDO PARA LA PUBLICACIÓN DE INFRAESTRUCTURA (ID 5) */} 
 {art.id === 5 && (
   <div className="blog-extra-content">
 
-  {selectedCategory === "cultura" && (
-
+    {selectedCategory === "infraestructura en proyectos" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
-        <h2><strong>La Cultura: El ADN de tu Empresa</strong></h2>
+        <h2><strong>Cómo una Buenas Infraestructura Multiplica el Valor de un Desarrollo</strong></h2>
         <p>
-          La cultura organizacional no es un póster en la pared con valores corporativos. 
-          Es el conjunto de creencias, comportamientos y prácticas que definen cómo 
-          se hace el trabajo en tu empresa. Es lo que tus empleados dicen de la compañía 
-          cuando no estás presente.
+          Cuando hablamos de desarrollar terrenos, muchas personas piensan solo en el trazado de calles y la división de lotes. 
+          Pero la verdadera columna vertebral de un proyecto inmobiliario exitoso es la infraestructura.
         </p>
 
-        <h3><strong>Por qué la Cultura Importa</strong></h3>
-        <p>Las empresas con culturas fuertes superan a sus competidores en casi todas las métricas importantes:</p>
+        <p><strong>Sin infraestructura, un lote es solo tierra.<br/>
+        Con la infraestructura correcta, se convierte en una oportunidad.</strong></p>
+
+        <p>
+          Los desarrolladores que entienden esto no construyen “calles y postes”; construyen conectividad, confort, seguridad 
+          y calidad de vida.
+        </p>
+
+        <h3 style={{ marginTop: "18px" }}><strong>La infraestructura es el motor de la plusvalía</strong></h3>
+        <p>
+          Una zona puede tener buen potencial, pero lo que realmente convierte un terreno común en un desarrollo de alto valor 
+          es la calidad de su infraestructura:
+        </p>
 
         <ul className="blog-list">
-          <li><strong>Retención de talento:</strong> 3.8 veces más probabilidades de permanecer.</li>
-          <li><strong>Productividad:</strong> Equipos comprometidos son hasta 21% más productivos.</li>
-          <li><strong>Innovación:</strong> Culturas que aceptan el fracaso fomentan creatividad.</li>
-          <li><strong>Rentabilidad:</strong> Empresas con culturas excepcionales reportan hasta 4× más ingresos.</li>
+          <li>Calles bien diseñadas</li>
+          <li>Drenaje pluvial eficiente</li>
+          <li>Electricidad estable</li>
+          <li>Agua disponible o facilidades de conexión</li>
+          <li>Áreas verdes y espacios recreativos</li>
+          <li>Señalización y accesos claros</li>
         </ul>
 
-        <h3><strong>Elementos de una Cultura Organizacional Excepcional</strong></h3>
-
-        <h4><strong>1. Propósito Claro y Compartido</strong></h4>
         <p>
-          Los empleados necesitan entender el “por qué” detrás de su trabajo. 
-          Un propósito claro da significado a las tareas diarias y une al equipo.
+          Cada elemento no solo mejora la habitabilidad, sino que incrementa el valor de los lotes y los hace más atractivos 
+          para inversionistas, constructores y compradores finales.
         </p>
 
-        <h4><strong>2. Valores Vividos, No Solo Declarados</strong></h4>
+        <h3 style={{ marginTop: "18px" }}><strong>Infraestructura inteligente: el nuevo estándar del mercado</strong></h3>
         <p>
-          Los valores escritos no sirven si no se reflejan en decisiones diarias. 
-          La cultura real es lo que haces, no lo que dices.
+          Los compradores actuales no buscan solamente un terreno. Buscan:
         </p>
 
-        <h4><strong>3. Comunicación Transparente</strong></h4>
-        <p>
-          La transparencia construye confianza. Comparte éxitos y desafíos por igual.
-        </p>
-
-        <h4><strong>4. Reconocimiento y Celebración</strong></h4>
-        <p>
-          Reconocer logros refuerza comportamientos positivos y fortalece vínculos.
-        </p>
-
-        <h4><strong>5. Desarrollo Continuo</strong></h4>
-        <p>
-          Una cultura de aprendizaje invierte en el crecimiento de su gente mediante 
-          capacitación, mentoring y oportunidades de avance.
-        </p>
-
-        <h4><strong>6. Balance Trabajo–Vida</strong></h4>
-        <p>
-          El agotamiento destruye culturas. El balance es necesario para la sostenibilidad.
-        </p>
-
-        <h3><strong>Construyendo Cultura desde Cero</strong></h3>
-
-        <p><strong>Paso 1: Define tu Cultura Aspiracional</strong></p>
-        <p>
-          Involucra al equipo para definir qué tipo de lugar de trabajo quieren construir.
-        </p>
-
-        <p><strong>Paso 2: Contrata por Alineación Cultural</strong></p>
-        <p>
-          Las habilidades se enseñan; los valores no. Busca personas alineadas con tu cultura.
-        </p>
-
-        <p><strong>Paso 3: Lidera con el Ejemplo</strong></p>
-        <p>
-          Los líderes establecen el tono. Sé el modelo de la cultura que deseas crear.
-        </p>
-
-        <p><strong>Paso 4: Institucionaliza Prácticas Culturales</strong></p>
-        <p>
-          Ritualiza prácticas que refuercen la cultura: celebraciones, reuniones, 
-          espacios de innovación, comunicación abierta.
-        </p>
-
-        <p><strong>Paso 5: Mide y Ajusta</strong></p>
-        <p>
-          Usa encuestas, retroalimentación y entrevistas para medir tu clima laboral 
-          y adaptarlo con el tiempo.
-        </p>
-
-        <h3><strong>Señales de Alerta Cultural</strong></h3>
         <ul className="blog-list">
-          <li>Alta rotación, especialmente de alto desempeño.</li>
-          <li>Chismes o política interna excesiva.</li>
-          <li>Falta de colaboración entre áreas.</li>
-          <li>Equipos constantemente “apagando incendios”.</li>
-          <li>Cinismo, apatía o resistencia al cambio.</li>
+          <li>Seguridad jurídica</li>
+          <li>Conexión rápida a centros urbanos</li>
+          <li>Servicios garantizados</li>
         </ul>
 
-        <h3><strong>El Costo de Ignorar la Cultura</strong></h3>
         <p>
-          Una cultura tóxica afecta la moral y la rentabilidad. 
-          Reemplazar a un empleado puede costar 1.5–2× su salario anual, 
-          sin contar el impacto en productividad y reputación.
+          Por eso, la tendencia moderna es desarrollar con infraestructura inteligente, donde todo está planificado para 
+          funcionar a largo plazo y evitar costos futuros.
         </p>
 
-        <h3><strong>Conclusión</strong></h3>
+        <h3 style={{ marginTop: "18px" }}><strong>Elementos clave en la planificación de infraestructura</strong></h3>
+
+        <h4><strong>1. Diseño vial estratégico</strong></h4>
         <p>
-          La cultura organizacional no es un proyecto con fecha límite. 
-          Es un ecosistema que requiere cuidado constante. 
-          Las empresas más exitosas saben que su mayor activo es su gente 
-          y la cultura que los une. Invierte en tu cultura hoy 
-          y cosecharás beneficios por años.
+          No todas las calles tienen la misma función. Un buen proyecto define:
+        </p>
+
+        <ul className="blog-list">
+          <li>Vías principales para circulación</li>
+          <li>Calles secundarias para acceso</li>
+          <li>Áreas de giro y maniobra</li>
+          <li>Espacios para estacionamiento</li>
+        </ul>
+
+        <p>
+          Esto reduce congestión, mejora la movilidad y aumenta la seguridad del proyecto.
+        </p>
+
+        <h4><strong>2. Drenaje pluvial: el guardián del terreno</strong></h4>
+        <p>
+          Un sistema pluvial bien diseñado evita:
+        </p>
+
+        <ul className="blog-list">
+          <li>Inundaciones</li>
+          <li>Daños estructurales</li>
+          <li>Pérdida de valor de los lotes</li>
+        </ul>
+
+        <p>
+          La mala planificación pluvial es una de las principales razones por las que muchos proyectos fallan.
+        </p>
+
+        <h4><strong>3. Suministro eléctrico y alumbrado</strong></h4>
+        <p>
+          Una urbanización iluminada no solo se ve mejor: <strong>vende más rápido.</strong>
+        </p>
+        <p>
+          La conexión eléctrica estable es garantía de habitabilidad y seguridad.
+        </p>
+
+        <h4><strong>4. Áreas verdes y zonas de convivencia</strong></h4>
+        <p>
+          Los desarrollos con espacios naturales logran:
+        </p>
+
+        <ul className="blog-list">
+          <li>Mayor atractivo visual</li>
+          <li>Mejor percepción de calidad</li>
+          <li>Incremento del valor comercial</li>
+          <li>Mayor velocidad de venta</li>
+        </ul>
+
+        <p>
+          Una simple área verde puede aumentar la plusvalía del desarrollo entre un 8% y un 15%.
+        </p>
+
+        <h3 style={{ marginTop: "18px" }}><strong>Conclusión</strong></h3>
+        <p>
+          La infraestructura no es un gasto: <strong>es la inversión que garantiza la rentabilidad del proyecto.</strong>
+        </p>
+
+        <p>
+          Un buen lote no se vende solo porque es bonito, sino porque está respaldado por un proyecto urbanístico 
+          con servicios reales, accesos claros y planificación inteligente.
+        </p>
+
+        <p>
+          Los desarrolladores que dominan esta etapa no solo urbanizan terrenos… 
+          construyen comunidades, multiplican la plusvalía y aseguran el éxito a largo plazo.
         </p>
 
       </div>
     )}
   </div>
 )}
+
 
     <div className="meta-finanzas">
                   <div className="meta-item">

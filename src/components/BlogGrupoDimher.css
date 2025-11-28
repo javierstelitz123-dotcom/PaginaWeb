@@ -87,7 +87,7 @@
 .blog-categorias-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 48px;
   margin-top: 50px; 
 }
 
@@ -183,7 +183,7 @@
 /* FONDO SUPERIOR COMPLETO */
 .blog-card-dest-bg {
     width: 100%;
-    height: 400px; /* aumenta este valor para que se vea más grande */
+    height: 600px; /* aumenta este valor para que se vea más grande */
     background-image: url('https://drive.google.com/uc?export=view&id=1_m6gOTOkR4ko-8nVYgGIom22Og4SbCmh');
     background-size: cover; /* hace que la imagen cubra todo el contenedor */
     background-position: center; /* centra la imagen */
@@ -192,31 +192,6 @@
     align-items: center;
     position: relative;
 }
-
-
-/* ICONO CENTRADO SOBRE EL FONDO */
-.blog-card-dest-img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.20);
-    backdrop-filter: blur(6px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5; /* ← agrega esta línea */
-}
-
-
-.blog-card-dest-img .lucide {
-    width: 42px;
-    height: 42px;
-    color: white;
-}
-
 /* CONTENIDO */
 .blog-card-dest-content {
     padding: 0; /* Se elimina para que la separación sea exacta */
@@ -257,55 +232,7 @@
     font-size: 1.5rem;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 20px;
-    
-}
-
-/* NEWSLETTER */
-.blog-newsletter {
-  background: linear-gradient(90deg, #9333ea, #db2777);
-  padding: 70px 20px;
-  margin-top: 80px;
-}
-
-.blog-newsletter-inner {
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-}
-
-.blog-newsletter-form {
-  display: flex;
-  gap: 12px;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .blog-newsletter-form {
-    flex-direction: row;
-  }
-}
-
-.blog-newsletter-input {
-  flex: 1;
-  padding: 16px 20px;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-}
-
-.blog-newsletter-btn {
-  padding: 16px 35px;
-  background: white;
-  color: #9333ea;
-  font-weight: 800;
-  border-radius: 30px;
-  transition: 0.3s;
-}
-
-.blog-newsletter-btn:hover {
-  transform: scale(1.06);
-  box-shadow: 0 5px 18px #0003;
+    margin-bottom: 20px;   
 }
 
 /* Categorías Head */
@@ -331,9 +258,9 @@
 }
 
 .blog-cat-btn {
-  width: 245px;    
-  height: 75px;    
-  font-size: 20px;
+  width: 300px;    
+  height: 80px;    
+    font-size: 24px;
   padding: 0px; 
 }
 
@@ -349,27 +276,27 @@
   border: 2px solid white;
 }
 
-.blog-cat-btn[data-cat="finanzas"] {
+.blog-cat-btn[data-cat="análisis de terrenos"] {
   color: black; 
   border: 2px solid white;
 }
 
-.blog-cat-btn[data-cat="carrera"] {
+.blog-cat-btn[data-cat="leyes y regulaciones"] {
   color: black; 
   border: 2px solid white;
 }
 
-.blog-cat-btn[data-cat="liderazgo"] {
+.blog-cat-btn[data-cat="comercialización de lotes"] {
   color: black; 
   border: 2px solid white;
 }
 
-.blog-cat-btn[data-cat="tecnologia"] {
+.blog-cat-btn[data-cat="plusvalía territorial"] {
   color: black; 
   border: 2px solid white;
 }
 
-.blog-cat-btn[data-cat="cultura"] {
+.blog-cat-btn[data-cat="infraestructura en proyectos"] {
   color: black; 
   border: 2px solid white;
 }
@@ -380,47 +307,31 @@
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="finanzas"] {
+.blog-cat-btn.blog-cat-active[data-cat="análisis de terrenos"] {
   background: linear-gradient(90deg, #1d3557, #154991);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="carrera"] {
+.blog-cat-btn.blog-cat-active[data-cat="leyes y regulaciones"] {
   background: linear-gradient(90deg, #03b143, #2e8841);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="liderazgo"] {
+.blog-cat-btn.blog-cat-active[data-cat="comercialización de lotes"] {
   background: linear-gradient(90deg, #257439, #2b6d47e3);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="tecnologia"] {
+.blog-cat-btn.blog-cat-active[data-cat="plusvalía territorial"] {
   background: linear-gradient(90deg, #f15a24, #ff5c21);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="cultura"] {
+.blog-cat-btn.blog-cat-active[data-cat="infraestructura en proyectos"] {
   background: linear-gradient(90deg, #dd4905, #e20f0f);
   color: white;
 }
-/* Imagen arriba del subtitulo Finanzas */
-.finanzas-featured-img {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  aspect-ratio: 16/7;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-  margin-top: 40px;
-  margin-bottom: 10px;
-  margin-left: 0;
-}
-/* Contenedor principal de la Publicación 1 */
-.finanzas-featured {
-  margin-top: 70px;   /* 🔹 Despega toda la publicación de arriba */
-}
+
 .blog-author-circle {
   display: none;
 }
@@ -436,17 +347,6 @@
   font-weight: 600;
   color: #333;
     margin-left: 12px;   /* 🔹 mueve el NOMBRE a la derecha */
-}
-
-/* Botón "Leer" completamente limpio */
-.blog-leer-btn-clean {
-  background: none !important;
-  border: none !important;
-  color: #9333ea;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0;
 }
 
 .blog-leer-btn-clean:hover {
@@ -493,19 +393,6 @@
   color: #777;
   font-size: 0.9rem;
 }
-
-/* Botón Leer Más */
-.finanzas-leer-mas {
-  background: linear-gradient(90deg, #9333ea, #db2777);
-  color: white;
-  border: none;
-  padding: 10px 26px;
-  border-radius: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
 .finanzas-leer-mas:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -531,17 +418,6 @@
   margin-bottom: 10px;
 }
 
-.comment-btn {
-  background: #9333ea;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
 .comment-item {
   background: white;
   padding: 12px;
@@ -559,7 +435,7 @@
 
 .comment-reply {
   cursor: pointer;
-  color: #9333ea;
+  color: #ea6733;
   font-weight: 600;
 }
 
@@ -581,47 +457,6 @@
   width: 100%;
   margin-top: 80px; /* espacio para que no quede pegado al borde */
 }
-
-/* BOTÓN DESTACADO (MAGENTA) */
-.blog-leer-destacado-btn {
-  background: #e62dce;
-  color: white;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 25px;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 12px rgba(230, 45, 206, 0.3);
-  transition: 0.2s ease;
-}
-
-.blog-leer-destacado-btn:hover {
-  background: #d024b9;
-  transform: translateY(-2px);
-}
-
-/* BOTÓN PEQUEÑO DE LA LISTA INFERIOR */
-.blog-leer-small-btn {
-  background: transparent;
-  color: #b833f0;
-  border: 2px solid #b833f0;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s ease;
-    align-self: flex-end; 
-}
-
-.blog-leer-small-btn:hover {
-  background: #b833f0;
-  color: white;
-}
-
 /* CÍRCULO DE AUTOR (ya existía, no modificado) */
 .blog-author-circle {
   width: 34px;
@@ -648,7 +483,7 @@
 }
 
 /* Línea inferior donde va la fecha y autor */
-.meta-finanzas {
+.meta-análisis{
   display: flex;
   align-items: center;
   gap: 25px;
@@ -659,7 +494,7 @@
 /* Botón "Leer más" versión pequeña */
 .blog-leer-small-btn {
   padding: 10px 20px;
-  background-color: #8a2be2; /* ← COLOR IGUAL AL BOTÓN DE FINANZAS */
+  background-color: #0315b6; /* ← COLOR IGUAL AL BOTÓN DE Análisis de Terrenos*/
   color: white;
   border-radius: 8px;
   font-size: 16px;
@@ -675,33 +510,28 @@
   transform: translateY(-2px);
   opacity: .85;
 }
-
-.blog-leer-small-btn:hover {
-  background: #b833f0;
-  color: white;
-}
-/* Finanzas azul */
-.blog-card-dest-tag[data-cat="finanzas"] {
+/*Análisis de Terrenos azul */
+.blog-card-dest-tag[data-cat="análisis de terrenos"] {
   background: #3b82f6;
 }
 
 /* Desarrollo Profesional verde */
-.blog-card-dest-tag[data-cat="carrera"] {
+.blog-card-dest-tag[data-cat="leyes y regulaciones "] {
   background: #16a34a;
 }
 
 /* Liderazgo naranja */
-.blog-card-dest-tag[data-cat="liderazgo"] {
+.blog-card-dest-tag[data-cat="comercialización de lotes"] {
   background: #f97316;
 }
 
 /* Tecnología violeta */
-.blog-card-dest-tag[data-cat="tecnologia"] {
+.blog-card-dest-tag[data-cat="plusvalía territorial"] {
   background: #8b5cf6;
 }
 
 /* Cultura rosa */
-.blog-card-dest-tag[data-cat="cultura"] {
+.blog-card-dest-tag[data-cat="infraestructura en psroyectos"] {
   background: #ec4899;
 }
 /* Color del botón Leer Más (igual que en tu segunda captura) */
@@ -897,7 +727,7 @@
   color: #333;
   line-height: 1.6;
 }
-/* Contenedor del contenido de la categoría Finanzas */
+/* Contenedor del contenido de la categoría Análisis de Terrenos */
 .blog-extra-full {
   margin-top: 20px;
   color: #333;           /* COLOR GENERAL DEL TEXTO */
@@ -905,7 +735,7 @@
   line-height: 1.2;      /* SEPARACIÓN ENTRE LÍNEAS */
 }
 
-/* Títulos (h3) dentro de Finanzas */
+/* Títulos (h3) dentro de Análisis de Terrenos */
 .blog-extra-full h3 {
   font-size: 22px;       /* TAMAÑO DE LOS TÍTULOS */
   color: black;        /* COLOR DE LOS TÍTULOS */
@@ -913,14 +743,14 @@
   margin-top: 20px;
 }
 
-/* Párrafos dentro de Finanzas */
+/* Párrafos dentro de Análisis de Terrenos*/
 .blog-extra-full p {
   font-size: 19px;       /* TAMAÑO DEL TEXTO */
   color: #444;           /* COLOR DEL TEXTO */
   margin-top: 10px;
 }
 
-/* Listas dentro de Finanzas */
+/* Listas dentro de Análisis de Terrenos */
 .blog-extra-full ul {
   margin-top: 10px;
   padding-left: 20px;
@@ -1423,23 +1253,23 @@
 }
 
 /* 🎨 GRADIENTES POR CATEGORÍA */
-.blog-card-tag[data-cat="finanzas"] {
+.blog-card-tag[data-cat="análisis de terrenos"] {
   background: linear-gradient(135deg, #1d3557, #154991);
 }
 
-.blog-card-tag[data-cat="carrera"] {
+.blog-card-tag[data-cat="leyes y regulaciones"] {
   background: linear-gradient(135deg, #03b143, #2e8841);
 }
 
-.blog-card-tag[data-cat="liderazgo"] {
+.blog-card-tag[data-cat="comercialización de lotes"] {
   background: linear-gradient(135deg, #257439, #2b6d47e3);
 }
 
-.blog-card-tag[data-cat="tecnologia"] {
+.blog-card-tag[data-cat="plusvalía territorial"] {
   background: linear-gradient(135deg, #f15a24, #ff5c21);
 }
 
-.blog-card-tag[data-cat="cultura"] {
+.blog-card-tag[data-cat="infraestructura en proyectos"] {
   background: linear-gradient(135deg,  #dd4905, #e20f0f);
 }
 
