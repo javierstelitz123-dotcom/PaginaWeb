@@ -98,13 +98,6 @@ const compartirArticulo = async (art) => {
   // Usuario simulado
   const currentUser = { id: 1, name: "Usuario Actual" };
 
-  useEffect(() => {
-    if (location.pathname === "/blog") {
-      setSelectedCategory("todos");
-      setSearchTerm("");
-    }
-  }, [location.pathname]);
-
   // Persistir likes y comentarios
   useEffect(() => {
     localStorage.setItem("blogLikes", JSON.stringify(blogLikes));
@@ -122,12 +115,7 @@ const compartirArticulo = async (art) => {
     });
     
   };
-  useEffect(() => {
-    if (location.pathname === "/blog") {
-      setSelectedCategory("todos");
-      setSearchTerm("");
-    }
-}, [location.pathname]);
+
 useEffect(() => {
   if (location.pathname === "/blog") {
     window.scrollTo({
@@ -205,20 +193,21 @@ useEffect(() => {
   };
 
   // Datos (tal cual los tenías)
-  const categorias = [
-    { id: "todos", name: "Todos",  },
-    { id: "análisis de terrenos", name: "Análisis de Terrenos"},
-    { id: "leyes y regulaciones", name: "Leyes y Regulaciones " },
-    { id: "comercialización de lotes", name: "Comercialización de Lotes"},
-    { id: "plusvalía territorial", name: "Plusvalía Territorial"},
-    { id: "infraestructura en proyectos", name: "Infraestructura en Proyectos" },
-  ];
+const categorias = [
+  { id: "todos", name: "Todos" },
+  { id: "analisis-terrenos", name: "Análisis de Terrenos" },
+  { id: "leyes-regulaciones", name: "Leyes y Regulaciones" },
+  { id: "comercializacion-lotes", name: "Comercialización de Lotes" },
+  { id: "plusvalia-territorial", name: "Plusvalía Territorial" },
+  { id: "infraestructura-proyectos", name: "Infraestructura en Proyectos" },
+];
+
 
   const articulos = [
     {
       id: 1,
       titulo: "¿Cómo asegurar una inversión inteligente mediante el análisis del terreno?",
-      categoria: "análisis de terrenos",
+      categoria: "analisis-terrenos",
       autor: "María González",
       fecha: "15 Noviembre 2025",
       lecturaMin: 8,
@@ -233,7 +222,7 @@ useEffect(() => {
     {
       id: 2,
       titulo: "Normativas clave que rigen el desarrollo inmobiliario en República Dominicana",
-      categoria: "leyes y regulaciones",
+      categoria: "leyes-regulaciones",
       autor: "Carlos Ramírez",
       fecha: "12 Noviembre 2025",
       lecturaMin: 6,
@@ -248,7 +237,7 @@ useEffect(() => {
     {
       id: 3,
       titulo: "¿Cómo la visión estratégica impulsa la comercialización efectiva de lotes?",
-      categoria: "comercialización de lotes",
+      categoria: "comercializacion-lotes",
       autor: "Ana Martínez",
       fecha: "10 Noviembre 2025",
       lecturaMin: 10,
@@ -263,7 +252,7 @@ useEffect(() => {
     {
       id: 4,
       titulo: "¿Cómo Identificar Zonas con Alto Potencial Antes de Desarrollar un Terreno?",
-      categoria: "plusvalía territorial",
+      categoria: "plusvalia-territorial",
       autor: "Roberto Silva",
       fecha: "08 Noviembre 2025",
       lecturaMin: 7,
@@ -278,7 +267,7 @@ useEffect(() => {
     {
       id: 5,
       titulo: "Planificación de Infraestructura en Proyectos de Urbanización",
-      categoria: "infraestructura en proyectos",
+      categoria: "infraestructura-proyectos",
       autor: "Laura Pérez",
       fecha: "05 Noviembre 2025",
       lecturaMin: 9,
@@ -291,7 +280,7 @@ useEffect(() => {
     {
       id: 6,
       titulo: "¿Cómo evaluar si un terreno es apto para un desarrollo inmobiliario?",
-      categoria: "análisis de terrenos",
+      categoria: "analisis-terrenos",
       autor: "Diego Torres",
       fecha: "03 Noviembre 2024",
       lecturaMin: 5,
@@ -306,7 +295,7 @@ useEffect(() => {
     {
       id: 7,
       titulo: "Guía esencial para evitar fraudes inmobiliarios",
-      categoria: "leyes y regulaciones",
+      categoria: "leyes-regulaciones",
       autor: "Isabel Moreno",
       fecha: "01 Noviembre 2024",
       lecturaMin: 6,
@@ -378,18 +367,19 @@ return (
             <h2 className="text-2xl font-bold text-gray-800">Categorías</h2>
           </div>
 
-          <div className="blog-categorias-list">
-            {categorias.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                data-cat={cat.id}
-                className={`blog-cat-btn ${selectedCategory === cat.id ? "blog-cat-active" : ""}`}
-              >
-                {cat.name}
-              </button>
-            ))}
-          </div>
+<div className="blog-categorias-list">
+  {categorias.map((cat) => (
+    <button
+      key={cat.id}
+      className={`blog-cat-btn ${selectedCategory === cat.id ? "blog-cat-active" : ""}`}
+      data-cat={cat.id}   // <-- AQUÍ VA
+      onClick={() => setSelectedCategory(cat.id)}
+    >
+      {cat.name}
+    </button>
+  ))}
+</div>
+
         </div>
 
         {/* Destacados */}
@@ -481,7 +471,7 @@ return (
 
                 {/* Mostrar contenido extra SOLO si coincide con idFromURL */}
 {/* TEXTO COMPLETO PARA PUBLICACIÓN 1 */} 
-{art.id === 1 && selectedCategory === "análisis de terrenos" && (
+{art.id === 1 && selectedCategory === "analisis-terrenos" && (
   <div className="blog-extra-content">
     <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
@@ -528,7 +518,7 @@ return (
   <div className="blog-extra-content">
 
     {/* TEXTO COMPLETO SOLO CUANDO SE ESTÁ EN LA CATEGORÍA Análisis de Terrenos */}
-    {selectedCategory === "análisis de terrenos" && (
+    {selectedCategory === "analisis-terrenos" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h2><strong>Cómo evaluar si un terreno es apto para un desarrollo inmobiliario</strong></h2>
@@ -635,7 +625,7 @@ return (
 {art.id === 2 && (
   <div className="blog-extra-content">
 
-    {selectedCategory === "leyes y regulaciones" && (
+    {selectedCategory === "leyes-regulaciones" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h2><strong>Leyes que protegen la inversión, garantizan el orden urbano y aseguran proyectos exitosos</strong></h2>
@@ -717,7 +707,7 @@ return (
 {art.id === 7 && (
   <div className="blog-extra-content">
     
-    {selectedCategory === "leyes y regulaciones" && (
+    {selectedCategory === "leyes-regulaciones" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h2><strong>Cómo Validar la Legalidad de un Terreno Antes de Comprar</strong></h2>
@@ -805,7 +795,7 @@ return (
 {art.id === 3 && (
   <div className="blog-extra-content">
 
-    {selectedCategory === "comercialización de lotes" && (
+    {selectedCategory === "comercializacion-lotes" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h2><strong>Comercialización de Lotes</strong></h2>
@@ -861,7 +851,7 @@ return (
 {art.id === 4 && (
   <div className="blog-extra-content">
 
-    {selectedCategory === "plusvalía territorial" && (
+    {selectedCategory === "plusvalia-territorial" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h2><strong>Evaluación de Plusvalía Territorial</strong></h2>
@@ -950,7 +940,7 @@ return (
 {art.id === 5 && (
   <div className="blog-extra-content">
 
-    {selectedCategory === "infraestructura en proyectos" && (
+    {selectedCategory === "infraestructura-proyectos" && (
       <div className="blog-extra-full" style={{ marginTop: "20px" }}>
 
         <h2><strong>Cómo una Buenas Infraestructura Multiplica el Valor de un Desarrollo</strong></h2>

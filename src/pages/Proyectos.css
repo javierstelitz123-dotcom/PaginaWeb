@@ -6,36 +6,56 @@
   
 }
 
+/* ============================= */
+/*  NUEVO HEADER AL ESTILO DEL EJEMPLO  */
+/* ============================= */
+
 .imagen-container {
   position: relative;
-  height: 50vh; /* 50% de la altura de la ventana */
+  height: 45vh;
   background-image: url('../assets/empresa.jpg');
-  background-size: cover;  /* Asegura que la imagen cubra todo el contenedor */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita que se repita */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-
+/* Overlay degradado estilo imagen 1 */
 .imagen-container::before {
   content: "";
   position: absolute;
   inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    
+  );
+  z-index: 1;
 }
 
-
+/* Texto encima del banner */
 .overlay-text {
   position: absolute;
   inset: 0;
   display: flex;
-  justify-content: left;
+  justify-content: center; /* Centrado como en la primera imagen */
   align-items: center;
-  font-size: 3rem;
-  font-weight: 500;
-  z-index: 2; /* ⬅️ Para que quede ENCIMA del overlay blanco */
-  /* Color naranja para el título */
-  color: black;
-  padding-left: 190px;     /* Ajusta el espacio desde el borde izquierdo */
+  flex-direction: column;
+  z-index: 2;
+  text-align: center;
 }
+
+.overlay-text strong {
+  font-size: 4.5rem; /* Grande como el ejemplo */
+  font-weight: 700;
+  color: #ffffff; /* El texto es blanco igual que el ejemplo */
+  text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+
+/* QUITAR cualquier overlay anterior */
+.header-banner::before {
+  content: none !important;
+}
+
 
 
 /* ============================= */

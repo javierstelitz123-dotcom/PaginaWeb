@@ -1,282 +1,23 @@
+/* ===========================
+   FUENTES
+=========================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
 
 * {
   font-family: 'Poppins', sans-serif;
 }
-
-.detalle-section {
-  background-color: #ffffff;
-  min-height: 100vh;
-  padding: 188px 80px 80px 80px;
-}
-
-/* ===== TÍTULOS ===== */
-.detalle-titulo-principal {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #1d3557;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.derecha {
-  text-align: left;
-  margin-left: 100px;
-}
-
-.detalle-nombre {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: #f15a24;
-  margin-bottom: 1px;
-    text-align: left;
-}
-
-.detalle-ubicacion {
-  display: inline-flex;
-  align-items: left;
-  gap: 10px;
-  font-size: 1.4rem;
-  color: black;
-  font-weight: 600;
-}
-
-.icono-ubicacion {
-  color: #f15a24;
-  width: 22px;
-  height: 22px;
-}
-
-/* ===== GALERÍA ===== */
-.galeria-container {
-  position: relative;
-  text-align: center;
-    max-width: 80%;   /* Reduce el tamaño general del contenedor */
-  margin: 0 auto;   /* Centra el carrusel */
-}
-
-.imagen-principal img {
-  width: 80%;
-  max-height: 700px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease;
-}
-
-.imagen-principal img:hover {
-  transform: scale(1.01);
-}
-
-/* === FLECHAS IGUALES AL PROYECTO 3 === */
-.flecha {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #f15a24 !important;
-  color: white !important;
-  border: none;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 30;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-/* ← ESTE ES EL IMPORTANTE */
-.flecha svg {
-  width: 38px !important;
-  height: 38px !important;
-}
-
-.flecha:hover {
-  background: #d94d1e !important;
-}
-
-.flecha.izquierda {
-  left: -50px;
-}
-
-.flecha.derecha {
-  right: -50px;
-}
-
-
-
-
-
-/* ===== Descripción de Propiedad ===== */
-.descripcion-propiedad {
-  margin-top: 60px;
-  padding: 20px 100px;
-  text-align: right;
-}
-
-.descripcion-propiedad h3 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #f15a24;
-  margin-bottom: 20px;
-}
-
-.descripcion-propiedad p {
-  font-size: 1.1rem;
-  color: black;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-/* ===== CONTENEDOR BLANCO DE DESCRIPCIÓN ===== */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
-
-.descripcion-propiedad {
-  margin-top: 60px;
-  padding: 0 100px;
-  text-align: right;
-}
-
-.descripcion-propiedad h3 {
-  text-align: left;
-}
-
-.descripcion-propiedad p {
-  font-family: 'Lora', serif;
-}
-
-.descripcion-propiedad {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-}
-
-.descripcion-propiedad-contenedor {
-  background-color: #ffffff;
-  padding: 40px 60px;
-  border-radius: 15px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  text-align: justify;
-  font-family: 'Lora', serif;
-}
-
-.descripcion-propiedad-contenedor p {
-  font-size: 1.4rem;
-  color: black;
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-
-/* ===== CONTENEDOR DESCRIPCIÓN + COMPARTIR ===== */
-.descripcion-compartir-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  margin-top: 60px;
-  flex-wrap: wrap;
-}
-
-/* ===== AJUSTE PARA EL BOTÓN VOLVER ===== */
-.detalle-section {
-  position: relative; /* NECESARIO para que el botón se posicione dentro */
-}
-
-/* ===== BOTÓN VOLVER ===== */
-.boton-volver {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background-color: #f15a24;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 100px;
-  position: absolute;
-  top: 40px; /* más visible arriba del título */
-  left: 60px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  z-index: 10;
-}
-
-.boton-volver:hover {
-  background-color: #f15a24;
-  transform: scale(1.05);
-}
-
-/* ===== CONTENEDORES DE DESCRIPCIÓN Y COMPARTIR ===== */
-.descripcion-compartir-wrapper {
-  display: flex;
-  gap: 40px;
-  margin-top: 80px;
-  padding: 1px;
-}
-
-/* ===== CONTENEDOR COMPARTIR ===== */
-.compartir-ahora {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 30px 30px;
-  border-radius: 15px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  text-align: center;
-  margin-top: 180px;
-
-}
-
-.compartir-ahora h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #f15a24;
-  margin-bottom: 20px;
-}
-
-/* Campo e input copiar link */
-.compartir-input {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.compartir-input input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.compartir-input button {
-  background-color:#f15a24;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-.compartir-input button:hover {
-  background-color: #f15a24;
-}
-
-/* Iconos de redes sociales */
+/* ===========================
+   REDES SOCIALES
+=========================== */
 .redes-sociales {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 200px;
 }
 
 .redes-sociales a {
-  color: white;
+  color: black;
   padding: 10px;
   border-radius: 50%;
   transition: transform 0.3s ease;
@@ -290,41 +31,13 @@
 .redes-sociales .instagram { background-color: #e1306c; }
 .redes-sociales .facebook { background-color: #1877f2; }
 .redes-sociales .youtube { background-color: #ff0000; }
+
+/* BOTÓN VOLVER */
 .boton-volver {
   z-index: 9999 !important;
   position: absolute !important;
   top: 40px !important;
   left: 60px !important;
-}
-.galeria-container {
-  position: relative;
-  text-align: center;
-}
-
-.imagen-principal img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-.flecha {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  padding: 12px 18px;
-  font-size: 2rem;
-  cursor: pointer;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
-
-.flecha.izquierda {
-  left: 20px;
-}
-
-.flecha.derecha {
-  right: 20px;
 }
 
 .proyecto-volver {
@@ -334,27 +47,239 @@
   background: #f15a24;
   color: white;
   padding: 10px 18px;
-  font-size: 1.2rem; /* ← Aumenté tamaño */
+  font-size: 1.2rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   margin: 15px 0 25px 20px;
 }
+
+/* BADGE DEL PROYECTO */
 .proyecto-badge {
   position: absolute;
   top: 75px;
   left: 170px;
   z-index: 20;
-
-  background: transparent !important;  /* SIN FONDO */
-  padding: 0 !important;               /* SIN CAJA */
-  border-radius: 0 !important;         /* SIN BORDES */
-  color: #1d3557;                      /* COLOR DEL TEXTO */
-  font-size: 3rem;                   /* TAMAÑO DEL TEXTO (ajustable) */
-  font-weight: 900;                    /* NEGRITA */
+  background: transparent !important;
+  padding: 0 !important;
+  color: #1d3557;
+  font-size: 3rem;
+  font-weight: 900;
 }
 
 .proyecto-banner {
-  position: relative; 
-  margin-top: 20px; /* espacio bajo el botón volver */
+  position: relative;
+  margin-top: 20px;
 }
+
+/* ===========================
+   HEADER DEL PROYECTO
+=========================== */
+.nuevo-header-proyecto {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background-image: url("https://grupodimher.com/assets/images/property/gallery/682ec1845a6c61747894660.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 120px;
+  color: white;
+}
+
+.overlay-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.1));
+  z-index: 1;
+}
+
+.nuevo-header-proyecto * {
+  z-index: 2;
+}
+
+.header-titulo {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.header-ubicacion {
+  font-size: 2rem;
+  margin-bottom: 28px;
+  font-weight: 500;
+  margin-top: -15px;
+}
+
+.header-btn {
+  background: #f15a24;
+  color: white;
+  padding: 16px 34px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.header-btn:hover {
+  background: #d94d1e;
+}
+
+.mosaico-galeria {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 40px;
+}
+
+.mosaico-galeria img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+/* ===========================
+   DETALLES Y CARACTERÍSTICAS DEL PROYECTO
+=========================== */
+.proyecto-info-container {
+  margin-top: 50px;
+  padding: 20px 40px;
+}
+
+.proyecto-descripcion p,
+.proyecto-descripcion h2,
+.proyecto-caracteristicas h2,
+.proyecto-caracteristicas ul li {
+  color: #000 !important;       /* Todo negro */
+  font-size: 1.6rem;            /* Más grande */
+  line-height: 1.7;             /* Elegante */
+  font-family: 'Poppins', sans-serif !important; /* MISMA TIPOGRAFÍA GLOBAL */
+}
+
+/* Títulos (Detalles del Proyecto / Características) */
+.proyecto-descripcion h2,
+.proyecto-caracteristicas h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #000 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif !important; /* TIPOGRAFÍA IGUALADA */
+}
+
+/* Lista de características */
+.proyecto-caracteristicas ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.proyecto-caracteristicas ul li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Íconos */
+.proyecto-descripcion .icono,
+.proyecto-caracteristicas .icono {
+  width: 24px;
+  height: 24px;
+}
+/* ===========================
+   COMPARTIR (BLOG / PROYECTO)
+=========================== */
+
+.blog1-share {
+  margin-top: 50px;
+  padding: 25px;
+}
+
+/* Título */
+.blog1-share h3 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* Íconos de redes sociales */
+.blog1-social-icons {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.blog1-social-icons a {
+  font-size: 2rem; /* íconos más grandes */
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.blog1-social-icons a:hover {
+  transform: scale(1.1);
+}
+
+/* Input para copiar enlace */
+.blog1-copy-link-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.blog1-copy-input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.4rem;
+  border: 2px solid #000;   /* SOLO aquí el borde negro */
+  border-radius: 8px;
+}
+
+.blog1-copy-button {
+  padding: 14px 22px;
+  font-size: 1.4rem;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.blog1-copy-button:hover {
+  opacity: 0.8;
+}
+
+/* BOTÓN VOLVER */
+.proyecto-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f15a24;
+  color: white;
+  padding: 14px 26px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.proyecto-volver svg {
+  font-size: 2rem;
+}
+

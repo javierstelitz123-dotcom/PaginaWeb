@@ -43,45 +43,41 @@ const Proyecto1 = () => {
 
   return (
     <section className="proyecto-detalle">
-      {/* Botón Volver */}
-      <button className="proyecto-volver" onClick={handleVolver}>
-        <FaArrowLeft />
-        Volver
-      </button>
 
-      {/* Imagen principal con badge y título */}
-      <div className="proyecto-banner">
-        <div className="proyecto-badge">Detalles de propiedad</div>
-        <div className="galeria-container">
-          <button className="flecha izquierda" onClick={() => moverImagen(-1)}>‹</button>
 
-          <div className="imagen-principal">
-            <img
-              src={imagenes[imagenActual]}
-              alt="Imagen del proyecto"
-              className="proyecto-banner-img"
-            />
-          </div>
+      {/* NUEVO HEADER TIPO VICTORIANA I */}
+<div className="nuevo-header-proyecto">
+    <div className="overlay-header"></div>
 
-          <button className="flecha derecha" onClick={() => moverImagen(1)}>›</button>
-        </div>
+    <h1 className="header-titulo">Villas el Americano</h1>
+    <p className="header-ubicacion">Bonao</p>
+<button 
+  className="header-btn"
+  onClick={() => navigate("/contacto")}
+>
+  Estoy interesado
+</button>
 
-        <div className="proyecto-banner-texto">
-          <h1>Villas el Americano</h1>
-          <p>Bonao</p>
-        </div>
-      </div>
+</div>
 
       {/* Información del proyecto */}
       <div className="proyecto-info-container">
         <div className="proyecto-descripcion">
           <h2>Detalles del Proyecto</h2>
-          <p>Nuevo Proyecto ecoturístico ¡Villas el Americano!.</p>
-          <p>Ideal tanto para vivir como a modo de inversión ¡Tú eliges!</p>
-          <p>
-            <MapPin className="icono" /> Ubicado en la calle Los Pedregones, por los Tanques, detrás del Samán.
-          </p>
-          <p>¡Fincas desde 1,527.49 metros en adelante!</p>
+ <p>Nuevo proyecto ecoturístico ¡Villas el Americano! ✨</p>
+    <p>Ideal tanto para vivir como a modo de inversión. ¡Tú eliges!</p>
+
+    <p>
+      <MapPin className="icono" /> 
+      Ubicado en la calle Los Pedregones, por los Tanques, detrás del Samán.
+    </p>
+
+    <p>¡Fincas desde 1,527.49 metros en adelante! ⚡️</p>
+
+    <p>• Inicial de RD$ 500,000.00</p>
+    <p>• Pagando cuotas mínimas de RD$18,000.00</p>
+
+    <p>🍃 Precio del metro RD$2,000.00 🍃</p>
         </div>
 
         <div className="proyecto-caracteristicas">
@@ -102,6 +98,26 @@ const Proyecto1 = () => {
           </ul>
         </div>
       </div>
+      <div className="galeria-container">
+          <button className="flecha izquierda" onClick={() => moverImagen(-1)}>‹</button>
+
+          <div className="imagen-principal">
+            <img
+              src={imagenes[imagenActual]}
+              alt="Imagen del proyecto"
+              className="proyecto-banner-img"
+            />
+          </div>
+
+          <button className="flecha derecha" onClick={() => moverImagen(1)}>›</button>
+        </div>
+        {/* IMÁGENES ESTÁTICAS TIPO MOSAICO */}
+<div className="mosaico-galeria">
+  {imagenes.map((img, index) => (
+    <img key={index} src={img} alt={`foto-${index}`} />
+  ))}
+</div>
+
 
       {/* Compartir ahora */}
       <div className="blog1-share">
@@ -128,8 +144,14 @@ const Proyecto1 = () => {
             {copied ? "¡Copiado!" : "Copiar"}
           </button>
         </div>
+        {/* Botón Volver */}
+      <button className="proyecto-volver" onClick={handleVolver}>
+        <FaArrowLeft />
+        Volver
+      </button>
       </div>
     </section>
+    
   );
 };
 

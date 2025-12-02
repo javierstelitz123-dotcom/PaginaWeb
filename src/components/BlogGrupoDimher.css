@@ -1,52 +1,110 @@
-.blog-dimher-wrapper { 
-  min-height: 100vh;
-  background: linear-gradient(to bottom right, #f8fafc, #eef2f6);
-}
-
 /* HERO */
 .blog-hero-gradient {
-  background: linear-gradient(to right,#1d3557, #1d3557,#f15a24, #f15a24);
-  padding: 80px 20px;
   position: relative;
+  padding: 100px 20px 120px;
+  background: linear-gradient(90deg, #5179b1 0%, #5179b1 35%, #ff6e39 100%);
   overflow: hidden;
 }
 
+/* Glow suave en el borde superior izquierdo */
+.blog-hero-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255,255,255,0.08),
+    transparent 60%
+  );
+  z-index: 1;
+  
+}
+
+/* Imagen de textura (blog.jpg dentro de assets) */
+.blog-hero-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+background: url("../assets/blog.jpg");
+
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;           /* ajustable */
+  mix-blend-mode: overlay; /* hace que se mezcle como en tu ejemplo */
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Contenido */
 .blog-hero-inner {
   max-width: 1100px;
   margin: auto;
   text-align: center;
   position: relative;
   z-index: 10;
+  padding-top: 40px;
+  
 }
 
-.blog-hero-title {
-  font-size: 4rem;
+/* Badge de Blog Grupo Dimher */
+.blog-badge {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  padding: 14px 28px;
+  border-radius: 50px;
   color: white;
-  font-weight: 900;
-  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 35px;
 }
 
+/* Título */
+.blog-hero-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  margin-bottom: 18px;
+}
+
+/* Subtítulo */
 .blog-hero-sub {
   font-size: 1.4rem;
-  color: #fff9;
-  max-width: 700px;
+  color: #ffffffd9;
+  max-width: 720px;
   margin: auto;
 }
 
 /* SEARCH */
 .blog-search-wrapper {
   max-width: 700px;
-  margin: 40px auto 0;
+  margin: 45px auto 0;
   position: relative;
+}
+
+.blog-search-input {
+  width: 100%;
+  padding: 18px 20px 18px 55px;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.25);
 }
 
 .blog-search-icon {
   position: absolute;
-  left: 25px;
+  left: 23px;
   top: 50%;
   transform: translateY(-50%);
-  color: #777;
+  color: #666;
+  font-size: 1.2rem;
 }
+
 
 .blog-search-input {
   width: 100%;
@@ -70,6 +128,7 @@
   color: #000000;         /* color negro */
   margin-bottom: 1.5rem;  /* espacio debajo, opcional */
     margin-top: 85px;
+    
 }
 
 
@@ -91,7 +150,6 @@
   margin-top: 50px; 
 }
 
-/* Botón normal */
 .blog-cat-btn {
   padding: 12px 24px;
   border-radius: 30px;
@@ -100,8 +158,9 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   cursor: pointer;
-  border: 2px solid white; /* borde blanco */
+  border: 2px solid transparent;  /* ← CAMBIAR A TRANSPARENT */
 }
+
 
 /* Hover */
 .blog-cat-btn:hover {
@@ -126,7 +185,7 @@
   border: 2px solid white;      
   color: white;                 
   font-weight: bold;            
-  font-size: 2rem;              
+  font-size: 3.5rem;              
   box-shadow: 0 10px 15px rgba(0,0,0,0.2); 
   cursor: pointer;              
   transition: all 0.3s ease;    
@@ -138,8 +197,8 @@
 }
 
 .blog-badge .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   color: white; 
 }
 
@@ -156,7 +215,7 @@
 }
 
 .blog-destacados-title h2 {
-  font-size: 2.5rem;      /* más grande */
+  font-size: 3.1rem;      /* más grande */
   font-weight: 770;        /* más grueso */
   color: #000000;          /* negro */
 }
@@ -221,7 +280,7 @@
 
 
 .blog-card-dest-title {
-  font-size: 2rem !important;
+  font-size: 2.5rem !important;
     font-weight: 800;
     margin-bottom: 12px;
     color: #1a1a1a;
@@ -229,7 +288,7 @@
 
 /* TEXTO */
 .blog-card-dest-text {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #555;
     line-height: 1.6;
     margin-bottom: 20px;   
@@ -238,7 +297,7 @@
 /* Categorías Head */
 .blog-categorias-head h2 {
   color: #000000;       
-  font-size: 2rem;    
+  font-size: 3.1rem;    
   font-weight: 900;     
   margin: 0;            
 }
@@ -259,7 +318,7 @@
 
 .blog-cat-btn {
   width: 300px;    
-  height: 80px;    
+  height: 90px;    
     font-size: 24px;
   padding: 0px; 
 }
@@ -270,36 +329,6 @@
   transform: scale(1.1);     
 }
 
-/* Colores por categoría (borde blanco) */
-.blog-cat-btn[data-cat="todos"] {
-  color: black; 
-  border: 2px solid white;
-}
-
-.blog-cat-btn[data-cat="análisis de terrenos"] {
-  color: black; 
-  border: 2px solid white;
-}
-
-.blog-cat-btn[data-cat="leyes y regulaciones"] {
-  color: black; 
-  border: 2px solid white;
-}
-
-.blog-cat-btn[data-cat="comercialización de lotes"] {
-  color: black; 
-  border: 2px solid white;
-}
-
-.blog-cat-btn[data-cat="plusvalía territorial"] {
-  color: black; 
-  border: 2px solid white;
-}
-
-.blog-cat-btn[data-cat="infraestructura en proyectos"] {
-  color: black; 
-  border: 2px solid white;
-}
 
 /* Botón activo: degradado */
 .blog-cat-btn.blog-cat-active[data-cat="todos"] {
@@ -307,30 +336,31 @@
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="análisis de terrenos"] {
+.blog-cat-btn.blog-cat-active[data-cat="analisis-terrenos"] {
   background: linear-gradient(90deg, #1d3557, #154991);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="leyes y regulaciones"] {
+.blog-cat-btn.blog-cat-active[data-cat="leyes-regulaciones"] {
   background: linear-gradient(90deg, #03b143, #2e8841);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="comercialización de lotes"] {
+.blog-cat-btn.blog-cat-active[data-cat="comercializacion-lotes"] {
   background: linear-gradient(90deg, #257439, #2b6d47e3);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="plusvalía territorial"] {
+.blog-cat-btn.blog-cat-active[data-cat="plusvalia-territorial"] {
   background: linear-gradient(90deg, #f15a24, #ff5c21);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="infraestructura en proyectos"] {
+.blog-cat-btn.blog-cat-active[data-cat="infraestructura-proyectos"] {
   background: linear-gradient(90deg, #dd4905, #e20f0f);
   color: white;
 }
+
 
 .blog-author-circle {
   display: none;
@@ -493,11 +523,11 @@
 
 /* Botón "Leer más" versión pequeña */
 .blog-leer-small-btn {
-  padding: 10px 20px;
+  padding: 15px 25px;
   background-color: #0315b6; /* ← COLOR IGUAL AL BOTÓN DE Análisis de Terrenos*/
   color: white;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
   transition: 0.3s ease;
@@ -1253,32 +1283,39 @@
 }
 
 /* 🎨 GRADIENTES POR CATEGORÍA */
-.blog-card-tag[data-cat="análisis de terrenos"] {
+.blog-card-tag[data-cat="analisis-terrenos"] {
   background: linear-gradient(135deg, #1d3557, #154991);
 }
 
-.blog-card-tag[data-cat="leyes y regulaciones"] {
+.blog-card-tag[data-cat="leyes-regulaciones"] {
   background: linear-gradient(135deg, #03b143, #2e8841);
 }
 
-.blog-card-tag[data-cat="comercialización de lotes"] {
+.blog-card-tag[data-cat="comercializacion-lotes"] {
   background: linear-gradient(135deg, #257439, #2b6d47e3);
 }
 
-.blog-card-tag[data-cat="plusvalía territorial"] {
+.blog-card-tag[data-cat="plusvalia-territorial"] {
   background: linear-gradient(135deg, #f15a24, #ff5c21);
 }
 
-.blog-card-tag[data-cat="infraestructura en proyectos"] {
-  background: linear-gradient(135deg,  #dd4905, #e20f0f);
+.blog-card-tag[data-cat="infraestructura-proyectos"] {
+  background: linear-gradient(135deg, #dd4905, #e20f0f);
 }
 
 .blog-card-tag[data-cat="todos"] {
   background: linear-gradient(135deg, #0610a3, #2d67bd);
 }
+
 .blog-todos-title {
   font-size: 2.8rem;        /* tamaño más grande */
   font-weight: 900;         /* más grueso */
   color: #000;              /* negro */
   margin-top: 90px;
+}
+body,
+#root,
+.blog-wrapper,
+.blog-container {
+  background: #ffffff !important;
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "./FAQ.css";
+import { Link } from "react-router-dom";
 
 const preguntasFrecuentes = [
   {
@@ -91,6 +92,17 @@ function FAQ() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+            {/* Sección de contacto estilo imagen enviada */}
+      <section className="faq-contact-section">
+        <div className="faq-contact-overlay"></div>
+        <div className="faq-contact-content">
+          <h2>¿TIENES ALGUNA DUDA? NO DUDES EN CONTACTARNOS</h2>
+<Link to="/contacto#contacto" className="faq-contact-btn">
+  DÉJANOS UN MENSAJE
+</Link>
+
         </div>
       </section>
     </div>

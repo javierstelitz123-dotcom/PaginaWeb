@@ -220,3 +220,75 @@
     padding: 18px;
   }
 }
+/* ===== SECCIÓN FINAL DE CONTACTO ===== */
+.faq-contact-section {
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 0px;          /* 🔥 separa del footer */
+  padding: 140px 20px 160px;     /* 🔥 hace la sección más grande */
+  text-align: center;
+  background-image: url('../assets/Foto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+
+/* Capa degradada estilo captura (naranja → verde azulado) */
+.faq-contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(241, 90, 36, 0.92),   /* Naranja #f15a24 */
+   rgb(6, 17, 78)    /* Verde azulado similar al de tu captura */
+  );
+  z-index: 1;
+}
+
+
+.faq-contact-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-contact-content h2 {
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 25px;
+}
+
+.faq-contact-btn {
+  background-color:  #f15a24;
+  color: #000;
+  font-weight: 700;
+  padding: 16px 28px;
+  font-size: 1.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;   /* Para que el Link no tenga subrayado */
+  display: inline-block;   /* Para que se comporte igual que el botón */
+}
+
+.faq-contact-btn:hover {
+  background-color: #ff8c00;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-contact-content h2 {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+}

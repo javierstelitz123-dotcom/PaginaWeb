@@ -131,6 +131,53 @@ const Inicio = () => {
         </div>
       </section>
 
+{/* ================= SOBRE NOSOTROS ================= */}
+<section className="sobre-nosotros">
+  <div className="sobre-grid">
+
+    {/* Galería de imágenes estilo portafolio */}
+    <div className="sobre-img-col">
+      <img
+        src="https://grupodimher.com/assets/images/property/gallery/682eba098d7c61747892745.jpg"
+        alt="img1"
+      />
+      <img
+        src="https://grupodimher.com/assets/images/property/gallery/67f8e5d8c943f1744365016.jpg"
+        alt="img2"
+      />
+      <img
+        src="https://grupodimher.com/assets/images/property/gallery/682ec1858da4a1747894661.jpg"
+        alt="img3"
+      />
+      <img
+        src="http://localhost:3000/static/media/img2.243d7c75766465000976.jpg"
+        alt="img4"
+      />
+    </div>
+
+    {/* Texto */}
+    <div className="sobre-texto">
+      <h1>Sobre Nosotros</h1>
+
+      <p>
+        Grupo Dimher desarrolla solares urbanizados con entradas impactantes,
+        garitas, calles con contenes, solares compactados, servicios de agua y
+        electricidad, áreas verdes, cierre perimetral y, en algunos casos,
+        Casa Club, asfalto, entre otros beneficios.
+      
+      </p>
+
+      <Link to="/nosotros" className="sobre-btn">
+        Conoce más
+      </Link>
+    </div>
+
+  </div>
+</section>
+
+
+
+
 {/* ================= PROYECTOS DESTACADOS ================= */}
 <section className="featured-projects">
 

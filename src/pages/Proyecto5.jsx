@@ -4,6 +4,18 @@ import { MapPin, Home, Ruler, Building2 } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+  // Importar imágenes locales
+import imagen6 from "../assets/imagen6.jpg";
+import imag7 from "../assets/imag7.jpg";
+import img1 from "../assets/img1.jpg";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
+import img4 from "../assets/img4.jpg";
+import img5 from "../assets/img5.jpg";
+import img8 from "../assets/img8.jpg";
+import img9 from "../assets/img9.jpg";
+
+
 const Proyecto5 = () => {
   const [copied, setCopied] = useState(false);
   const [imagenActual, setImagenActual] = useState(0);
@@ -12,19 +24,18 @@ const Proyecto5 = () => {
   const currentUrl = window.location.href;
 
   // Lista de imágenes del proyecto
-  const imagenes = [
-    
-    "https://www.bienesonline.com/republica-dominicana/photos/residencial-dimher-proyecto-de-solares-SOV213601658616160-924.jpg",
-    "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSc53NYupKj2sZuLxJ6hUUGwm65EeJsXqwkOneu0PwtewZghz7P",
-     "https://d2kflbb1pmooh4.cloudfront.net/eyJidWNrZXQiOiAiYWx0ZXJlc3RhdGUiLCAia2V5IjogInN0YXRpYy9wcm9wZXJ0aWVzLzZPRzczRVhWMjgvQTRBNlRQRzUwRi9CRTJpaG03RGRGLzhkZWEwMTRlLTJmN2ItNDJmNS1iODAzLWUzMTA3OTdjZjc2OC5qZmlmIiwgImVkaXRzIjogeyJyZXNpemUiOiB7IndpZHRoIjogMTI4MCwgImhlaWdodCI6IDk2MCwgImZpdCI6ICJpbnNpZGUifSwgInRvRm9ybWF0IjogImpwZWciLCAianBlZyI6IHsicXVhbGl0eSI6IDcwfX19",
-      "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTFBtsmviGEiNkHEtaQ5cGlcVa1eRxVW7ahvSxgqHgAlWy30M_F",
-       "https://www.bienesonline.com/republica-dominicana/photos/residencial-dimher-proyecto-de-solares-SOV213601658616192-490.jpg",
-        "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR5frOjvKTNJliQVhR98LiWSCqkOzcinNXIa_jyUFPKdkJRCB9O",
-         "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ7zQZi3fQubyGmhecxLORYnZNnTDDFVgVqiHlLPM9GcyH8nCgq",
-          "https://d2kflbb1pmooh4.cloudfront.net/eyJidWNrZXQiOiAiYWx0ZXJlc3RhdGUiLCAia2V5IjogInN0YXRpYy9wcm9wZXJ0aWVzLzZPRzczRVhWMjgvUkVQS1FXOUlaSS9qRUQ4TTg0VjRTL2EwNDI5M2NjLWUzZWItNGY1MC04MTI2LWNjZjQ3YjI4OTI5ZS5qZmlmIiwgImVkaXRzIjogeyJyZXNpemUiOiB7IndpZHRoIjogMTAyNCwgImhlaWdodCI6IDc2OCwgImZpdCI6ICJpbnNpZGUifSwgInRvRm9ybWF0IjogImpwZWciLCAianBlZyI6IHsicXVhbGl0eSI6IDcwfX19",
-      
-            "https://drive.usercontent.google.com/download?id=1_m6gOTOkR4ko-8nVYgGIom22Og4SbCmh&export=view&authuser=0",
-  ];    
+const imagenes = [
+  imagen6,
+  imag7,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img8,
+  img9
+];
+
 
   const handleCopy = () => {
     navigator.clipboard.writeText(currentUrl);
