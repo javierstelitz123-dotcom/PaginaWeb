@@ -15,10 +15,6 @@ const Proyecto2 = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleVolver = () => {
-    navigate(-1);
-  };
-
   const imagenes = [
     "https://grupodimher.com/assets/images/property/gallery/682ebf842a8b21747894148.jpg",
     "https://grupodimher.com/assets/images/property/gallery/682ebf84653881747894148.jpg",
@@ -41,136 +37,99 @@ const Proyecto2 = () => {
     });
   };
 
+  const handleVolver = () => {
+    navigate(-1);
+  };
+
   return (
-    <section className="proyecto-detalle">
-      {/* Botón Volver arriba */}
-      <button className="proyecto-volver" onClick={handleVolver}>
-        <FaArrowLeft />
-        Volver
+  <section className="proyecto-detalle">
+
+    {/* HEADER tipo Proyecto 1 */}
+    <div className="nuevo-header-proyecto">
+      <div className="overlay-header"></div>
+
+      <h1 className="header-titulo">Residencial Doña Amalia 2</h1>
+      <p className="header-ubicacion">Bonao</p>
+
+      <button 
+        className="header-btn"
+        onClick={() => navigate("/contacto")}
+      >
+        Estoy interesado
       </button>
+    </div>
 
-      {/* Imagen principal estilo Proyecto 4 */}
-      <div className="proyecto-banner">
-        <div className="proyecto-badge">Detalles de propiedad</div>
-
-        <div className="galeria-container">
-          <button className="flecha izquierda" onClick={() => moverImagen(-1)}>‹</button>
-
-          <div className="imagen-principal">
-            <img
-              src={imagenes[imagenActual]}
-              alt="Residencial Doña Amalia 2"
-              className="proyecto-banner-img"
-            />
-          </div>
-
-          <button className="flecha derecha" onClick={() => moverImagen(1)}>›</button>
-        </div>
-
-        <div className="proyecto-banner-texto">
-          <h1>Residencial Doña Amalia 2</h1>
-          <p>Bonao</p>
-        </div>
+    {/* Información del proyecto */}
+    <div className="proyecto-info-container">
+      <div className="proyecto-descripcion">
+        <h2>Descripción de Propiedad</h2>
+        <p>
+          Este hermoso residencial combina la elegancia moderna con la
+          tranquilidad de la zona.
+        </p>
+        <p>
+          Ubicado en <span className="ubicacion-inline">📍 Bonao</span>.
+        </p>
       </div>
 
-      {/* Información del proyecto */}
-      <div className="proyecto-info-container">
-        <div className="proyecto-descripcion">
-          <h2>Descripción de Propiedad</h2>
-          <p>
-            Este hermoso residencial combina la elegancia moderna con la
-            tranquilidad de la zona. Sus espacios amplios y luminosos
-            garantizan el confort de cada familia.
-          </p>
-          <p>
-            Ubicado en <span className="ubicacion-inline">📍 Bonao</span>, cuenta
-            con fácil acceso a las principales vías y zonas comerciales.
-          </p>
-          <p>
-            Cada vivienda ha sido diseñada con materiales de alta calidad,
-            brindando durabilidad y estilo contemporáneo en cada rincón.
-          </p>
-          <p>
-            Ideal para quienes buscan un hogar con valor, diseño y ubicación
-            privilegiada en una de las mejores áreas residenciales.
-          </p>
-        </div>
+      <div className="proyecto-caracteristicas">
+        <h2>Características</h2>
+        <ul>
+          <li><Home className="icono" /> Residencial moderno</li>
+          <li><Ruler className="icono" /> Espacios amplios</li>
+          <li><Building2 className="icono" /> Zona tranquila</li>
+          <li><MapPin className="icono" /> Ubicado en Bonao</li>
+        </ul>
+      </div>
+    </div>
 
-        <div className="proyecto-caracteristicas">
-          <h2>Características</h2>
-          <ul>
-            <li>
-              <Home className="icono" /> Residencial moderno
-            </li>
-            <li>
-              <Ruler className="icono" /> Espacios amplios y cómodos
-            </li>
-            <li>
-              <Building2 className="icono" /> Zona residencial tranquila
-            </li>
-            <li>
-              <MapPin className="icono" /> Ubicado en Bonao
-            </li>
-          </ul>
-        </div>
+    {/* Carrusel (misma posición que Proyecto 1) */}
+    <div className="galeria-container">
+      <button className="flecha izquierda" onClick={() => moverImagen(-1)}>‹</button>
+
+      <div className="imagen-principal">
+        <img
+          src={imagenes[imagenActual]}
+          alt="Imagen del proyecto"
+          className="proyecto-banner-img"
+        />
       </div>
 
-      {/* Sección Compartir estilo Proyecto 4 */}
-      <div className="blog1-share">
-        <h3>Compartir ahora</h3>
+      <button className="flecha derecha" onClick={() => moverImagen(1)}>›</button>
+    </div>
 
-        <div className="blog1-social-icons">
-          <a
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-              currentUrl
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="facebook"
-          >
-            <FaFacebookF />
-          </a>
+    {/* Mosaico abajo (igual Proyecto 1) */}
+    <div className="mosaico-galeria">
+      {imagenes.map((img, index) => (
+        <img key={index} src={img} alt={`foto-${index}`} />
+      ))}
+    </div>
 
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="instagram"
-          >
-            <FaInstagram />
-          </a>
+    {/* Compartir */}
+    <div className="blog1-share">
+      <h3>Compartir ahora</h3>
 
-          <a
-            href={`https://api.whatsapp.com/send/?text=${encodeURIComponent(
-              currentUrl
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp"
-          >
-            <FaWhatsapp />
-          </a>
-
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="youtube"
-          >
-            <FaYoutube />
-          </a>
-        </div>
-
-        {/* Copiar link */}
-        <div className="blog1-copy-link-wrapper">
-          <input type="text" value={currentUrl} readOnly className="blog1-copy-input" />
-
-          <button className="blog1-copy-button" onClick={handleCopy}>
-            {copied ? "¡Copiado!" : "Copiar"}
-          </button>
-        </div>
+      <div className="blog1-social-icons">
+        <a href="#" className="facebook"><FaFacebookF /></a>
+        <a href="#" className="instagram"><FaInstagram /></a>
+        <a href="#" className="whatsapp"><FaWhatsapp /></a>
+        <a href="#" className="youtube"><FaYoutube /></a>
       </div>
-    </section>
+
+      <div className="blog1-copy-link-wrapper">
+        <input type="text" value={currentUrl} readOnly className="blog1-copy-input" />
+        <button className="blog1-copy-button" onClick={handleCopy}>
+          {copied ? "¡Copiado!" : "Copiar"}
+        </button>
+      </div>
+
+      <button className="proyecto-volver" onClick={handleVolver}>
+        <FaArrowLeft /> Volver
+      </button>
+    </div>
+
+  </section>
+
   );
 };
 

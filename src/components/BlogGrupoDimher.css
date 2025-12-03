@@ -154,7 +154,7 @@ background: url("../assets/blog.jpg");
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: 600;
-  background: white;
+  background: transparent;
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   cursor: pointer;
@@ -321,7 +321,13 @@ background: url("../assets/blog.jpg");
   height: 90px;    
     font-size: 24px;
   padding: 0px; 
+  background: transparent; /* Antes era white */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
+
 
 /* Hover ícono */
 .blog-categorias-head .w-6.h-6:hover {
@@ -330,37 +336,44 @@ background: url("../assets/blog.jpg");
 }
 
 
-/* Botón activo: degradado */
-.blog-cat-btn.blog-cat-active[data-cat="todos"] {
+
+/* --- Estilos por categoría (pégalos aquí) --- */
+.blog-cat-btn[data-cat="todos"] {
   background: linear-gradient(90deg, #0610a3, #2d67bd);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="analisis-terrenos"] {
+.blog-cat-btn[data-cat="analisis-terrenos"] {
   background: linear-gradient(90deg, #1d3557, #154991);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="leyes-regulaciones"] {
+.blog-cat-btn[data-cat="leyes-regulaciones"] {
   background: linear-gradient(90deg, #03b143, #2e8841);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="comercializacion-lotes"] {
+.blog-cat-btn[data-cat="comercializacion-lotes"] {
   background: linear-gradient(90deg, #257439, #2b6d47e3);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="plusvalia-territorial"] {
+.blog-cat-btn[data-cat="plusvalia-territorial"] {
   background: linear-gradient(90deg, #f15a24, #ff5c21);
   color: white;
 }
 
-.blog-cat-btn.blog-cat-active[data-cat="infraestructura-proyectos"] {
+.blog-cat-btn[data-cat="infraestructura-proyectos"] {
   background: linear-gradient(90deg, #dd4905, #e20f0f);
   color: white;
 }
 
+/* --- Clase cuando está activa (no cambia color) --- */
+.blog-cat-btn.blog-cat-active {
+  transform: scale(1.07);
+  box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+  border: 2px solid rgba(255,255,255,0.7);
+}
 
 .blog-author-circle {
   display: none;
@@ -397,37 +410,6 @@ background: url("../assets/blog.jpg");
   align-items: center;
   gap: 6px;
 }
-
-/* ICONOS + BOTÓN DERECHA */
-.finanzas-footer {
-  border-top: 1px solid #eee;
-  padding-top: 15px;
-  margin-top: 10px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* ICONOS */
-.finanzas-icons {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-}
-
-.icon-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #777;
-  font-size: 0.9rem;
-}
-.finanzas-leer-mas:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
 /* Alineación autor */
 .autor-inline span {
   margin-left: 4px;
@@ -487,17 +469,6 @@ background: url("../assets/blog.jpg");
   width: 100%;
   margin-top: 80px; /* espacio para que no quede pegado al borde */
 }
-/* CÍRCULO DE AUTOR (ya existía, no modificado) */
-.blog-author-circle {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #e5e5e5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-}
 /* Círculo con inicial del autor */
 .autor-icon {
   width: 32px;
@@ -536,45 +507,6 @@ background: url("../assets/blog.jpg");
       margin-top: 10px; 
 }
 
-.blog-leer-small-btn:hover {
-  transform: translateY(-2px);
-  opacity: .85;
-}
-/*Análisis de Terrenos azul */
-.blog-card-dest-tag[data-cat="análisis de terrenos"] {
-  background: #3b82f6;
-}
-
-/* Desarrollo Profesional verde */
-.blog-card-dest-tag[data-cat="leyes y regulaciones "] {
-  background: #16a34a;
-}
-
-/* Liderazgo naranja */
-.blog-card-dest-tag[data-cat="comercialización de lotes"] {
-  background: #f97316;
-}
-
-/* Tecnología violeta */
-.blog-card-dest-tag[data-cat="plusvalía territorial"] {
-  background: #8b5cf6;
-}
-
-/* Cultura rosa */
-.blog-card-dest-tag[data-cat="infraestructura en psroyectos"] {
-  background: #ec4899;
-}
-/* Color del botón Leer Más (igual que en tu segunda captura) */
-.article-readmore {
-  color: white;
-  background-color: #f15a24; /* EL COLOR DEL BOTÓN LEER MÁS */
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
-}
 
 /* Contenedor de acciones */
 .blog-actions {

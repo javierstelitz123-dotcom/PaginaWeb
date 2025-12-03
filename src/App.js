@@ -26,7 +26,7 @@ import Proyecto5 from "./pages/Proyecto5"; // Residencial Dimher
 import Proyecto6 from "./pages/Proyecto6";
 import Proyecto7 from "./pages/Proyecto7";
 import Proyecto8 from "./pages/Proyecto8";
-import Blog1 from "./pages/Blog1";
+
 
 import Nagua from "./pages/Nagua";
 import Bonao from "./pages/Bonao";
@@ -61,7 +61,7 @@ function AppContent() {
         <Route path="/proyecto6" element={<Proyecto6 />} />
         <Route path="/proyecto7" element={<Proyecto7 />} />
            <Route path="/proyecto8" element={<Proyecto8 />} />
-        <Route path="/blog1" element={<Blog1 />} />
+       
 
         {/* Rutas para Ciudades */}
         <Route path="/ciudades" element={<Ciudades />} />

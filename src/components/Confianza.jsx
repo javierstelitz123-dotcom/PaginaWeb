@@ -105,17 +105,18 @@ const Confianza = () => {
         </div>
       </div>
 
-      {/* Logos */}
-      <div className="confianza-logos">
-        <div className="logos-track">
-          {[...logos, ...logos].map((logo, index) => (
-            <div key={index} className="logo-item">
-              <img src={logo.img} alt={logo.nombre} className="logo-imagen" />
-              <p className="logo-nombre">{logo.nombre}</p>
-            </div>
-          ))}
-        </div>
+  {/* Showcase de proyectos */}
+<div className="proyectos-showcase">
+  <div className="proyectos-track">
+    {[...logos, ...logos].map((logo, i) => (
+      <div key={i} className="proyecto-card">
+        <img src={logo.img} className="proyecto-img" alt={logo.nombre} />
+        <p className="proyecto-nombre">{logo.nombre}</p>
       </div>
+    ))}
+  </div>
+</div>
+
     </section>
   );
 };

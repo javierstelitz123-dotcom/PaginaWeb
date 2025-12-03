@@ -25,8 +25,9 @@ const Proyecto4 = () => {
   const imagenes = [
     imagenPrincipal,
     "https://tse2.mm.bing.net/th/id/OIP._DJzIcx2O5G7e9XqTiBkbwHaHa?pid=ImgDet&w=474&h=474&rs=1&o=7&rm=3",
-    "https://tse2.mm.bing.net/th/id/OIP.k7oYVgnpxVejGTRNrxAYFwHaEK?pid=ImgDet&w=474&h=266&rs=1&o=7&rm=3",
+    "https://tse3.mm.bing.net/th/id/OIP.6nzd8m9NMe61U9ROWLAriQHaHa?pid=ImgDet&w=474&h=474&rs=1&o=7&rm=3",
     "https://hnrealtygrouprd.com/wp-content/uploads/2022/03/A_1-Photo.jpg",
+    
   ];
 
   const [imagenActual, setImagenActual] = useState(0);

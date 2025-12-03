@@ -27,11 +27,6 @@
   transform: scale(1.1);
 }
 
-.redes-sociales .whatsapp { background-color: #25d366; }
-.redes-sociales .instagram { background-color: #e1306c; }
-.redes-sociales .facebook { background-color: #1877f2; }
-.redes-sociales .youtube { background-color: #ff0000; }
-
 /* BOTÓN VOLVER */
 .boton-volver {
   z-index: 9999 !important;
@@ -52,24 +47,6 @@
   border-radius: 6px;
   cursor: pointer;
   margin: 15px 0 25px 20px;
-}
-
-/* BADGE DEL PROYECTO */
-.proyecto-badge {
-  position: absolute;
-  top: 75px;
-  left: 170px;
-  z-index: 20;
-  background: transparent !important;
-  padding: 0 !important;
-  color: #1d3557;
-  font-size: 3rem;
-  font-weight: 900;
-}
-
-.proyecto-banner {
-  position: relative;
-  margin-top: 20px;
 }
 
 /* ===========================
@@ -197,20 +174,24 @@
   height: 24px;
 }
 /* ===========================
-   COMPARTIR (BLOG / PROYECTO)
+   COMPARTIR (BLOG / PROYECTO) – FINAL AJUSTADO
 =========================== */
 
+/* Contenedor general */
 .blog1-share {
   margin-top: 50px;
   padding: 25px;
-}
+  background: #fff;
+  border-radius: 10px;
 
-/* Título */
-.blog1-share h3 {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 20px;
+}
+/* Título Compartir ahora con mayor especificidad */
+.blog1-share > h3 {
+  font-size: 2.2rem !important;      /* tamaño más grande */
+  font-weight: 500 !important;     /* menos grueso */
+  color: #000 !important;          /* color negro */
+  margin-bottom: 30px;
+  margin-left: -7px;
 }
 
 /* Íconos de redes sociales */
@@ -218,26 +199,34 @@
   display: flex;
   gap: 18px;
   margin-bottom: 25px;
+   margin-top: 60px;
 }
 
 .blog1-social-icons a {
-  font-size: 2rem; /* íconos más grandes */
+  font-size: 1.9rem;
   padding: 12px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white !important;
   transition: transform 0.3s ease;
 }
 
+/* Colores reales de cada red */
+.blog1-social-icons .whatsapp { background-color: #25d366 !important; }
+.blog1-social-icons .instagram { background-color: #e1306c !important; }
+.blog1-social-icons .facebook { background-color: #1877f2 !important; }
+.blog1-social-icons .youtube { background-color: #ff0000 !important; }
+
 .blog1-social-icons a:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
-/* Input para copiar enlace */
+/* Input + botón copiar */
 .blog1-copy-link-wrapper {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 30px;
 }
 
@@ -245,41 +234,121 @@
   width: 100%;
   padding: 14px;
   font-size: 1.4rem;
-  border: 2px solid #000;   /* SOLO aquí el borde negro */
-  border-radius: 8px;
+  border: 2px solid #000 !important; /* Borde negro solo en input */
+  border-radius: 8px 0 0 8px;         /* solo en lados del input */
+  outline: none;
+
 }
 
 .blog1-copy-button {
   padding: 14px 22px;
   font-size: 1.4rem;
-  background: #000;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  background: #f15a24;
+  color: #fff;
+  font-weight: 700;
+  border: none;                      /* sin borde para que no choque */
+  border-radius: 0 8px 8px 0;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .blog1-copy-button:hover {
-  opacity: 0.8;
+  background: #d94d1e;
 }
-
-/* BOTÓN VOLVER */
 .proyecto-volver {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;                   /* espacio entre icono y texto */
   background: #f15a24;
   color: white;
-  padding: 14px 26px;
-  font-size: 1.6rem;
+  padding: 18px 36px;          /* más grande */
+  font-size: 1.8rem;           /* texto más grande */
   font-weight: 700;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   margin-top: 20px;
+  margin-left: 0;              /* ajusta aquí según quieras moverlo */
+  transition: 0.3s ease;
+}
+
+.proyecto-volver:hover {
+  background: #d94d1e;
+  transform: translateY(-2px);
 }
 
 .proyecto-volver svg {
-  font-size: 2rem;
+  font-size: 1.5rem;           /* flecha más proporcional */
 }
 
+/* ===========================
+   ESTILO SOLO TIPOGRAFÍA
+   (sin cajas, sin fondos, sin sombras)
+=========================== */
+
+/* Contenedor de ambas columnas */
+.proyecto-info-container {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 40px 40px;
+}
+
+/* Columnas sin fondo ni sombra */
+.proyecto-descripcion,
+.proyecto-caracteristicas {
+  flex: 1;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  font-family: 'Poppins', sans-serif !important;  /* 👈 TIPOGRAFÍA AGREGADA */
+}
+
+/* Títulos más pequeños pero elegantes */
+.proyecto-descripcion h2,
+.proyecto-caracteristicas h2 {
+  font-family: 'Poppins', sans-serif !important;  /* 👈 TIPOGRAFÍA AGREGADA */
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 15px;
+  letter-spacing: .5px;
+  color: #000 !important;
+}
+
+/* Texto general más pequeño */
+.proyecto-descripcion p,
+.proyecto-caracteristicas li {
+  font-family: 'Poppins', sans-serif !important;  /* 👈 TIPOGRAFÍA AGREGADA */
+  font-size: 1.4rem !important;
+  line-height: 1.65 !important;
+  color: #000 !important;
+}
+
+/* Lista limpia */
+.proyecto-caracteristicas ul {
+  padding-left: 0 !important;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.proyecto-caracteristicas li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* Íconos equivalentes y proporcionados */
+.icono {
+  width: 22px !important;
+  height: 22px !important;
+  color: #f15a24 !important;
+}
+/* Quitar mayúsculas automáticas y dejar los títulos tal cual */
+.proyecto-descripcion h2,
+.proyecto-caracteristicas h2 {
+  text-transform: none !important;   /* ← 👈 Ya NO convierte el texto */
+}

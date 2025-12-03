@@ -132,7 +132,8 @@ const Inicio = () => {
       </section>
 
 {/* ================= SOBRE NOSOTROS ================= */}
-<section className="sobre-nosotros">
+<section className="sobre-nosotros sobre-fondo">
+
   <div className="sobre-grid">
 
     {/* Galería de imágenes estilo portafolio */}
@@ -232,85 +233,99 @@ const Inicio = () => {
       {/* ================= CONFÍANZA ================= */}
       <Confianza />
 
-{/* ================= BLOG ================= */}
-<section className="blog-section">
-  <div className="blog-header">
-    <span className="blog-subtitle">Blog</span>
-    <h2 className="blog-title">Últimas Noticias y Consejos Inmobiliarios</h2>
-<Link to="/blog" className="blog-explore">
-  Explorar →
-</Link>
+{/* ================= BLOG NEXT-GEN ================= */}
+<section class="blog-modern">
+
+ <div class="blog-modern-header">
+ <span class="blog-badge">BLOG</span>
+
+  <div class="blog-header-texts">
+    <h2>Últimas Noticias y Consejos Inmobiliarios</h2>
+    <Link to="/blog" class="blog-explore">Explorar →</Link>
+  </div>
+</div>
+
+
+  <div class="blog-cards">
+
+{/* CARD 1 */}
+<article class="blog-card-item">
+  <div class="blog-card-img">
+    <img src="https://www.aguirrebaeza.com/wp-content/uploads/2015/12/5179550_m.jpg" />
   </div>
 
-  <div className="blog-grid">
-    {/* Primera card */}
-    <div className="blog-card">
-      <div className="blog-img">
-        <img
-          src="https://osirismacias.com/wp-content/uploads/sites/45/2022/09/metas-financieras-600x475.jpg"
-          alt="5 Estrategias para Alcanzar tus Metas Financieras en 2025"
-        />
-        <div className="blog-date">
-          <span className="day">15</span>
-          <span className="month">Nov</span>
-        </div>
-      </div>
-      <div className="blog-content">
-        <h3>5 Estrategias para Alcanzar tus Metas Financieras en 2025</h3>
-        <p>
-          Invertir en bienes raíces puede ser un desafío, pero con planificación, dedicación y las mejores decisiones…Descubre cómo planificar tus finanzas personales con métodos probados que te ayudarán a lograr la libertad financiera que siempre has deseado.
-        </p>
-       <Link to="/blog?categoria=finanzas&id=1" className="blog-read">Leer más</Link>
+  <div class="blog-card-body">
+    <span class="blog-date">15 Noviembre 2025</span>
 
-      </div>
-    </div>
+    <h3>¿Cómo asegurar una inversión inteligente mediante el análisis del terreno?</h3>
 
-    {/* Segunda card */}
-    <div className="blog-card">
-      <div className="blog-img">
-        <img
-          src="https://media.licdn.com/dms/image/v2/D4D12AQFOZ0PV5jGTog/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656016261162?e=2147483647&v=beta&t=9mrP2iYOOLzVpCJ81i3DgRMGV3zOlIh2kOl7MS3eXFo"
-          alt="¿Cómo Construir una Carrera Exitosa desde Cero?"
-        />
-        <div className="blog-date">
-          <span className="day">12</span>
-          <span className="month">Nov</span>
-        </div>
-      </div>
-      <div className="blog-content">
-        <h3>¿Cómo Construir una Carrera Exitosa desde Cero?</h3>
-        <p>
-          Los primeros pasos son fundamentales. Aprende a establecer bases sólidas para tu desarrollo profesional con consejos de expertos en recursos humanos.
-        </p>
-<Link to="/blog?categoria=carrera&id=2" className="blog-read">Leer más</Link>
+    <p>
+      El análisis de terrenos es el proceso de evaluación integral de una propiedad antes de su adquisición, considerando aspectos físicos, legales y de viabilidad técnica.
+    </p>
+
+    <Link
+      to="/blog?categoria=analisis-terrenos&id=1"
+      className="blog-read-more"
+    >
+      Leer más
+    </Link>
+  </div>
+</article>
 
 
-      </div>
-    </div>
+    {/* CARD 2 */}
+<article class="blog-card-item">
+  <div class="blog-card-img">
+    <img src="https://presidencia.gob.do/sites/default/files/styles/large/public/news/2025-09/PHOTO-2025-09-11-20-05-30%20%281%29.jpg?itok=nAkYnjr0" />
+  </div>
 
-    {/* Tercera card */}
-    <div className="blog-card">
-      <div className="blog-img">
-        <img
-          src="https://th.bing.com/th/id/R.adffbdcce3bbfcdd012beeb17004a50b?rik=RTiSeOkxzTRIgA&pid=ImgRaw&r=0"
-          alt="El Poder del Liderazgo Transformacional en las Empresas"
-        />
-        <div className="blog-date">
-          <span className="day">10</span>
-          <span className="month">Nov</span>
-        </div>
-      </div>
-      <div className="blog-content">
-        <h3>El Poder del Liderazgo Transformacional en las Empresas</h3>
-        <p>
- Un líder no solo dirige, transforma. Conoce las claves del liderazgo que está revolucionando el mundo corporativo y cómo puedes aplicarlo.
-        </p>
-       <Link to="/blog?categoria=liderazgo&id=3" className="blog-read">Leer más</Link>
+  <div class="blog-card-body">
+    <span class="blog-date">12 Noviembre 2025</span>
 
-      </div>
-    </div>
+    <h3>Normativas clave que rigen el desarrollo inmobiliario en República Dominicana</h3>
+
+    <p>
+      En República Dominicana, desarrollar terrenos no es solo planificar calles, levantar infraestructura y vender lotes.
+    </p>
+
+    <Link
+      to="/blog?categoria=leyes-regulaciones&id=2"
+      className="blog-read-more"
+    >
+      Leer más
+    </Link>
+  </div>
+</article>
+
+{/* CARD 3 */}
+<article class="blog-card-item">
+  <div class="blog-card-img">
+    <img src="https://media.licdn.com/dms/image/v2/D4D12AQHxvhpu2kGoCA/article-cover_image-shrink_720_1280/B4DZkWbKByHYAM-/0/1757017846744?e=2147483647&v=beta&t=15UnuwXVIxvSCdaH0P_WmujlbnAKOPSlAHPaUTI7HGQ" />
+  </div>
+
+  <div class="blog-card-body">
+    <span class="blog-date">10 Noviembre 2025</span>
+
+    <h3>¿Cómo la visión estratégica impulsa la comercialización efectiva de lotes?</h3>
+
+    <p>
+      Cuando hablamos de comercialización de lotes, no se trata solo de vender terrenos; se trata de aplicar estrategias inteligentes que permitan mover inventario rápido y posicionar el proyecto.
+    </p>
+
+    <Link
+      to="/blog?categoria=comercializacion-lotes&id=3"
+      className="blog-read-more"
+    >
+      Leer más
+    </Link>
+  </div>
+</article>
+
   </div>
 </section>
+
+
+
 
 
 
